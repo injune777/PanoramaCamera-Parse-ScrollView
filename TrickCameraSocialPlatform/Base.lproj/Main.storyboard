@@ -875,12 +875,18 @@
                                 <state key="normal" title="PanoView">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="phx-Nb-S1N" kind="showDetail" id="OSw-f8-oKg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTd-uS-7R3">
                                 <rect key="frame" x="246" y="510" width="58" height="58"/>
                                 <state key="normal" image="PanoCamera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="AFt-AF-er0" kind="showDetail" id="aYl-mJ-PBa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

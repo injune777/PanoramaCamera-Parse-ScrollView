@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PanoViewerController : UIViewController
+@interface PanoViewerController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end

@@ -111,7 +111,6 @@
 		4A85ECDB1B95F7A000032C14 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDA1B95F7A000032C14 /* AssetsLibrary.framework */; };
 		4A85ECDD1B95F7A800032C14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDC1B95F7A700032C14 /* SystemConfiguration.framework */; };
 		4A85ECDF1B95F7C500032C14 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDE1B95F7C500032C14 /* OpenGLES.framework */; };
-		4A85ECE21B95F8D800032C14 /* PanoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECE11B95F8D800032C14 /* PanoViewerController.m */; };
 		4A85ECE41B95FF3A00032C14 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE31B95FF3A00032C14 /* 3.jpg */; };
 		4A85ECE71B95FF5B00032C14 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE51B95FF5B00032C14 /* Back.png */; };
 		4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE61B95FF5B00032C14 /* PanoCamera.png */; };
@@ -957,7 +956,6 @@
 				10A4D8E51B9321AD00641528 /* CameraVC.m in Sources */,
 				10A4D9101B94570700641528 /* LocationManager.m in Sources */,
 				4A85ECCA1B95EE3C00032C14 /* PLITInfoView.m in Sources */,
-				4A85ECE21B95F8D800032C14 /* PanoViewerController.m in Sources */,
 				10A4D9051B938E6D00641528 /* ANBlurredTableView.m in Sources */,
 				4A85ECCC1B95EE3C00032C14 /* PLITViewerVC.mm in Sources */,
 				109700481B6A88A000D2027B /* MessageVCon.m in Sources */,
