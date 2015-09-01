@@ -59,7 +59,6 @@
 		107E0F281B4A5B2F004664C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107E0F261B4A5B2F004664C8 /* Main.storyboard */; };
 		107E0F2A1B4A5B2F004664C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107E0F291B4A5B2F004664C8 /* Images.xcassets */; };
 		107E0F2D1B4A5B2F004664C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 107E0F2B1B4A5B2F004664C8 /* LaunchScreen.xib */; };
-		107E0F391B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E0F381B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.m */; };
 		107E99C71B954E4B0080798A /* NSObject+BlurImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E99C61B954E4B0080798A /* NSObject+BlurImageView.m */; };
 		107E99CD1B9590590080798A /* TestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E99CC1B9590590080798A /* TestAnnotation.m */; };
 		109700451B6A534000D2027B /* MessageTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 109700441B6A534000D2027B /* MessageTBViewCell.m */; };
@@ -118,16 +117,6 @@
 		4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE61B95FF5B00032C14 /* PanoCamera.png */; };
 		F744F28463338FD1D70B00FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D172A1109A3B49B7117F8F98 /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		107E0F331B4A5B2F004664C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 107E0F111B4A5B2F004664C8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 107E0F181B4A5B2F004664C8;
-			remoteInfo = TrickCameraSocialPlatform;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		10021D8E1B6BF14D00A1A1D6 /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxHeaderView.h; sourceTree = "<group>"; };
@@ -202,7 +191,6 @@
 		107E0F271B4A5B2F004664C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		107E0F291B4A5B2F004664C8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		107E0F2C1B4A5B2F004664C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		107E0F321B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrickCameraSocialPlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		107E0F371B4A5B2F004664C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		107E0F381B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrickCameraSocialPlatformTests.m; sourceTree = "<group>"; };
 		107E99C51B954E4B0080798A /* NSObject+BlurImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlurImageView.h"; sourceTree = "<group>"; };
@@ -319,13 +307,6 @@
 				105ABDAF1B67B03300733E72 /* CoreMotion.framework in Frameworks */,
 				105ABDAD1B67A23D00733E72 /* MapKit.framework in Frameworks */,
 				F744F28463338FD1D70B00FC /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		107E0F2F1B4A5B2F004664C8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,7 +536,6 @@
 			isa = PBXGroup;
 			children = (
 				107E0F191B4A5B2F004664C8 /* TrickCameraSocialPlatform.app */,
-				107E0F321B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -837,24 +817,6 @@
 			productReference = 107E0F191B4A5B2F004664C8 /* TrickCameraSocialPlatform.app */;
 			productType = "com.apple.product-type.application";
 		};
-		107E0F311B4A5B2F004664C8 /* TrickCameraSocialPlatformTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 107E0F3F1B4A5B2F004664C8 /* Build configuration list for PBXNativeTarget "TrickCameraSocialPlatformTests" */;
-			buildPhases = (
-				107E0F2E1B4A5B2F004664C8 /* Sources */,
-				107E0F2F1B4A5B2F004664C8 /* Frameworks */,
-				107E0F301B4A5B2F004664C8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				107E0F341B4A5B2F004664C8 /* PBXTargetDependency */,
-			);
-			name = TrickCameraSocialPlatformTests;
-			productName = TrickCameraSocialPlatformTests;
-			productReference = 107E0F321B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -872,10 +834,6 @@
 							};
 						};
 					};
-					107E0F311B4A5B2F004664C8 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 107E0F181B4A5B2F004664C8;
-					};
 				};
 			};
 			buildConfigurationList = 107E0F141B4A5B2F004664C8 /* Build configuration list for PBXProject "TrickCameraSocialPlatform" */;
@@ -892,7 +850,6 @@
 			projectRoot = "";
 			targets = (
 				107E0F181B4A5B2F004664C8 /* TrickCameraSocialPlatform */,
-				107E0F311B4A5B2F004664C8 /* TrickCameraSocialPlatformTests */,
 			);
 		};
 /* End PBXProject section */
@@ -947,13 +904,6 @@
 				105AD36F1B771A4D001739C0 /* navigationbar@1x.png in Resources */,
 				10A4D8F01B9336AF00641528 /* yesFollow@3x.png in Resources */,
 				10BFA2501B872DF100FE719F /* 20.jpeg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		107E0F301B4A5B2F004664C8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,23 +996,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		107E0F2E1B4A5B2F004664C8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				107E0F391B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		107E0F341B4A5B2F004664C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 107E0F181B4A5B2F004664C8 /* TrickCameraSocialPlatform */;
-			targetProxy = 107E0F331B4A5B2F004664C8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		107E0F261B4A5B2F004664C8 /* Main.storyboard */ = {
@@ -1204,40 +1138,6 @@
 			};
 			name = Release;
 		};
-		107E0F401B4A5B2F004664C8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TrickCameraSocialPlatformTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrickCameraSocialPlatform.app/TrickCameraSocialPlatform";
-			};
-			name = Debug;
-		};
-		107E0F411B4A5B2F004664C8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TrickCameraSocialPlatformTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrickCameraSocialPlatform.app/TrickCameraSocialPlatform";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1255,15 +1155,6 @@
 			buildConfigurations = (
 				107E0F3D1B4A5B2F004664C8 /* Debug */,
 				107E0F3E1B4A5B2F004664C8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		107E0F3F1B4A5B2F004664C8 /* Build configuration list for PBXNativeTarget "TrickCameraSocialPlatformTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				107E0F401B4A5B2F004664C8 /* Debug */,
-				107E0F411B4A5B2F004664C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
