@@ -17,6 +17,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 .gitignore
+Podfile.lock
 
 # CocoaPods
 #
