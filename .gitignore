@@ -18,7 +18,6 @@ DerivedData
 *.xcuserstate
 .gitignore
 Podfile.lock
-ddd
 
 # CocoaPods
 #
