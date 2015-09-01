@@ -17,6 +17,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 test.txt
+www.txt
 
 # CocoaPods
 #
