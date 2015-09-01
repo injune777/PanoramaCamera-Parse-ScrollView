@@ -95,6 +95,16 @@
 		10D2FD9D1B69540500D1C0B1 /* lists@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD971B69540500D1C0B1 /* lists@1x.png */; };
 		10D2FD9E1B69540500D1C0B1 /* lists@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD981B69540500D1C0B1 /* lists@2x.png */; };
 		10D2FD9F1B69540500D1C0B1 /* pictureWall@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD991B69540500D1C0B1 /* pictureWall@3x.png */; };
+		4A85ECB71B95EE1C00032C14 /* CRMotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECB41B95EE1C00032C14 /* CRMotionView.m */; };
+		4A85ECB81B95EE1C00032C14 /* CRZoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECB61B95EE1C00032C14 /* CRZoomScrollView.m */; };
+		4A85ECC81B95EE3B00032C14 /* libDMD_LITE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECBA1B95EE3B00032C14 /* libDMD_LITE.a */; };
+		4A85ECC91B95EE3C00032C14 /* PLITAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECBD1B95EE3B00032C14 /* PLITAppDelegate.m */; };
+		4A85ECCA1B95EE3C00032C14 /* PLITInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECBF1B95EE3B00032C14 /* PLITInfoView.m */; };
+		4A85ECCB1B95EE3C00032C14 /* PLITShootingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC11B95EE3B00032C14 /* PLITShootingVC.m */; };
+		4A85ECCC1B95EE3C00032C14 /* PLITViewerVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC31B95EE3B00032C14 /* PLITViewerVC.mm */; };
+		4A85ECCD1B95EE3C00032C14 /* PLITViewerVC+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC51B95EE3B00032C14 /* PLITViewerVC+Controls.m */; };
+		4A85ECCE1B95EE3C00032C14 /* UINavigationControllerLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC71B95EE3B00032C14 /* UINavigationControllerLandscape.m */; };
+		4A85ECD11B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */; };
 		F744F28463338FD1D70B00FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D172A1109A3B49B7117F8F98 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +248,27 @@
 		10D2FD981B69540500D1C0B1 /* lists@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lists@2x.png"; sourceTree = "<group>"; };
 		10D2FD991B69540500D1C0B1 /* pictureWall@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pictureWall@3x.png"; sourceTree = "<group>"; };
 		3454C05598E5A1C219E79C27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4A85ECB31B95EE1C00032C14 /* CRMotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMotionView.h; sourceTree = "<group>"; };
+		4A85ECB41B95EE1C00032C14 /* CRMotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMotionView.m; sourceTree = "<group>"; };
+		4A85ECB51B95EE1C00032C14 /* CRZoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRZoomScrollView.h; sourceTree = "<group>"; };
+		4A85ECB61B95EE1C00032C14 /* CRZoomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRZoomScrollView.m; sourceTree = "<group>"; };
+		4A85ECB91B95EE2600032C14 /* DMD_LITE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMD_LITE.h; sourceTree = "<group>"; };
+		4A85ECBA1B95EE3B00032C14 /* libDMD_LITE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libDMD_LITE.a; sourceTree = "<group>"; };
+		4A85ECBB1B95EE3B00032C14 /* PanoLite-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PanoLite-Prefix.pch"; sourceTree = "<group>"; };
+		4A85ECBC1B95EE3B00032C14 /* PLITAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLITAppDelegate.h; sourceTree = "<group>"; };
+		4A85ECBD1B95EE3B00032C14 /* PLITAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLITAppDelegate.m; sourceTree = "<group>"; };
+		4A85ECBE1B95EE3B00032C14 /* PLITInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLITInfoView.h; sourceTree = "<group>"; };
+		4A85ECBF1B95EE3B00032C14 /* PLITInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLITInfoView.m; sourceTree = "<group>"; };
+		4A85ECC01B95EE3B00032C14 /* PLITShootingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLITShootingVC.h; sourceTree = "<group>"; };
+		4A85ECC11B95EE3B00032C14 /* PLITShootingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLITShootingVC.m; sourceTree = "<group>"; };
+		4A85ECC21B95EE3B00032C14 /* PLITViewerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLITViewerVC.h; sourceTree = "<group>"; };
+		4A85ECC31B95EE3B00032C14 /* PLITViewerVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PLITViewerVC.mm; sourceTree = "<group>"; };
+		4A85ECC41B95EE3B00032C14 /* PLITViewerVC+Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PLITViewerVC+Controls.h"; sourceTree = "<group>"; };
+		4A85ECC51B95EE3B00032C14 /* PLITViewerVC+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PLITViewerVC+Controls.m"; sourceTree = "<group>"; };
+		4A85ECC61B95EE3B00032C14 /* UINavigationControllerLandscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerLandscape.h; sourceTree = "<group>"; };
+		4A85ECC71B95EE3B00032C14 /* UINavigationControllerLandscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerLandscape.m; sourceTree = "<group>"; };
+		4A85ECCF1B95EE4200032C14 /* UIScrollView+CRScrollIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CRScrollIndicator.h"; sourceTree = "<group>"; };
+		4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CRScrollIndicator.m"; sourceTree = "<group>"; };
 		B307460B4430EB6A136A9E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D172A1109A3B49B7117F8F98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -248,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				104532521B7B8B2B006C6F0C /* Security.framework in Frameworks */,
+				4A85ECC81B95EE3B00032C14 /* libDMD_LITE.a in Frameworks */,
 				104532501B7B8B22006C6F0C /* AudioToolbox.framework in Frameworks */,
 				107C448E1B6E113F00809DBF /* CoreGraphics.framework in Frameworks */,
 				1045324E1B7B8B0E006C6F0C /* QuartzCore.framework in Frameworks */,
@@ -590,6 +622,8 @@
 			children = (
 				10A4D8E31B9321AD00641528 /* CameraVC.h */,
 				10A4D8E41B9321AD00641528 /* CameraVC.m */,
+				4A85ECB21B95EE0F00032C14 /* PanoCamera */,
+				4A85ECB11B95EE0800032C14 /* PanoView */,
 			);
 			name = 04_Camera;
 			sourceTree = "<group>";
@@ -676,6 +710,41 @@
 				109700441B6A534000D2027B /* MessageTBViewCell.m */,
 			);
 			name = 4_Message;
+			sourceTree = "<group>";
+		};
+		4A85ECB11B95EE0800032C14 /* PanoView */ = {
+			isa = PBXGroup;
+			children = (
+				4A85ECCF1B95EE4200032C14 /* UIScrollView+CRScrollIndicator.h */,
+				4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */,
+				4A85ECB31B95EE1C00032C14 /* CRMotionView.h */,
+				4A85ECB41B95EE1C00032C14 /* CRMotionView.m */,
+				4A85ECB51B95EE1C00032C14 /* CRZoomScrollView.h */,
+				4A85ECB61B95EE1C00032C14 /* CRZoomScrollView.m */,
+			);
+			name = PanoView;
+			sourceTree = "<group>";
+		};
+		4A85ECB21B95EE0F00032C14 /* PanoCamera */ = {
+			isa = PBXGroup;
+			children = (
+				4A85ECB91B95EE2600032C14 /* DMD_LITE.h */,
+				4A85ECBA1B95EE3B00032C14 /* libDMD_LITE.a */,
+				4A85ECBB1B95EE3B00032C14 /* PanoLite-Prefix.pch */,
+				4A85ECBC1B95EE3B00032C14 /* PLITAppDelegate.h */,
+				4A85ECBD1B95EE3B00032C14 /* PLITAppDelegate.m */,
+				4A85ECBE1B95EE3B00032C14 /* PLITInfoView.h */,
+				4A85ECBF1B95EE3B00032C14 /* PLITInfoView.m */,
+				4A85ECC01B95EE3B00032C14 /* PLITShootingVC.h */,
+				4A85ECC11B95EE3B00032C14 /* PLITShootingVC.m */,
+				4A85ECC21B95EE3B00032C14 /* PLITViewerVC.h */,
+				4A85ECC31B95EE3B00032C14 /* PLITViewerVC.mm */,
+				4A85ECC41B95EE3B00032C14 /* PLITViewerVC+Controls.h */,
+				4A85ECC51B95EE3B00032C14 /* PLITViewerVC+Controls.m */,
+				4A85ECC61B95EE3B00032C14 /* UINavigationControllerLandscape.h */,
+				4A85ECC71B95EE3B00032C14 /* UINavigationControllerLandscape.m */,
+			);
+			name = PanoCamera;
 			sourceTree = "<group>";
 		};
 		9A499941BEB57B9C9CE72ECA /* Frameworks */ = {
@@ -892,27 +961,36 @@
 				107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */,
 				10A4D8E51B9321AD00641528 /* CameraVC.m in Sources */,
 				10A4D9101B94570700641528 /* LocationManager.m in Sources */,
+				4A85ECCA1B95EE3C00032C14 /* PLITInfoView.m in Sources */,
 				10A4D9051B938E6D00641528 /* ANBlurredTableView.m in Sources */,
+				4A85ECCC1B95EE3C00032C14 /* PLITViewerVC.mm in Sources */,
 				109700481B6A88A000D2027B /* MessageVCon.m in Sources */,
+				4A85ECD11B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m in Sources */,
 				105DAB271B75ECAB003BAAEB /* InforTBCell.m in Sources */,
 				10021D921B6BF14D00A1A1D6 /* ParallaxHeaderView.m in Sources */,
+				4A85ECCD1B95EE3C00032C14 /* PLITViewerVC+Controls.m in Sources */,
 				107E0F1F1B4A5B2F004664C8 /* main.m in Sources */,
 				109936031B8A323A00A6BD09 /* NSObject+SaveParse.m in Sources */,
 				10A4D8E81B93227800641528 /* FootMarkVC.m in Sources */,
 				100888131B728637007674DD /* UIImageView+ClipAndspecific.m in Sources */,
+				4A85ECB71B95EE1C00032C14 /* CRMotionView.m in Sources */,
 				10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */,
+				4A85ECC91B95EE3C00032C14 /* PLITAppDelegate.m in Sources */,
 				105652B81B6505B700F57BC9 /* FancyTBViewCell.m in Sources */,
 				105DAB2F1B75F7F8003BAAEB /* SearchTBCell.m in Sources */,
 				10D084741B689AC600BD0463 /* PicWallCollectionVC.m in Sources */,
 				109700451B6A534000D2027B /* MessageTBViewCell.m in Sources */,
+				4A85ECCB1B95EE3C00032C14 /* PLITShootingVC.m in Sources */,
 				1008880F1B727CB0007674DD /* UIImage+CustomUIImageEffect.m in Sources */,
 				10A4D9061B938E6D00641528 /* UIImage+BoxBlur.m in Sources */,
 				104C07E21B6FC65E002C2C22 /* MePersonalPageTBCell.m in Sources */,
+				4A85ECCE1B95EE3C00032C14 /* UINavigationControllerLandscape.m in Sources */,
 				10021D931B6BF14D00A1A1D6 /* UIImage+ImageEffects.m in Sources */,
 				107E99CD1B9590590080798A /* TestAnnotation.m in Sources */,
 				109936091B8B0F5100A6BD09 /* ParseDBSource.m in Sources */,
 				1045325B1B7B9556006C6F0C /* SetUpTBVC.m in Sources */,
 				105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */,
+				4A85ECB81B95EE1C00032C14 /* CRZoomScrollView.m in Sources */,
 				107E99C71B954E4B0080798A /* NSObject+BlurImageView.m in Sources */,
 				105652B21B65055500F57BC9 /* FancyTBViewCon.m in Sources */,
 				10A4D90A1B9390BD00641528 /* UIView+Borders.m in Sources */,
@@ -1051,6 +1129,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TrickCameraSocialPlatform/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TrickCameraSocialPlatform",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -1066,6 +1148,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TrickCameraSocialPlatform/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TrickCameraSocialPlatform",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";

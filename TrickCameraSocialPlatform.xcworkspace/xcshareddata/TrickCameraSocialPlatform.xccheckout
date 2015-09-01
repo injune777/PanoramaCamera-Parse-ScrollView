@@ -10,6 +10,8 @@
 	<string>TrickCameraSocialPlatform</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3FE07B22181D77B6591F90BC651153C99A4FF69B</key>
+		<string>github.com:firefirstfu/iiiCamera.git</string>
 		<key>D487F7EDEBF7C391A422138D44D3EEAAA4A9800B</key>
 		<string>github.com:firefirstfu/TrickFunCamera.git</string>
 	</dict>
@@ -17,17 +19,27 @@
 	<string>TrickCameraSocialPlatform.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D487F7EDEBF7C391A422138D44D3EEAAA4A9800B</key>
+		<key>3FE07B22181D77B6591F90BC651153C99A4FF69B</key>
 		<string>..</string>
+		<key>D487F7EDEBF7C391A422138D44D3EEAAA4A9800B</key>
+		<string>../../TrickCameraSocialPlatform-master</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:firefirstfu/TrickFunCamera.git</string>
+	<string>github.com:firefirstfu/iiiCamera.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D487F7EDEBF7C391A422138D44D3EEAAA4A9800B</string>
+	<string>3FE07B22181D77B6591F90BC651153C99A4FF69B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3FE07B22181D77B6591F90BC651153C99A4FF69B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iiiCamera</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
