@@ -1,0 +1,63 @@
+PODS:
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.0)
+  - FBSDKCoreKit (4.5.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.5.0)
+    - FBSDKCoreKit/no-arc (= 4.5.0)
+  - FBSDKCoreKit/arc (4.5.0):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.5.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.5.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.5.0):
+    - FBSDKCoreKit
+  - JTSImageViewController (1.4)
+  - Parse (1.7.5.3):
+    - Bolts/Tasks (>= 1.2.0)
+  - ParseFacebookUtilsV4 (1.7.5.3):
+    - Bolts/Tasks (>= 1.2.0)
+    - FBSDKCoreKit (~> 4.0)
+    - FBSDKLoginKit (~> 4.0)
+    - Parse (~> 1.7.5.3)
+  - ParseUI (1.1.4):
+    - Parse (~> 1.7)
+  - pop (1.0.7)
+  - PQFCustomLoaders (1.1.0):
+    - pop (~> 1.0)
+    - UIColor+FlatColors
+  - SWRevealViewController (2.3.0)
+  - UIColor+FlatColors (0.0.2)
+
+DEPENDENCIES:
+  - FBSDKCoreKit (~> 4.5.0)
+  - FBSDKLoginKit (~> 4.5.0)
+  - FBSDKShareKit (~> 4.5.0)
+  - JTSImageViewController (~> 1.4)
+  - Parse (~> 1.7.5.3)
+  - ParseFacebookUtilsV4 (~> 1.7.5.3)
+  - ParseUI (~> 1.1.4)
+  - PQFCustomLoaders (~> 1.1.0)
+  - SWRevealViewController (~> 2.3.0)
+
+SPEC CHECKSUMS:
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  FBSDKCoreKit: ba4ca18ecae56af01e1b8c4faa889ef21d68bea2
+  FBSDKLoginKit: 8327c9aa7c6afd13cdcd0a6f9aebe585ed39c82a
+  FBSDKShareKit: 06f569e09f2b99c23df17da129ec3aa01d9c2fb4
+  JTSImageViewController: 6a367b144e257db02cdfacdba78d684377d3777b
+  Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
+  ParseFacebookUtilsV4: ea5db22e87b91cbf99b9d156642e2b97a4db7d51
+  ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  PQFCustomLoaders: 861daed580660069d1cb5c61db835baabf1f21a5
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
+
+COCOAPODS: 0.37.2

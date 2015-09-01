@@ -1,0 +1,11 @@
+platform :ios, '8.0'
+pod 'JTSImageViewController', '~> 1.4'
+pod 'Parse', '~> 1.7.5.3'
+pod 'ParseUI', '~> 1.1.4'
+pod 'FBSDKCoreKit', '~> 4.5.0'
+pod 'FBSDKLoginKit', '~> 4.5.0'
+pod 'FBSDKShareKit', '~> 4.5.0'
+pod 'ParseFacebookUtilsV4', '~> 1.7.5.3'
+pod 'SWRevealViewController', '~> 2.3.0'
+pod 'PQFCustomLoaders', '~> 1.1.0'
+
