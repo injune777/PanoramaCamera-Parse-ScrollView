@@ -6,18 +6,29 @@
 //  Copyright (c) 2015年 OSX. All rights reserved.
 //
 
-#import "PanoViewerControllerViewController.h"
-
-@interface PanoViewerControllerViewController ()
+#import "PanoViewerController.h"
+#import "CRMotionView.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+@interface PanoViewerController ()
+@property (weak, nonatomic) IBOutlet UIImageView *PanoViewer;
 
 @end
 
-@implementation PanoViewerControllerViewController
+@implementation PanoViewerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:_PanoViewer.bounds];
+    [motionView setImage:[UIImage imageNamed:@"3.jpg"]];
+    [_PanoViewer addSubview:motionView];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

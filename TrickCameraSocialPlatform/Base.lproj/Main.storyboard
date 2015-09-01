@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -206,6 +206,47 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-15396" y="1451"/>
+        </scene>
+        <!--Pano Viewer Controller-->
+        <scene sceneID="W4n-0V-eyg">
+            <objects>
+                <viewController id="phx-Nb-S1N" customClass="PanoViewerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZFP-Uk-3Bt"/>
+                        <viewControllerLayoutGuide type="bottom" id="qRA-5F-ID7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GCd-ck-y1j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="In8-vZ-djZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AR-4W-kVM">
+                                <rect key="frame" x="22" y="524" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7AR-4W-kVM" firstAttribute="leading" secondItem="GCd-ck-y1j" secondAttribute="leadingMargin" constant="6" id="3KE-o3-IkM"/>
+                            <constraint firstItem="In8-vZ-djZ" firstAttribute="top" secondItem="GCd-ck-y1j" secondAttribute="top" id="Atc-53-aag"/>
+                            <constraint firstItem="qRA-5F-ID7" firstAttribute="top" secondItem="7AR-4W-kVM" secondAttribute="bottom" constant="14" id="Bev-YV-5dv"/>
+                            <constraint firstItem="In8-vZ-djZ" firstAttribute="leading" secondItem="GCd-ck-y1j" secondAttribute="leading" id="GPF-vy-3O5"/>
+                            <constraint firstAttribute="trailing" secondItem="In8-vZ-djZ" secondAttribute="trailing" id="Zf6-Lz-NZZ"/>
+                            <constraint firstItem="qRA-5F-ID7" firstAttribute="top" secondItem="In8-vZ-djZ" secondAttribute="bottom" constant="71" id="rfY-Ek-dTX"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="PanoViewer" destination="In8-vZ-djZ" id="6ZS-vp-rhB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTt-Dg-GrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-16558" y="-154"/>
         </scene>
         <!--設定-->
         <scene sceneID="IUp-40-83C">
@@ -763,6 +804,51 @@
             </objects>
             <point key="canvasLocation" x="-15026" y="1451"/>
         </scene>
+        <!--ShootingVC-->
+        <scene sceneID="Ut5-0H-zQ0">
+            <objects>
+                <viewController id="AFt-AF-er0" customClass="PLITShootingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BNg-8P-gtc"/>
+                        <viewControllerLayoutGuide type="bottom" id="OHo-1r-UA9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rGZ-zY-XvO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gSm-EI-aqd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqS-Yr-PJd">
+                                <rect key="frame" x="22" y="518" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mXl-X1-7hX" kind="unwind" unwindAction="backToMain:" id="Mtm-La-eE7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gSm-EI-aqd" secondAttribute="trailing" id="2sf-xZ-Epm"/>
+                            <constraint firstItem="gqS-Yr-PJd" firstAttribute="leading" secondItem="rGZ-zY-XvO" secondAttribute="leadingMargin" constant="6" id="Aw9-Js-mzn"/>
+                            <constraint firstItem="OHo-1r-UA9" firstAttribute="top" secondItem="gSm-EI-aqd" secondAttribute="bottom" constant="71" id="LQi-2f-Fkd"/>
+                            <constraint firstItem="OHo-1r-UA9" firstAttribute="top" secondItem="gqS-Yr-PJd" secondAttribute="bottom" constant="20" id="hk0-mg-k8h"/>
+                            <constraint firstItem="gSm-EI-aqd" firstAttribute="top" secondItem="rGZ-zY-XvO" secondAttribute="top" id="kb9-of-bnY"/>
+                            <constraint firstItem="gSm-EI-aqd" firstAttribute="leading" secondItem="rGZ-zY-XvO" secondAttribute="leading" id="tqw-uy-RUA"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="PanoCameraView" destination="gSm-EI-aqd" id="g3x-xL-OoR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kd-ju-iej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mXl-X1-7hX" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-16078" y="-136"/>
+        </scene>
         <!--相機-->
         <scene sceneID="jb7-tg-7ut">
             <objects>
@@ -774,14 +860,52 @@
                     <view key="view" contentMode="scaleToFill" id="ZAP-c1-MzH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eag-5l-QbJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVA-CH-XQS">
+                                <rect key="frame" x="26" y="524" width="32" height="30"/>
+                                <state key="normal" title="Take">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fY-YR-78x">
+                                <rect key="frame" x="126" y="524" width="68" height="30"/>
+                                <state key="normal" title="PanoView">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTd-uS-7R3">
+                                <rect key="frame" x="246" y="510" width="58" height="58"/>
+                                <state key="normal" image="PanoCamera.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3fY-YR-78x" firstAttribute="centerX" secondItem="eag-5l-QbJ" secondAttribute="centerX" id="1K7-2m-qEQ"/>
+                            <constraint firstItem="3fY-YR-78x" firstAttribute="baseline" secondItem="gVA-CH-XQS" secondAttribute="baseline" id="72C-Vr-FS2"/>
+                            <constraint firstAttribute="trailing" secondItem="eag-5l-QbJ" secondAttribute="trailing" id="FQT-yp-DjH"/>
+                            <constraint firstItem="eag-5l-QbJ" firstAttribute="leading" secondItem="ZAP-c1-MzH" secondAttribute="leading" id="Gdu-hT-foC"/>
+                            <constraint firstItem="ykc-2H-DH5" firstAttribute="top" secondItem="gVA-CH-XQS" secondAttribute="bottom" constant="14" id="JB2-kn-YL1"/>
+                            <constraint firstItem="eag-5l-QbJ" firstAttribute="top" secondItem="ZAP-c1-MzH" secondAttribute="top" id="KHU-mR-2js"/>
+                            <constraint firstItem="kTd-uS-7R3" firstAttribute="trailing" secondItem="ZAP-c1-MzH" secondAttribute="trailingMargin" id="Wws-x0-ZWP"/>
+                            <constraint firstItem="gVA-CH-XQS" firstAttribute="leading" secondItem="ZAP-c1-MzH" secondAttribute="leadingMargin" constant="10" id="bLO-Ta-2g7"/>
+                            <constraint firstItem="ykc-2H-DH5" firstAttribute="top" secondItem="eag-5l-QbJ" secondAttribute="bottom" constant="71" id="cN2-AR-m9q"/>
+                            <constraint firstItem="kTd-uS-7R3" firstAttribute="baseline" secondItem="3fY-YR-78x" secondAttribute="baseline" constant="24" id="klC-rN-FNb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="相機" image="compact_camera-50.png" id="NPq-XF-t4S"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="viewContainer" destination="eag-5l-QbJ" id="hMN-vm-j4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt3-CK-IO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15567" y="55"/>
+            <point key="canvasLocation" x="-15637" y="-19"/>
         </scene>
         <!--足跡-->
         <scene sceneID="cad-ES-LYR">
@@ -1575,6 +1699,7 @@
     <resources>
         <image name="20.jpeg" width="950" height="1425"/>
         <image name="FacebookBG + f.png" width="65" height="60"/>
+        <image name="PanoCamera.png" width="58" height="58"/>
         <image name="Sent 2.png" width="34" height="35"/>
         <image name="compact_camera-50.png" width="30" height="23"/>
         <image name="love 2.png" width="34" height="32"/>
