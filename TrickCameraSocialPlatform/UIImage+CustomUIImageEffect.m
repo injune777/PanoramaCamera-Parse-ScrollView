@@ -3,6 +3,8 @@
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"
 
+#import "CRMotionView.h"
+
 @implementation UIImage (CustomUIImageEffect)
 
 //網路縮圖方法
@@ -49,23 +51,92 @@
     return newImage;
 }
 
+
+
+
 //點擊照片跳出Method-->使用第三方庫-->https://github.com/jaredsinclair/JTSImageViewController
 +(void)createTapPictureJTSImageViewController:(UIImage*)inputImage
                            withInputImageView:(UIImageView*)inputImageView
                       withInputViewController:(UIViewController*)inputViewController {
-    // Create image info
-    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
-    imageInfo.image = inputImage;
-    imageInfo.referenceRect = inputImageView.frame;
-    imageInfo.referenceView = inputImageView.superview;
+    
+    
+    
+    
+//    [inputImageView addSubview:motionView];
+    
+    
+    
+    
+    
+    
+    
+//    //Create image info
+//    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+//    imageInfo.image = inputImage;
+//    imageInfo.referenceRect = inputImageView.frame;
+//    imageInfo.referenceView = inputImageView.superview;
+    
+    
+    
+    
+    
     // Setup view controller
-    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
-                                           initWithImageInfo:imageInfo
+    JTSImageViewController *imageViewerVC = [[JTSImageViewController alloc]
+                                           initWithImageInfo:nil
                                            mode:JTSImageViewControllerMode_Image
                                            backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:CGRectMake(150, 350, inputImage.size.height, inputImage.size.width)];
+    motionView.image = inputImage;
+    
+    
+    [imageViewerVC.view addSubview:motionView];
+    
     // Present the view controller.
-    [imageViewer showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
+    [imageViewerVC showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
+    
+    
+    
+    
+    
+    
+
+    
+    
+//    // Create image info
+//    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+//    imageInfo.image = inputImage;
+//    imageInfo.referenceRect = inputImageView.frame;
+//    imageInfo.referenceView = inputImageView.superview;
+//    // Setup view controller
+//    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+//                                           initWithImageInfo:imageInfo
+//                                           mode:JTSImageViewControllerMode_Image
+//                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+//    // Present the view controller.
+//    [imageViewer showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+
+
+
 
 //圖片放大動畫效果-->http://code4app.com/ios/%E7%82%B9%E8%B5%9E%E5%8A%A8%E7%94%BB/53e9cfa2933bf08a248b52d8
 +(void) animationScaleImage:(UIImage*)scaleImage scaleImageView:(UIImageView*)scaleImageView{
