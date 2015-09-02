@@ -15,7 +15,13 @@
 
 @implementation AppDelegate
 
+-(void)saveContext{
+    
+}
+-(void)applicationDocumentsDirectory
+{
 
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Parse的Key
     [Parse setApplicationId:@"ZMlDMw8mc4Q1GhllcZBWfYbvjGA8IH9xZR38OX6j"

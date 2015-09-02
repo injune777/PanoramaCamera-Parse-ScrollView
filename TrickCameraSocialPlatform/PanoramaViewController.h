@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PanoramaViewController : UIViewController
+@interface PanoramaViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end

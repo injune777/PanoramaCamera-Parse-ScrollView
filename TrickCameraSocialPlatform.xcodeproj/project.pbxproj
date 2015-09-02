@@ -103,7 +103,7 @@
 		4A85ECCC1B95EE3C00032C14 /* PLITViewerVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC31B95EE3B00032C14 /* PLITViewerVC.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A85ECCD1B95EE3C00032C14 /* PLITViewerVC+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC51B95EE3B00032C14 /* PLITViewerVC+Controls.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A85ECCE1B95EE3C00032C14 /* UINavigationControllerLandscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECC71B95EE3B00032C14 /* UINavigationControllerLandscape.m */; };
-		4A85ECD11B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */; };
+		4A85ECD11B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A85ECD31B95F76B00032C14 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD21B95F76B00032C14 /* MobileCoreServices.framework */; };
 		4A85ECD51B95F77300032C14 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD41B95F77300032C14 /* CoreVideo.framework */; };
 		4A85ECD71B95F77900032C14 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD61B95F77900032C14 /* AVFoundation.framework */; };
@@ -114,6 +114,7 @@
 		4A85ECE41B95FF3A00032C14 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE31B95FF3A00032C14 /* 3.jpg */; };
 		4A85ECE71B95FF5B00032C14 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE51B95FF5B00032C14 /* Back.png */; };
 		4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE61B95FF5B00032C14 /* PanoCamera.png */; };
+		4A85ECED1B961B0F00032C14 /* PanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */; };
 		F744F28463338FD1D70B00FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D172A1109A3B49B7117F8F98 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -274,11 +275,11 @@
 		4A85ECDA1B95F7A000032C14 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		4A85ECDC1B95F7A700032C14 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4A85ECDE1B95F7C500032C14 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		4A85ECE01B95F8D800032C14 /* PanoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoViewerController.h; sourceTree = "<group>"; };
-		4A85ECE11B95F8D800032C14 /* PanoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoViewerController.m; sourceTree = "<group>"; };
 		4A85ECE31B95FF3A00032C14 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		4A85ECE51B95FF5B00032C14 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		4A85ECE61B95FF5B00032C14 /* PanoCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PanoCamera.png; sourceTree = "<group>"; };
+		4A85ECEB1B961B0F00032C14 /* PanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaViewController.h; sourceTree = "<group>"; };
+		4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramaViewController.m; sourceTree = "<group>"; };
 		B307460B4430EB6A136A9E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D172A1109A3B49B7117F8F98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -730,10 +731,10 @@
 				4A85ECCF1B95EE4200032C14 /* UIScrollView+CRScrollIndicator.h */,
 				4A85ECD01B95EE4200032C14 /* UIScrollView+CRScrollIndicator.m */,
 				4A85ECB31B95EE1C00032C14 /* CRMotionView.h */,
-				4A85ECE01B95F8D800032C14 /* PanoViewerController.h */,
-				4A85ECE11B95F8D800032C14 /* PanoViewerController.m */,
 				4A85ECB41B95EE1C00032C14 /* CRMotionView.m */,
 				4A85ECB51B95EE1C00032C14 /* CRZoomScrollView.h */,
+				4A85ECEB1B961B0F00032C14 /* PanoramaViewController.h */,
+				4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */,
 				4A85ECB61B95EE1C00032C14 /* CRZoomScrollView.m */,
 			);
 			name = PanoView;
@@ -955,6 +956,7 @@
 				107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */,
 				10A4D8E51B9321AD00641528 /* CameraVC.m in Sources */,
 				10A4D9101B94570700641528 /* LocationManager.m in Sources */,
+				4A85ECED1B961B0F00032C14 /* PanoramaViewController.m in Sources */,
 				4A85ECCA1B95EE3C00032C14 /* PLITInfoView.m in Sources */,
 				10A4D9051B938E6D00641528 /* ANBlurredTableView.m in Sources */,
 				4A85ECCC1B95EE3C00032C14 /* PLITViewerVC.mm in Sources */,

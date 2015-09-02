@@ -7,8 +7,13 @@
 //
 
 #import "PanoramaViewController.h"
+#import "CRMotionView.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
 
 @interface PanoramaViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *PanoView;
 
 @end
 
@@ -17,6 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:_PanoView.bounds];
+    [motionView setImage:[UIImage imageNamed:@"3.jpg"]];
+    [_PanoView addSubview:motionView];
 }
 
 - (void)didReceiveMemoryWarning {

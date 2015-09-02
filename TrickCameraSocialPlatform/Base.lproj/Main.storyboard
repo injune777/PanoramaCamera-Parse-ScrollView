@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="-15396" y="1451"/>
         </scene>
-        <!--Pano Viewer Controller-->
+        <!--Panorama View Controller-->
         <scene sceneID="W4n-0V-eyg">
             <objects>
-                <viewController id="phx-Nb-S1N" customClass="PanoViewerController" sceneMemberID="viewController">
+                <viewController id="phx-Nb-S1N" customClass="PanoramaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZFP-Uk-3Bt"/>
                         <viewControllerLayoutGuide type="bottom" id="qRA-5F-ID7"/>
@@ -241,6 +241,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="PanoView" destination="In8-vZ-djZ" id="GNg-aF-fTX"/>
                         <outlet property="PanoViewer" destination="In8-vZ-djZ" id="6ZS-vp-rhB"/>
                     </connections>
                 </viewController>

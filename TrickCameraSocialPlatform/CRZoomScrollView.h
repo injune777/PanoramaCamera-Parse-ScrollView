@@ -20,7 +20,7 @@
  *
  *  The image zoomable
  */
-@property (nonatomic) UIImage *image;
+@property (nonatomic ,retain) UIImage *image;
 
 
 /**

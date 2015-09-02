@@ -279,9 +279,9 @@ static const CGFloat CRMotionViewRotationFactor = 4.0f;
     [_motionManager stopGyroUpdates];
 }
 
-- (void)dealloc
-{
-    [self.scrollView cr_disableScrollIndicator];
-}
+//- (void)dealloc
+//{
+//    [self.scrollView cr_disableScrollIndicator];
+//};
 
 @end
