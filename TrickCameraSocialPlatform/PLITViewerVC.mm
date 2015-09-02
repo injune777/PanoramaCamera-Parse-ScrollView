@@ -8,7 +8,7 @@
 
 #import "PLITViewerVC.h"
 #import "PLITViewerVC+Controls.h"
-
+#import "PLITShootingVC.h"
 @interface PLITViewerVC ()
 - (void)startViewer;
 - (void)stopViewer;
