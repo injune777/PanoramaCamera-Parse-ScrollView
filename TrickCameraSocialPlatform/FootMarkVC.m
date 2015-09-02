@@ -6,6 +6,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
+#import "TestAnnotation.h"
+
 
 
 @interface FootMarkVC ()<MKMapViewDelegate, CLLocationManagerDelegate>
@@ -14,12 +16,16 @@
 @property (weak, nonatomic) IBOutlet MKMapView *myFootMap;
 //Slide Bar
 @property(nonatomic, strong) UIBarButtonItem *slideBarBtn;
+
+
+
 //位置管理員
 @property(nonatomic, strong) CLLocationManager *locationManager;
 //現在經緯度座標
 @property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
 //大頭針物件
 @property(nonatomic, strong) MKPointAnnotation *myPoint;
+
 
 @end
 
@@ -28,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ////Slide Bar Menu初始化
+    //Slide Bar Menu初始化
     _slideBarBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"slideBar.png"]
                                                     style:UIBarButtonItemStyleDone
                                                    target:self
@@ -45,7 +51,8 @@
         [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
     
-    //CoreLocation 管理員
+    
+
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
     //設定精確度
@@ -64,25 +71,31 @@
     [_locationManager startUpdatingLocation];
     
     
-    //MapKit初始化
+    //地圖初始化
+    //代理
+    _myFootMap.delegate = self;
     //地圖類型
     _myFootMap.mapType = MKMapTypeStandard;
-    //delegate設置
-    _myFootMap.delegate = self;
-    //user當前位置
+    //顯示user當前位置
     _myFootMap.showsUserLocation = YES;
     
+    //user大頭針
+    MKPointAnnotation *userPoint1 = [[MKPointAnnotation alloc] init];
+    userPoint1.title = @"fuck";
+    userPoint1.subtitle = @"damit it";
+    userPoint1.coordinate = CLLocationCoordinate2DMake(23.74544, 120.75464);
     
-    //創造大頭針註解物件
-    _myPoint = [[MKPointAnnotation alloc] init];
+    MKPointAnnotation *userPoint2 = [[MKPointAnnotation alloc] init];
+    userPoint2.title = @"fuck";
+    userPoint2.subtitle = @"damit it~~~~~~~~~~~~~~~";
+    userPoint2.coordinate = CLLocationCoordinate2DMake(23.63955, 120.78846);
     
-    CLLocation *pictureLocaiton = [[CLLocation alloc] initWithLatitude:20.12 longitude:132.1];
-    //附加緯經度給-->大頭針座標
-    _myPoint.coordinate = pictureLocaiton.coordinate;
-    _myPoint.title = @"地理環鏡";
-    _myPoint.subtitle = @"fuck";
-    //地圖附加大頭針
-    [_myFootMap addAnnotation:_myPoint];
+    
+    [_myFootMap addAnnotations:@[userPoint1, userPoint2]];
+    
+    
+    
+    
     
     
 }
@@ -90,33 +103,18 @@
 //負責顯示大頭針的UI
 -(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     
-    //如果是系統的大頭針，則return nil
-    if (annotation == _myFootMap.userLocation) {
-        return nil;
-    }
-    
     //先到資源回收桶找有沒有不要使用的大頭針-->如果沒有則create一個新的大頭針
     MKPinAnnotationView *customPin = (MKPinAnnotationView*)[_myFootMap dequeueReusableAnnotationViewWithIdentifier:@"customPin"];
     if (customPin == nil) {
         customPin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"customPin"];
-    }else{
-        customPin.annotation = annotation;
     }
-    
     customPin.canShowCallout = YES;
     customPin.animatesDrop = NO;
+    customPin.annotation = annotation;
+    customPin.animatesDrop = YES;
+    
     return customPin;
-    
-    
-//    MKAnnotationView *annoView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"tuangou"];
-//    if (annoView == nil) {
-//        annoView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"tuangou"];
-//    }else{
-//        annoView.annotation = annotation;
-//    }
-//    annoView.canShowCallout = YES;
-//    return annoView;
-    
+
     
 }
 
@@ -132,9 +130,19 @@
     //取user位置的最新一筆Coordinate(座標)
     _currentLocationCoordinate = [locations.lastObject coordinate];
     
-    //設置地圖的顯示範圍
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
-    [_myFootMap setRegion:region animated:YES];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    //設置地圖的顯示範圍
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
+//    [_myFootMap setRegion:region animated:YES];
 }
 
 
