@@ -71,6 +71,10 @@
 
 - (void)loadView
 {
+    
+    
+    
+    
     [Monitor instance].delegate = self;
     
     CGRect frame  = [[UIScreen mainScreen] bounds];
@@ -99,6 +103,11 @@
         infoViewFrame = CGRectMake(frame.size.width/2.f-200.f, (frame.size.height-100.f)/2.f, 400.f, 100.f);
         infoViewSubFrame = CGRectOffset(infoViewFrame, 0, frame.size.height-infoViewFrame.origin.y-infoViewFrame.size.height-20.f);
     }
+    UIButton *myButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];//生成一個圓角距形 Button
+    [myButton setFrame:CGRectMake(30 , 38, 60, 60)];//設定位置大小，大約是中偏上，width 120
+    [myButton setTitle:@"Back" forState:UIControlStateNormal]; //設定為顯示 Click，一般狀態顯示
+    [myButton addTarget:self action:@selector(BackToRootView) forControlEvents:UIControlEventTouchUpInside];
+    [aView addSubview:myButton]; // 加到 self.view 中
     
     _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapped:)];
     _tapRecognizer.numberOfTapsRequired = 1;
@@ -117,6 +126,12 @@
     [_shooterView insertSubview:_infoView atIndex:1];
 }
 
+-(void)BackToRootView
+{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+}
 - (void)viewDidAppear:(BOOL)animated
 {
     _shooterView.hidden = NO;
@@ -276,23 +291,23 @@
              }
          }
      }];
-    UIImage *aimage = [UIImage imageWithData:[NSData dataWithContentsOfFile:ename]];
-    //user物件
-    //    PFUser *currentUser =  [NSObject getOneUserInfo:@"RbUnhp98yE"];
-    //取得目前的user
-    PFUser *currentUser = [PFUser currentUser];
-    //取得image
-    //    UIImage *myImage = [UIImage imageNamed:@"111.jpeg"];
-    //轉為NSData並壓縮-->第2個參數為壓縮係數
-    NSData *imageData = UIImageJPEGRepresentation(aimage, 0.3f);
-    //把NSData轉為PFFile
-    PFFile *photoFile = [PFFile fileWithData:imageData];
-    
-    //開始上傳圖片 to parse
-    PFObject *userPhoto = [PFObject objectWithClassName:@"Photos"];
-    userPhoto[@"userPID"] = currentUser;
-    userPhoto[@"photo"] = photoFile;
-    [userPhoto saveInBackground];
+//    UIImage *aimage = [UIImage imageWithData:[NSData dataWithContentsOfFile:ename]];
+//    //user物件
+//    //    PFUser *currentUser =  [NSObject getOneUserInfo:@"RbUnhp98yE"];
+//    //取得目前的user
+//    PFUser *currentUser = [PFUser currentUser];
+//    //取得image
+//    //    UIImage *myImage = [UIImage imageNamed:@"111.jpeg"];
+//    //轉為NSData並壓縮-->第2個參數為壓縮係數
+//    NSData *imageData = UIImageJPEGRepresentation(aimage, 0.3f);
+//    //把NSData轉為PFFile
+//    PFFile *photoFile = [PFFile fileWithData:imageData];
+//    
+//    //開始上傳圖片 to parse
+//    PFObject *userPhoto = [PFObject objectWithClassName:@"Photos"];
+//    userPhoto[@"userPID"] = currentUser;
+//    userPhoto[@"photo"] = photoFile;
+//    [userPhoto saveInBackground];
     [library release];
 }
 
