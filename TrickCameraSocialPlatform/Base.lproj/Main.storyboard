@@ -910,7 +910,8 @@
                     <tabBarItem key="tabBarItem" title="相機" image="compact_camera-50.png" id="NPq-XF-t4S"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="viewContainer" destination="eag-5l-QbJ" id="hMN-vm-j4w"/>
+                        <outlet property="takeButton" destination="gVA-CH-XQS" id="ZZO-nn-XKp"/>
+                        <outlet property="viewContainer" destination="eag-5l-QbJ" id="OOG-86-zH0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt3-CK-IO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
