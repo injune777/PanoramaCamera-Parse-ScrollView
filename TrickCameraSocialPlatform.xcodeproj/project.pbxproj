@@ -60,7 +60,6 @@
 		107E0F2A1B4A5B2F004664C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107E0F291B4A5B2F004664C8 /* Images.xcassets */; };
 		107E0F2D1B4A5B2F004664C8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 107E0F2B1B4A5B2F004664C8 /* LaunchScreen.xib */; };
 		107E99C71B954E4B0080798A /* NSObject+BlurImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E99C61B954E4B0080798A /* NSObject+BlurImageView.m */; };
-		107E99CD1B9590590080798A /* TestAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E99CC1B9590590080798A /* TestAnnotation.m */; };
 		109700451B6A534000D2027B /* MessageTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 109700441B6A534000D2027B /* MessageTBViewCell.m */; };
 		109700481B6A88A000D2027B /* MessageVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 109700471B6A88A000D2027B /* MessageVCon.m */; };
 		109936031B8A323A00A6BD09 /* NSObject+SaveParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 109936001B8A323A00A6BD09 /* NSObject+SaveParse.m */; };
@@ -194,8 +193,6 @@
 		107E0F381B4A5B2F004664C8 /* TrickCameraSocialPlatformTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrickCameraSocialPlatformTests.m; sourceTree = "<group>"; };
 		107E99C51B954E4B0080798A /* NSObject+BlurImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BlurImageView.h"; sourceTree = "<group>"; };
 		107E99C61B954E4B0080798A /* NSObject+BlurImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BlurImageView.m"; sourceTree = "<group>"; };
-		107E99CB1B9590590080798A /* TestAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAnnotation.h; sourceTree = "<group>"; };
-		107E99CC1B9590590080798A /* TestAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAnnotation.m; sourceTree = "<group>"; };
 		109700431B6A534000D2027B /* MessageTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTBViewCell.h; sourceTree = "<group>"; };
 		109700441B6A534000D2027B /* MessageTBViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTBViewCell.m; sourceTree = "<group>"; };
 		109700461B6A88A000D2027B /* MessageVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageVCon.h; sourceTree = "<group>"; };
@@ -613,8 +610,6 @@
 			children = (
 				10A4D8E61B93227800641528 /* FootMarkVC.h */,
 				10A4D8E71B93227800641528 /* FootMarkVC.m */,
-				107E99CB1B9590590080798A /* TestAnnotation.h */,
-				107E99CC1B9590590080798A /* TestAnnotation.m */,
 			);
 			name = 03_FootMark;
 			sourceTree = "<group>";
@@ -980,7 +975,6 @@
 				104C07E21B6FC65E002C2C22 /* MePersonalPageTBCell.m in Sources */,
 				4A85ECCE1B95EE3C00032C14 /* UINavigationControllerLandscape.m in Sources */,
 				10021D931B6BF14D00A1A1D6 /* UIImage+ImageEffects.m in Sources */,
-				107E99CD1B9590590080798A /* TestAnnotation.m in Sources */,
 				109936091B8B0F5100A6BD09 /* ParseDBSource.m in Sources */,
 				1045325B1B7B9556006C6F0C /* SetUpTBVC.m in Sources */,
 				105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */,

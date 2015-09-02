@@ -72,7 +72,7 @@
     
     //模糊效果
     UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
-                                                            withRect:self.tableView.bounds];
+                                                            withRect:self.tableView.frame];
     self.tableView.backgroundView = backImageView;
     
     
@@ -90,9 +90,10 @@
     if (indexPath.row != 0) {
         cell.backgroundColor = [UIColor clearColor];
     }
-    if (indexPath.row == 0) {
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"20.jpeg"]];
-    }
+//    if (indexPath.row == 0) {
+//        
+//        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"20.jpeg"]];
+//    }
 
     cell.backgroundColor = [UIColor clearColor];
 }

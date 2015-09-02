@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -205,7 +205,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-15396" y="1451"/>
+            <point key="canvasLocation" x="-15362" y="1410"/>
         </scene>
         <!--Pano Viewer Controller-->
         <scene sceneID="W4n-0V-eyg">
@@ -802,7 +802,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-15026" y="1451"/>
+            <point key="canvasLocation" x="-15030" y="1410"/>
         </scene>
         <!--ShootingVC-->
         <scene sceneID="Ut5-0H-zQ0">
@@ -912,43 +912,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt3-CK-IO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-15637" y="-19"/>
-        </scene>
-        <!--足跡-->
-        <scene sceneID="cad-ES-LYR">
-            <objects>
-                <viewController id="gpJ-uL-w4J" customClass="FootMarkVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bLR-Dx-N5N"/>
-                        <viewControllerLayoutGuide type="bottom" id="3Ae-vY-BAq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IY5-3G-pke">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mA6-q7-Qrs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gpJ-uL-w4J" id="uME-i9-KSS"/>
-                                </connections>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mA6-q7-Qrs" firstAttribute="leading" secondItem="IY5-3G-pke" secondAttribute="leadingMargin" constant="-16" id="123-AV-n6C"/>
-                            <constraint firstItem="mA6-q7-Qrs" firstAttribute="top" secondItem="IY5-3G-pke" secondAttribute="topMargin" id="FIo-sV-rFH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mA6-q7-Qrs" secondAttribute="trailing" constant="-16" id="civ-zm-TGq"/>
-                            <constraint firstItem="3Ae-vY-BAq" firstAttribute="top" secondItem="mA6-q7-Qrs" secondAttribute="bottom" id="lYb-zZ-Y7n"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="足跡" id="QF5-jf-BOR"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="myFootMap" destination="mA6-q7-Qrs" id="OOF-Jg-byw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wyn-le-LNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-14817" y="50"/>
         </scene>
         <!--搜尋-->
         <scene sceneID="mAj-J4-qxe">
@@ -1158,7 +1121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cL6-YX-Hpn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15183" y="679"/>
+            <point key="canvasLocation" x="-15146" y="730"/>
         </scene>
         <!--MapV Con-->
         <scene sceneID="2k6-tm-PLF">
@@ -1232,10 +1195,10 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CHEN JUN FU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYY-Ja-gqo">
                                                     <rect key="frame" x="52" y="125" width="131" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="20.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="exp-q1-69K">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exp-q1-69K">
                                                     <rect key="frame" x="84" y="36" width="67" height="67"/>
                                                 </imageView>
                                             </subviews>
@@ -1347,7 +1310,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCJ-jZ-PaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15567" y="679"/>
+            <point key="canvasLocation" x="-15575" y="677"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="dW3-dB-cfa">
@@ -1441,12 +1404,46 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gpJ-uL-w4J" kind="relationship" relationship="rootViewController" id="MlF-iX-F1z"/>
+                        <segue destination="FsL-MU-xwo" kind="relationship" relationship="rootViewController" id="zvM-dc-H2a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIT-Ci-Pci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-15167" y="55"/>
+        </scene>
+        <!--足跡-->
+        <scene sceneID="sHE-an-WfO">
+            <objects>
+                <viewController id="FsL-MU-xwo" customClass="FootMarkVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="71h-TW-d5r"/>
+                        <viewControllerLayoutGuide type="bottom" id="UsU-4k-q3y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HEC-b9-ez2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sd3-VT-ZbL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sd3-VT-ZbL" secondAttribute="trailing" constant="-16" id="2Z8-qQ-KiU"/>
+                            <constraint firstItem="sd3-VT-ZbL" firstAttribute="top" secondItem="HEC-b9-ez2" secondAttribute="topMargin" id="Ze0-7k-kdz"/>
+                            <constraint firstItem="UsU-4k-q3y" firstAttribute="top" secondItem="sd3-VT-ZbL" secondAttribute="bottom" id="wJJ-TO-Nfl"/>
+                            <constraint firstItem="sd3-VT-ZbL" firstAttribute="leading" secondItem="HEC-b9-ez2" secondAttribute="leadingMargin" constant="-16" id="ydh-7G-FiI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="足跡" id="wEH-nE-BtW"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="myFootMap" destination="sd3-VT-ZbL" id="tgG-Mi-RlR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-2y-TVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-14757" y="55"/>
         </scene>
         <!--me-->
         <scene sceneID="1Rg-2Z-duF">
@@ -1699,7 +1696,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-14817" y="679"/>
+            <point key="canvasLocation" x="-14725" y="730"/>
         </scene>
     </scenes>
     <resources>
