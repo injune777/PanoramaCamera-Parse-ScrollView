@@ -2,13 +2,12 @@
 #import "UIImage+CustomUIImageEffect.h"
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"
-<<<<<<< HEAD
 #import "CRMotionView.h"
-=======
+
 
 #import "CRMotionView.h"
 
->>>>>>> 89fcf08305daeb4af4b547ecc55c4a3dc920448b
+
 @implementation UIImage (CustomUIImageEffect)
 
 //網路縮圖方法
@@ -93,16 +92,15 @@
     [imageViewerVC.view addSubview:motionView];
     
     // Present the view controller.
-<<<<<<< HEAD
+
 
     
-    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:inputImageView.bounds];
+//    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:inputImageView.bounds];
     [motionView setImage:[UIImage imageNamed:@"3.jpg"]];
     [inputImageView addSubview:motionView];
     
-    [imageViewer showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
-=======
-    [imageViewerVC showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
+//    [imageViewer showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
+
     
     
     
@@ -127,18 +125,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
->>>>>>> 89fcf08305daeb4af4b547ecc55c4a3dc920448b
 }
 
 
