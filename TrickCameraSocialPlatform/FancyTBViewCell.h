@@ -1,11 +1,19 @@
 
 #import <UIKit/UIKit.h>
 #import <PFImageView.h>
+#import "CRMotionView.h"
 
 @interface FancyTBViewCell : UITableViewCell
 
 //新奇圖片
+//@property (weak, nonatomic) IBOutlet UIImageView *fancyImageView;
+
+
+
+//@property (weak, nonatomic) IBOutlet CRMotionView *fancyImageView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *fancyImageView;
+
 //發佈者頭像
 @property (weak, nonatomic) IBOutlet UIImageView *personalImageView;
 //被按喜歡總數

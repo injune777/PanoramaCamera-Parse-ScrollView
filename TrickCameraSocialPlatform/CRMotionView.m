@@ -127,6 +127,8 @@ static const CGFloat CRMotionViewRotationFactor = 4.0f;
         [_contentView removeFromSuperview];
     }
     
+    
+
     CGFloat width = _viewFrame.size.height / contentView.frame.size.height * contentView.frame.size.width;
     [contentView setFrame:CGRectMake(0, 0, width, _viewFrame.size.height)];
     [_containerView addSubview:contentView];
@@ -134,17 +136,16 @@ static const CGFloat CRMotionViewRotationFactor = 4.0f;
     frame.size.width = contentView.frame.size.width;
     [_containerView setFrame:frame];
     [self setScrollIndicatorEnabled:_scrollIndicatorEnabled];
-    
+
     NSDictionary *view = NSDictionaryOfVariableBindings(contentView);
     
-    [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|" options:0 metrics:nil views:view]];
-    [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:view]];
+//    [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|" options:0 metrics:nil views:view]];
+//    [_containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|" options:0 metrics:nil views:view]];
+
     
     _scrollView.contentSize = CGSizeMake(contentView.frame.size.width, _scrollView.frame.size.height);
     _scrollView.contentOffset = CGPointMake((_scrollView.contentSize.width - _scrollView.frame.size.width) / 2, 0);
-    
     [_scrollView cr_enableScrollIndicator];
-    
     _motionRate = contentView.frame.size.width / _viewFrame.size.width * CRMotionViewRotationFactor;
     _maximumXOffset = _scrollView.contentSize.width - _scrollView.frame.size.width;
     

@@ -27,6 +27,9 @@
 //轉轉轉
 #import <PQFCustomLoaders/PQFCustomLoaders.h>
 
+//動態相片
+#import "CRMotionView.h"
+
 
 
 
@@ -260,8 +263,19 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //縮圖
     _cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                 scaledToSizeWidth:320.0f
-                                               scaledToSizeHeight:250.0f];
+                                               scaledToSizeHeight:150.0f];
     
+    
+    
+    
+    
+//    _cell.fancyImageView.image = [UIImage imageCompressWithSimple:[UIImage imageNamed:@"3.jpeg"] scaledToSizeWidth:50.0f
+//                                               scaledToSizeHeight:50.0f];
+    
+
+
+    
+
     //設定大頭照
     _cell.personalImageView = [UIImageView imageViewWithClipCircle: _cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];
@@ -322,8 +336,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //因為返回的是UITableViewCell，所以要把她轉型為FancyTBviewCell
     FancyTBViewCell *customCell =(FancyTBViewCell*)[self.tableView cellForRowAtIndexPath:myIndexPath];
     //點擊照片跳出
-    [UIImage createTapPictureJTSImageViewController:customCell.fancyImageView.image
-                                 withInputImageView:customCell.fancyImageView withInputViewController:self];
+//    [UIImage createTapPictureJTSImageViewController:customCell.fancyImageView.image
+//                                 withInputImageView:customCell.fancyImageView withInputViewController:self];
 }
 
 //personalImageGestureTapMotion

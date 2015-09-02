@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -22,20 +22,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fG-g7-DmC" id="6Kg-yp-MAM">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LN2-80-gfl">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
-                                            <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Ng-UZE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="LN2-80-gfl" secondAttribute="trailing" id="30D-9Z-UC8"/>
-                                        <constraint firstAttribute="bottom" secondItem="LN2-80-gfl" secondAttribute="bottom" constant="1" id="Dbe-eE-anp"/>
-                                        <constraint firstItem="LN2-80-gfl" firstAttribute="leading" secondItem="6Kg-yp-MAM" secondAttribute="leading" id="Iq8-n9-i88"/>
-                                        <constraint firstItem="LN2-80-gfl" firstAttribute="top" secondItem="6Kg-yp-MAM" secondAttribute="top" id="VKw-lT-XlL"/>
+                                        <constraint firstAttribute="bottom" secondItem="lMb-Ng-UZE" secondAttribute="bottom" id="IKF-nH-8jF"/>
+                                        <constraint firstAttribute="trailing" secondItem="lMb-Ng-UZE" secondAttribute="trailing" id="MVQ-lY-VxT"/>
+                                        <constraint firstItem="lMb-Ng-UZE" firstAttribute="leading" secondItem="6Kg-yp-MAM" secondAttribute="leading" id="cZV-1p-Kam"/>
+                                        <constraint firstItem="lMb-Ng-UZE" firstAttribute="top" secondItem="6Kg-yp-MAM" secondAttribute="top" id="sg7-PW-FxU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="fancyImageView" destination="LN2-80-gfl" id="hgp-Wb-h0p"/>
+                                    <outlet property="fancyImageView" destination="lMb-Ng-UZE" id="xga-xk-XxH"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="45" id="LRa-vX-blM" customClass="FancyTBViewCell">

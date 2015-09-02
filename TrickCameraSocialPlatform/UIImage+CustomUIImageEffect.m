@@ -64,12 +64,7 @@
     
 //    [inputImageView addSubview:motionView];
     
-    
-    
-    
-    
-    
-    
+
 //    //Create image info
 //    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
 //    imageInfo.image = inputImage;
@@ -85,6 +80,7 @@
                                            initWithImageInfo:nil
                                            mode:JTSImageViewControllerMode_Image
                                            backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
     
     CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:CGRectMake(150, 350, inputImage.size.height, inputImage.size.width)];
     motionView.image = inputImage;
