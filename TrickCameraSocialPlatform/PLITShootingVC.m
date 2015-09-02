@@ -31,7 +31,6 @@
 #define TXT_TAP_TO_START NSLocalizedString(@"Tap anywhere to start", @"")
 #define TMP_DIR [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"DMD_tmp"]
 @interface PLITShootingVC ()
-@property (strong, nonatomic) IBOutlet UIImageView *PanoCameraView;
 
 - (void)willEnterForeground:(NSNotification*)notification;
 

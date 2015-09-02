@@ -2,7 +2,7 @@
 #import "UIImage+CustomUIImageEffect.h"
 #import "JTSImageInfo.h"
 #import "JTSImageViewController.h"
-
+#import "CRMotionView.h"
 @implementation UIImage (CustomUIImageEffect)
 
 //網路縮圖方法
@@ -64,6 +64,12 @@
                                            mode:JTSImageViewControllerMode_Image
                                            backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
     // Present the view controller.
+
+    
+    CRMotionView *motionView = [[CRMotionView alloc] initWithFrame:inputImageView.bounds];
+    [motionView setImage:[UIImage imageNamed:@"3.jpg"]];
+    [inputImageView addSubview:motionView];
+    
     [imageViewer showFromViewController:inputViewController transition:JTSImageViewControllerTransition_FromOriginalPosition];
 }
 

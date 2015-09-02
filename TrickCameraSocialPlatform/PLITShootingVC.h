@@ -18,8 +18,10 @@
 	PLITInfoView *_infoView;
 	UIActivityIndicatorView *_activityInd;
 	NSInteger _numShots;
+    __weak IBOutlet UIImageView *PanoCameraView;
 	UITapGestureRecognizer *_tapRecognizer;
 	NSTimer *_vibrationTimer;
+
 }
 
 @end

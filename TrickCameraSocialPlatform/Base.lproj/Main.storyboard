@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="-15362" y="1410"/>
         </scene>
-        <!--Panorama View Controller-->
+        <!--View Controller-->
         <scene sceneID="W4n-0V-eyg">
             <objects>
-                <viewController id="phx-Nb-S1N" customClass="PanoramaViewController" sceneMemberID="viewController">
+                <viewController id="phx-Nb-S1N" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZFP-Uk-3Bt"/>
                         <viewControllerLayoutGuide type="bottom" id="qRA-5F-ID7"/>
@@ -243,9 +243,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="PanoView" destination="In8-vZ-djZ" id="GNg-aF-fTX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTt-Dg-GrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bkg-1S-QqS" userLabel="Exit" sceneMemberID="exit"/>
@@ -844,9 +841,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="PanoCameraView" destination="gSm-EI-aqd" id="g3x-xL-OoR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kd-ju-iej" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mXl-X1-7hX" userLabel="Exit" sceneMemberID="exit"/>
@@ -856,7 +850,7 @@
         <!--相機-->
         <scene sceneID="jb7-tg-7ut">
             <objects>
-                <viewController storyboardIdentifier="cameraVC" id="96G-6X-ikE" customClass="CameraVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraVC" id="96G-6X-ikE" customClass="PLITShootingVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x1p-7B-CGa"/>
                         <viewControllerLayoutGuide type="bottom" id="ykc-2H-DH5"/>
@@ -869,49 +863,43 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="497"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVA-CH-XQS">
-                                <rect key="frame" x="26" y="524" width="32" height="30"/>
-                                <state key="normal" title="Take">
+                                <rect key="frame" x="26" y="524" width="40" height="30"/>
+                                <state key="normal" title="Share">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fY-YR-78x">
-                                <rect key="frame" x="126" y="524" width="68" height="30"/>
-                                <state key="normal" title="PanoView">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-Hm-aKv">
+                                <rect key="frame" x="247" y="524" width="37" height="30"/>
+                                <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="phx-Nb-S1N" kind="showDetail" id="Chf-Ea-tfG"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTd-uS-7R3">
-                                <rect key="frame" x="246" y="510" width="58" height="58"/>
-                                <state key="normal" image="PanoCamera.png">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-Hk-PUC">
+                                <rect key="frame" x="137" y="524" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="AFt-AF-er0" kind="showDetail" id="aYl-mJ-PBa"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3fY-YR-78x" firstAttribute="centerX" secondItem="eag-5l-QbJ" secondAttribute="centerX" id="1K7-2m-qEQ"/>
-                            <constraint firstItem="3fY-YR-78x" firstAttribute="baseline" secondItem="gVA-CH-XQS" secondAttribute="baseline" id="72C-Vr-FS2"/>
+                            <constraint firstItem="8Q2-Hm-aKv" firstAttribute="baseline" secondItem="FO4-Hk-PUC" secondAttribute="baseline" id="1VY-p7-7MR"/>
+                            <constraint firstItem="FO4-Hk-PUC" firstAttribute="leading" secondItem="gVA-CH-XQS" secondAttribute="trailing" constant="71" id="1Yk-jg-xJU"/>
+                            <constraint firstItem="ykc-2H-DH5" firstAttribute="top" secondItem="gVA-CH-XQS" secondAttribute="bottom" constant="14" id="7ET-bU-Pqc"/>
                             <constraint firstAttribute="trailing" secondItem="eag-5l-QbJ" secondAttribute="trailing" id="FQT-yp-DjH"/>
                             <constraint firstItem="eag-5l-QbJ" firstAttribute="leading" secondItem="ZAP-c1-MzH" secondAttribute="leading" id="Gdu-hT-foC"/>
-                            <constraint firstItem="ykc-2H-DH5" firstAttribute="top" secondItem="gVA-CH-XQS" secondAttribute="bottom" constant="14" id="JB2-kn-YL1"/>
+                            <constraint firstItem="gVA-CH-XQS" firstAttribute="leading" secondItem="ZAP-c1-MzH" secondAttribute="leadingMargin" constant="10" id="Hot-J5-Qsm"/>
                             <constraint firstItem="eag-5l-QbJ" firstAttribute="top" secondItem="ZAP-c1-MzH" secondAttribute="top" id="KHU-mR-2js"/>
-                            <constraint firstItem="kTd-uS-7R3" firstAttribute="trailing" secondItem="ZAP-c1-MzH" secondAttribute="trailingMargin" id="Wws-x0-ZWP"/>
-                            <constraint firstItem="gVA-CH-XQS" firstAttribute="leading" secondItem="ZAP-c1-MzH" secondAttribute="leadingMargin" constant="10" id="bLO-Ta-2g7"/>
+                            <constraint firstItem="8Q2-Hm-aKv" firstAttribute="leading" secondItem="FO4-Hk-PUC" secondAttribute="trailing" constant="75" id="buV-Jv-4n5"/>
                             <constraint firstItem="ykc-2H-DH5" firstAttribute="top" secondItem="eag-5l-QbJ" secondAttribute="bottom" constant="71" id="cN2-AR-m9q"/>
-                            <constraint firstItem="kTd-uS-7R3" firstAttribute="baseline" secondItem="3fY-YR-78x" secondAttribute="baseline" constant="24" id="klC-rN-FNb"/>
+                            <constraint firstItem="gVA-CH-XQS" firstAttribute="baseline" secondItem="FO4-Hk-PUC" secondAttribute="baseline" id="hDQ-ID-hTi"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="相機" image="compact_camera-50.png" id="NPq-XF-t4S"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="PanoCameraView" destination="eag-5l-QbJ" id="ZaX-4k-Jdm"/>
                         <outlet property="takeButton" destination="gVA-CH-XQS" id="ZZO-nn-XKp"/>
-                        <outlet property="viewContainer" destination="eag-5l-QbJ" id="OOG-86-zH0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt3-CK-IO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1707,7 +1695,6 @@
     <resources>
         <image name="20.jpeg" width="950" height="1425"/>
         <image name="FacebookBG + f.png" width="65" height="60"/>
-        <image name="PanoCamera.png" width="58" height="58"/>
         <image name="Sent 2.png" width="34" height="35"/>
         <image name="compact_camera-50.png" width="30" height="23"/>
         <image name="love 2.png" width="34" height="32"/>
