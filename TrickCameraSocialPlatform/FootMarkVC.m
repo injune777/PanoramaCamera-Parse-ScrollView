@@ -67,8 +67,6 @@
         [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
     
-    
-
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
     //設定精確度
@@ -94,8 +92,6 @@
     _myFootMap.mapType = MKMapTypeStandard;
     //顯示user當前位置
     _myFootMap.showsUserLocation = YES;
-    
-    
     
     //單例模式
     _pe = [ParseDBSource shared];
@@ -150,11 +146,11 @@
     return customPin;
 }
 
-//自動顯示大頭針Annotation
--(void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views{
-    MKPinAnnotationView *pinView = (MKPinAnnotationView*)[views lastObject];
-    [mapView selectAnnotation:pinView.annotation animated:YES];
-}
+////自動顯示大頭針Annotation
+//-(void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views{
+//    MKPinAnnotationView *pinView = (MKPinAnnotationView*)[views lastObject];
+//    [mapView selectAnnotation:pinView.annotation animated:YES];
+//}
 
 
 
@@ -165,15 +161,6 @@
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     //取user位置的最新一筆Coordinate(座標)
     _currentLocationCoordinate = [locations.lastObject coordinate];
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 //    //設置地圖的顯示範圍
