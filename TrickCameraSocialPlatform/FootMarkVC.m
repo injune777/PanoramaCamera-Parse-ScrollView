@@ -17,6 +17,7 @@
 
 #import "MyAnnotation.h"
 #import "UIImage+CustomUIImageEffect.h"
+#import "NSObject+SearchParse.h"
 
 
 
@@ -40,7 +41,6 @@
 //大頭針物件
 @property(nonatomic, strong) MKPointAnnotation *myPoint;
 
-@property(nonatomic, strong) ParseDBSource *pe;
 
 @property(nonatomic, strong) MyAnnotation *photoPoint;
 
@@ -48,15 +48,22 @@
 
 //大頭針陣列
 @property(nonatomic, strong) NSMutableArray *pointArray;
+@property(nonatomic, strong) NSMutableArray *parseDB;
 
 
-
+//getFocusUserAllPostPhotoWithUserI
 @end
 
 @implementation FootMarkVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    PFUser *currentUser = [PFUser currentUser];
+    //Parse抓指定user的資料
+    [NSObject getFocusUserAllPostPhotoWithUserID:currentUser.objectId completion:^(NSMutableArray *completion) {
+        _parseDB = completion;
+    }];
+    
     
     //Slide Bar Menu初始化
     _slideBarBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"slideBar.png"]
@@ -103,8 +110,8 @@
     _pointArray = [[NSMutableArray alloc] init];
     //單例模式
     NSInteger num = 0;
-    _pe = [ParseDBSource shared];
-    for (PFObject *obj in _pe.parseData) {
+    
+    for (PFObject *obj in _parseDB) {
         //大頭針初始化
         _photoPoint = [[MyAnnotation alloc] init];
         //取經緯度
@@ -205,10 +212,6 @@
 
 
 
-
-
-
-
 ////更新user經緯度-->私有方法
 //-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 //    //取user位置的最新一筆Coordinate(座標)
@@ -217,31 +220,4 @@
 ////    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
 ////    [_myFootMap setRegion:region animated:YES];
 //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
