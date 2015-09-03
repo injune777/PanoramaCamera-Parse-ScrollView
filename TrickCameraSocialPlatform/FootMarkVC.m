@@ -16,6 +16,7 @@
 #import <FBSDKCoreKit/FBSDKGraphRequest.h>
 
 #import "MyAnnotation.h"
+#import "UIImage+CustomUIImageEffect.h"
 
 
 
@@ -40,6 +41,13 @@
 @property(nonatomic, strong) MKPointAnnotation *myPoint;
 
 @property(nonatomic, strong) ParseDBSource *pe;
+
+@property(nonatomic, strong) MyAnnotation *photoPoint;
+
+@property(nonatomic) NSInteger *selectTag;
+
+//大頭針陣列
+@property(nonatomic, strong) NSMutableArray *pointArray;
 
 
 
@@ -83,8 +91,7 @@
     }
     //開始計算所在位地置的功能
     [_locationManager startUpdatingLocation];
-    
-    
+
     //地圖初始化
     //代理
     _myFootMap.delegate = self;
@@ -93,31 +100,49 @@
     //顯示user當前位置
     _myFootMap.showsUserLocation = YES;
     
+    _pointArray = [[NSMutableArray alloc] init];
     //單例模式
+    NSInteger num = 0;
     _pe = [ParseDBSource shared];
     for (PFObject *obj in _pe.parseData) {
         //大頭針初始化
-        MyAnnotation *photoPoint = [[MyAnnotation alloc] init];
+        _photoPoint = [[MyAnnotation alloc] init];
         //取經緯度
-        photoPoint.coordinate = CLLocationCoordinate2DMake([obj[@"postLocation"] latitude], [obj[@"postLocation"] longitude]);
-        photoPoint.title = [obj objectId];
-        photoPoint.otherInfo = @"kkk";
+        _photoPoint.coordinate = CLLocationCoordinate2DMake([obj[@"postLocation"] latitude], [obj[@"postLocation"] longitude]);
+        _photoPoint.title = obj[@"postState"];
+        _photoPoint.subtitle = [self retunPostDate:[obj createdAt]];
+        _photoPoint.tag = num;
         
         //原圖的縮略圖==>placeHolder
         PFFile *thumbnail = obj[@"photo"];
         NSData *imageData = [thumbnail getData];
         UIImage *thumbnailImage = [UIImage imageWithData:imageData];
-        photoPoint.photoImage = thumbnailImage;
-        
-        [_myFootMap addAnnotation:photoPoint];
+        thumbnailImage = [UIImage imageCompressWithSimple:thumbnailImage scaledToSizeWidth:50 scaledToSizeHeight:50];
+        _photoPoint.photoImage = thumbnailImage;
+        [_pointArray addObject:_photoPoint];
+        num++;
     }
+    [_myFootMap addAnnotations:_pointArray];
 }
 
 
+-(NSString*) retunPostDate:(NSDate*)postDateOfData{
+    //NSDate轉字符串-->發佈日期
+    NSDate *postDate = postDateOfData;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *currentDateString = [dateFormatter stringFromDate:postDate];
+    return currentDateString;
+}
 
 
 //負責顯示大頭針的UI
 -(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(MyAnnotation*)annotation{
+    
+    //如果是系統的大頭針，則return nil
+    if (annotation == _myFootMap.userLocation) {
+        return nil;
+    }
     
     //先到資源回收桶找有沒有不要使用的大頭針-->如果沒有則create一個新的大頭針
     MKPinAnnotationView *customPin = (MKPinAnnotationView*)[_myFootMap dequeueReusableAnnotationViewWithIdentifier:@"customPin"];
@@ -125,8 +150,8 @@
         customPin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"customPin"];
     }
     
-    
     if ([annotation isKindOfClass:[MyAnnotation class]]) {
+        customPin.tag = annotation.tag;
         customPin.canShowCallout = YES;
         customPin.animatesDrop = NO;
         customPin.annotation = annotation;
@@ -141,32 +166,57 @@
         theImageView.image = annotation.photoImage;
         customPin.leftCalloutAccessoryView = theImageView;
         customPin.animatesDrop = NO;
+        
+        //導航功能加入
+        //UIButtonTypeDetailDisclosure-->就是旁邊的驚嘆號
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        //用程式碼去實現Button的監聽
+        //forControlEvents-->參數是事件的種類
+        [rightButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        customPin.rightCalloutAccessoryView = rightButton;
     }
-    
     return customPin;
 }
 
-////自動顯示大頭針Annotation
-//-(void) mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views{
-//    MKPinAnnotationView *pinView = (MKPinAnnotationView*)[views lastObject];
-//    [mapView selectAnnotation:pinView.annotation animated:YES];
-//}
-
-
-
-
-
-
-//更新user經緯度-->私有方法
--(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    //取user位置的最新一筆Coordinate(座標)
-    _currentLocationCoordinate = [locations.lastObject coordinate];
-    
-    
-//    //設置地圖的顯示範圍
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
-//    [_myFootMap setRegion:region animated:YES];
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    NSLog(@"%ld", view.tag);
+    _selectTag = view.tag;
 }
+
+
+//導航按鈕-->地址轉經緯度後，開始導航(結合—>轉經緯度+導航)
+-(void)buttonPressed:(UIButton*)sender{
+    sender.tag = _selectTag;
+    
+    //拍照的經緯度-->目的地
+    CLLocationCoordinate2D coordias = [_pointArray[sender.tag] coordinate];
+    
+    //創造第2個MapItem—>導航用的專屬物件(屬於MapKit)-->目的地
+    MKPlacemark *targetPlace = [[MKPlacemark alloc] initWithCoordinate:coordias addressDictionary:nil];
+    //地圖導航用的物件-->目的地
+    MKMapItem *targetMapItem = [[MKMapItem alloc] initWithPlacemark:targetPlace];
+//    targetMapItem.name = _tmpRestaurant.name;
+    
+    //呼叫Apple Map後，可以帶參數過去
+    NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
+    //原地和指定地點的導航(單一指定位置)
+    [targetMapItem openInMapsWithLaunchOptions:options];
+}
+
+
+
+
+
+
+
+////更新user經緯度-->私有方法
+//-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+//    //取user位置的最新一筆Coordinate(座標)
+//    _currentLocationCoordinate = [locations.lastObject coordinate];
+////    //設置地圖的顯示範圍
+////    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
+////    [_myFootMap setRegion:region animated:YES];
+//}
 
 
 
