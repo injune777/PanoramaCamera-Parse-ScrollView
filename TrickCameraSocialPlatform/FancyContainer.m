@@ -51,7 +51,8 @@
         revealViewController.rearViewRevealWidth = 220;
         [_slideBarBtn setTarget:self.revealViewController];
         [_slideBarBtn setAction:@selector(revealToggle:)];
-        [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
+        //手勢-->取消掉，因為會影響Scroll的拖圖
+//        [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
     
     //FancyTBView controller

@@ -13,6 +13,7 @@
 //@property (weak, nonatomic) IBOutlet CRMotionView *fancyImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *fancyImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *fancyScrollView;
 
 //發佈者頭像
 @property (weak, nonatomic) IBOutlet UIImageView *personalImageView;

@@ -132,8 +132,6 @@
 
 
 
-
-
 //圖片放大動畫效果-->http://code4app.com/ios/%E7%82%B9%E8%B5%9E%E5%8A%A8%E7%94%BB/53e9cfa2933bf08a248b52d8
 +(void) animationScaleImage:(UIImage*)scaleImage scaleImageView:(UIImageView*)scaleImageView{
     scaleImageView.layer.contents = (id)scaleImage.CGImage;

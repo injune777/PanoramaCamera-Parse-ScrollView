@@ -260,22 +260,18 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     UIImage *thumbnailImage = [UIImage imageWithData:imageData];
     _pfImageview.image = thumbnailImage;
     [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
+    
+    //scroll view設定大小
+    _cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     //縮圖
     _cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
-                                                scaledToSizeWidth:320.0f
-                                               scaledToSizeHeight:150.0f];
+                                                scaledToSizeWidth:490.0f
+                                               scaledToSizeHeight:180.0f];
     
     
     
     
     
-//    _cell.fancyImageView.image = [UIImage imageCompressWithSimple:[UIImage imageNamed:@"3.jpeg"] scaledToSizeWidth:50.0f
-//                                               scaledToSizeHeight:50.0f];
-    
-
-
-    
-
     //設定大頭照
     _cell.personalImageView = [UIImageView imageViewWithClipCircle: _cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];

@@ -22,19 +22,39 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fG-g7-DmC" id="6Kg-yp-MAM">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Ng-UZE">
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqF-LK-mFf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                        </imageView>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Ng-UZE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="490" id="fuw-Qm-gbW"/>
+                                                        <constraint firstAttribute="height" constant="180" id="wq1-lw-kAq"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lMb-Ng-UZE" secondAttribute="trailing" id="OnZ-6v-fJr"/>
+                                                <constraint firstAttribute="height" constant="180" id="PxZ-gW-FlD"/>
+                                                <constraint firstItem="lMb-Ng-UZE" firstAttribute="top" secondItem="tqF-LK-mFf" secondAttribute="top" id="UlA-4B-Sdp"/>
+                                                <constraint firstItem="lMb-Ng-UZE" firstAttribute="leading" secondItem="tqF-LK-mFf" secondAttribute="leading" id="bj9-BJ-n8q"/>
+                                                <constraint firstAttribute="bottom" secondItem="lMb-Ng-UZE" secondAttribute="bottom" id="zK3-u7-aN0"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="delegate" destination="2V8-Yv-aRZ" id="IcI-WW-7fE"/>
+                                            </connections>
+                                        </scrollView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="lMb-Ng-UZE" secondAttribute="bottom" id="IKF-nH-8jF"/>
-                                        <constraint firstAttribute="trailing" secondItem="lMb-Ng-UZE" secondAttribute="trailing" id="MVQ-lY-VxT"/>
-                                        <constraint firstItem="lMb-Ng-UZE" firstAttribute="leading" secondItem="6Kg-yp-MAM" secondAttribute="leading" id="cZV-1p-Kam"/>
-                                        <constraint firstItem="lMb-Ng-UZE" firstAttribute="top" secondItem="6Kg-yp-MAM" secondAttribute="top" id="sg7-PW-FxU"/>
+                                        <constraint firstAttribute="trailing" secondItem="tqF-LK-mFf" secondAttribute="trailing" id="5RF-CN-uxj"/>
+                                        <constraint firstItem="tqF-LK-mFf" firstAttribute="leading" secondItem="6Kg-yp-MAM" secondAttribute="leading" id="US4-6Q-alv"/>
+                                        <constraint firstItem="tqF-LK-mFf" firstAttribute="top" secondItem="6Kg-yp-MAM" secondAttribute="top" id="cBn-nM-cuE"/>
+                                        <constraint firstAttribute="bottom" secondItem="tqF-LK-mFf" secondAttribute="bottom" id="xK7-ka-eCq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="fancyImageView" destination="lMb-Ng-UZE" id="xga-xk-XxH"/>
+                                    <outlet property="fancyScrollView" destination="tqF-LK-mFf" id="3eH-fd-C5I"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="45" id="LRa-vX-blM" customClass="FancyTBViewCell">
