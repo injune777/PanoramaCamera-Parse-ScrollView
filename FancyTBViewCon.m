@@ -27,8 +27,6 @@
 //轉轉轉
 #import <PQFCustomLoaders/PQFCustomLoaders.h>
 
-//動態相片
-#import "CRMotionView.h"
 
 
 
@@ -36,8 +34,7 @@
 @interface FancyTBViewCon ()<UIScrollViewDelegate, UIGestureRecognizerDelegate,
 UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
-//custom cell
-@property (nonatomic, strong) FancyTBViewCell *cell;
+
 //Gesture
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *fancyPictureGesture;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *likeGesture;
@@ -48,7 +45,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
 //parse and facebook 登入
 @property(nonatomic, strong) PFLogInViewController *controller;
-
 //Parse
 @property(nonatomic, strong) PFImageView *pfImageview;
 @property(nonatomic, strong) PFUser *user;
@@ -191,67 +187,84 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //取得各別的Cell的Identifier
     NSString *identifier = [NSString stringWithFormat:@"cell%ld", indexPath.row];
     //connetc custom TableViewCell
-    _cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    FancyTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     //手勢初始化
-    [self initGesture];
+//    [self initGesture];
+    //創造Tap手勢物件&加上單擊行為
+    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
+    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
+    _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
+    _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
+    _shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareGestureTapMotion:)];
+    _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
+    
+    //附著手勢物件
+    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
+    [cell.personalImageView addGestureRecognizer:_personalImageGesture];
+    [cell.likeImage addGestureRecognizer:_likeGesture];
+    [cell.messageImageView addGestureRecognizer:_messageGesture];
+    [cell.shareImage addGestureRecognizer:_shareGesture];
+    [cell.theNewMessage addGestureRecognizer:_theLongMessageGesture];
+    
+    
     
     //字型調整
-    [_cell.userName  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-    [_cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-//    [_cell.focusLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-    [_cell.postDate setFont:[UIFont fontWithName:@"Helvetica-Bold" size:10]];
-    [_cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [_cell.likeLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [_cell.messageLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [_cell.shareLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.userName  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
+    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+//    [cell.focusLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
+    [cell.postDate setFont:[UIFont fontWithName:@"Helvetica-Bold" size:10]];
+    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.likeLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.messageLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.shareLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
     
     //使uiimageview的陰影不影響Tableview的速度
-    _cell.layer.shouldRasterize = YES;
-    _cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     
     //Label對齊方式-最後一行自然對齊
-    _cell.theNewMessage.textAlignment = NSTextAlignmentJustified;
+    cell.theNewMessage.textAlignment = NSTextAlignmentJustified;
     
     //這裡要重新設計過
     //最新的一筆留言-->要先做空數組判斷，不然一定會crasth
     if ([_pe.parseData[indexPath.section][@"messageAry"] count] == 0) {
-        _cell.theNewMessage.text = @"留言";
+        cell.theNewMessage.text = @"留言";
     }else{
-        _cell.theNewMessage.text = _pe.parseData[indexPath.section][@"messageAry"][0][@"message"];
+        cell.theNewMessage.text = _pe.parseData[indexPath.section][@"messageAry"][0][@"message"];
     }
     
     
     //Post userName
-    _cell.userName.text = _pe.parseData[indexPath.section][@"userPID"][@"displayName"];
+    cell.userName.text = _pe.parseData[indexPath.section][@"userPID"][@"displayName"];
     //NSDate轉字符串-->發佈日期
     NSDate *postDate = [_pe.parseData[indexPath.section] createdAt];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *currentDateString = [dateFormatter stringFromDate:postDate];
-    _cell.postDate.text = currentDateString;
+    cell.postDate.text = currentDateString;
     
 
     //拍照地點
-    _cell.postState.text = _pe.parseData[indexPath.section][@"postState"];
+    cell.postState.text = _pe.parseData[indexPath.section][@"postState"];
     //留言的數量-NSNumber轉NSString
-    _cell.messageNumbers.text = [_pe.parseData[indexPath.section][@"messageNumbers"] stringValue];
+    cell.messageNumbers.text = [_pe.parseData[indexPath.section][@"messageNumbers"] stringValue];
     //喜歡數量
-    _cell.likeNumbers.text = [_pe.parseData[indexPath.section][@"likeNumbers"] stringValue];
+    cell.likeNumbers.text = [_pe.parseData[indexPath.section][@"likeNumbers"] stringValue];
     
     
     PFUser *meUser = [PFUser currentUser];
     NSString *outcome = _pe.parseData[indexPath.section][[meUser objectId]];
     //判斷目前user是否喜歡該張照片，如果是則是實心的，如果不是則是空心的
     if ([outcome isEqualToString:@"yes"]) {
-        _cell.likeImage.image = [UIImage imageNamed:@"love.png"];
+        cell.likeImage.image = [UIImage imageNamed:@"love.png"];
     }else{
-        _cell.likeImage.image = [UIImage imageNamed:@"love 2.png"];
+        cell.likeImage.image = [UIImage imageNamed:@"love 2.png"];
     }
     
 
     //最新發佈圖-陰影效果
-    _cell.fancyImageView = [UIImageView imageViewWithShadow:_cell.fancyImageView withColor:[UIColor blackColor]];
+    cell.fancyImageView = [UIImageView imageViewWithShadow:cell.fancyImageView withColor:[UIColor blackColor]];
     //Parse download
     _pfImageview = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
@@ -262,18 +275,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
     
     //scroll view設定大小
-    _cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
+    cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     //縮圖
-    _cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
+    cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                 scaledToSizeWidth:490.0f
                                                scaledToSizeHeight:180.0f];
     
     
-    
-    
-    
     //設定大頭照
-    _cell.personalImageView = [UIImageView imageViewWithClipCircle: _cell.personalImageView];
+    cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
     PFFile *thumbnail_head = _pe.parseData[indexPath.section][@"usrPID"][@"headPhoto"];
@@ -284,13 +294,13 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
     
     //縮圖
-    _cell.personalImageView.image = [UIImage imageCompressWithSimple:headPFimageView.image
+    cell.personalImageView.image = [UIImage imageCompressWithSimple:headPFimageView.image
                                                    scaledToSizeWidth:150.0f
                                                scaledToSizeHeight:150.0f];
     [headPFimageView loadInBackground];
     [_pfImageview loadInBackground];
     
-    return _cell;
+    return cell;
 }
 
 
@@ -304,23 +314,23 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 }
 
 //手勢初始化
--(void) initGesture{
-    //創造Tap手勢物件&加上單擊行為
-    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
-    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
-    _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
-    _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
-    _shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareGestureTapMotion:)];
-    _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
-
-    //附著手勢物件
-    [_cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
-    [_cell.personalImageView addGestureRecognizer:_personalImageGesture];
-    [_cell.likeImage addGestureRecognizer:_likeGesture];
-    [_cell.messageImageView addGestureRecognizer:_messageGesture];
-    [_cell.shareImage addGestureRecognizer:_shareGesture];
-    [_cell.theNewMessage addGestureRecognizer:_theLongMessageGesture];
-}
+//-(void) initGesture{
+//    //創造Tap手勢物件&加上單擊行為
+//    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
+//    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
+//    _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
+//    _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
+//    _shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareGestureTapMotion:)];
+//    _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
+//
+//    //附著手勢物件
+//    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
+//    [cell.personalImageView addGestureRecognizer:_personalImageGesture];
+//    [cell.likeImage addGestureRecognizer:_likeGesture];
+//    [cell.messageImageView addGestureRecognizer:_messageGesture];
+//    [cell.shareImage addGestureRecognizer:_shareGesture];
+//    [cell.theNewMessage addGestureRecognizer:_theLongMessageGesture];
+//}
 
 
 //fancyPictureGestureTapMotion

@@ -50,6 +50,7 @@
 		105DAB291B75F2FA003BAAEB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105DAB281B75F2FA003BAAEB /* CoreLocation.framework */; };
 		105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105DAB2B1B75F7B7003BAAEB /* SearchVCon.m */; };
 		105DAB2F1B75F7F8003BAAEB /* SearchTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105DAB2E1B75F7F8003BAAEB /* SearchTBCell.m */; };
+		106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A6FF11B9897EE00EE184A /* MyAnnotation.m */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -175,6 +176,8 @@
 		105DAB2B1B75F7B7003BAAEB /* SearchVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVCon.m; sourceTree = "<group>"; };
 		105DAB2D1B75F7F8003BAAEB /* SearchTBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTBCell.h; path = ../SearchTBCell.h; sourceTree = "<group>"; };
 		105DAB2E1B75F7F8003BAAEB /* SearchTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTBCell.m; path = ../SearchTBCell.m; sourceTree = "<group>"; };
+		106A6FF01B9897EE00EE184A /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		106A6FF11B9897EE00EE184A /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -611,6 +614,8 @@
 			children = (
 				10A4D8E61B93227800641528 /* FootMarkVC.h */,
 				10A4D8E71B93227800641528 /* FootMarkVC.m */,
+				106A6FF01B9897EE00EE184A /* MyAnnotation.h */,
+				106A6FF11B9897EE00EE184A /* MyAnnotation.m */,
 			);
 			name = 03_FootMark;
 			sourceTree = "<group>";
@@ -984,6 +989,7 @@
 				107E99C71B954E4B0080798A /* NSObject+BlurImageView.m in Sources */,
 				105652B21B65055500F57BC9 /* FancyTBViewCon.m in Sources */,
 				10A4D90A1B9390BD00641528 /* UIView+Borders.m in Sources */,
+				106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */,
 				104C07DF1B6FC62C002C2C22 /* MePersonalPageVCon.m in Sources */,
 				10A4D8CF1B92525F00641528 /* FBLikeLayout.m in Sources */,
 				109936061B8A766B00A6BD09 /* NSObject+SearchParse.m in Sources */,
