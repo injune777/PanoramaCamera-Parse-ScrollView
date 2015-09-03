@@ -25,7 +25,7 @@
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqF-LK-mFf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Ng-UZE">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMb-Ng-UZE">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="490" id="fuw-Qm-gbW"/>

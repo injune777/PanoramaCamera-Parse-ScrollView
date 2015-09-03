@@ -73,7 +73,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _bouncingBalls.fontSize = 20;
     
     
-    //Facebook登入的部份還要再處理-->有Bug嚴重
+    //Facebook登入的部份還要再處理-->設定部份
     //下拉更新文字屬性
     //Check if user is cached
     if (![PFUser currentUser] ||
@@ -112,6 +112,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             [_pe getPhotoAllMessages:nil];
         });
     }
+    
+    
     
     
     //自適化TableViewCell高度
@@ -190,9 +192,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     FancyTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     //手勢初始化
-//    [self initGesture];
+    //[self initGesture];
     //創造Tap手勢物件&加上單擊行為
-    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
+//    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
     _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
     _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
     _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
@@ -200,7 +202,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
     
     //附著手勢物件
-    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
+//    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
     [cell.personalImageView addGestureRecognizer:_personalImageGesture];
     [cell.likeImage addGestureRecognizer:_likeGesture];
     [cell.messageImageView addGestureRecognizer:_messageGesture];
@@ -313,38 +315,21 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     }
 }
 
-//手勢初始化
-//-(void) initGesture{
-//    //創造Tap手勢物件&加上單擊行為
-//    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
-//    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
-//    _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
-//    _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
-//    _shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareGestureTapMotion:)];
-//    _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
-//
-//    //附著手勢物件
-//    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
-//    [cell.personalImageView addGestureRecognizer:_personalImageGesture];
-//    [cell.likeImage addGestureRecognizer:_likeGesture];
-//    [cell.messageImageView addGestureRecognizer:_messageGesture];
-//    [cell.shareImage addGestureRecognizer:_shareGesture];
-//    [cell.theNewMessage addGestureRecognizer:_theLongMessageGesture];
-//}
 
 
 //fancyPictureGestureTapMotion
--(void)fancyPictureGestureTapMotion:(UIGestureRecognizer*)sender{
-    
-    UIImageView *selectedImageView=(UIImageView*)[sender view];
-    //取得NSIndexPath-->使用刺件的父物件的方法
-    NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
-    //因為返回的是UITableViewCell，所以要把她轉型為FancyTBviewCell
-    FancyTBViewCell *customCell =(FancyTBViewCell*)[self.tableView cellForRowAtIndexPath:myIndexPath];
-    //點擊照片跳出
+//-(void)fancyPictureGestureTapMotion:(UIGestureRecognizer*)sender{
+//    
+//    UIImageView *selectedImageView=(UIImageView*)[sender view];
+//    //取得NSIndexPath-->使用刺件的父物件的方法
+//    NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
+//    //因為返回的是UITableViewCell，所以要把她轉型為FancyTBviewCell
+//    FancyTBViewCell *customCell =(FancyTBViewCell*)[self.tableView cellForRowAtIndexPath:myIndexPath];
+//    //點擊照片跳出
 //    [UIImage createTapPictureJTSImageViewController:customCell.fancyImageView.image
 //                                 withInputImageView:customCell.fancyImageView withInputViewController:self];
-}
+//}
+
 
 //personalImageGestureTapMotion
 -(void)personalImageGestureTapMotion:(UIGestureRecognizer*)sender{
@@ -440,29 +425,36 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
 
 
-////parse and facebook 登入
-//-(void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//    //下拉更新文字屬性
-//    //Check if user is cached
-//    if (![PFUser currentUser] ||
-//        ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-//        // Check if user is linked to Facebook
-//        _controller = [[PFLogInViewController alloc] init];
-//        _controller.delegate = self;
-//        //設定欄位
-//        _controller.fields = PFLogInFieldsFacebook;
-//        [self presentViewController:_controller animated:YES completion:nil];
-//        
-//    }
-//}
-
 
 //Protocol-->登入完成時用
 //已經登錄的@protocol
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user{
     //取消登入畫面
     [self dismissViewControllerAnimated:YES completion:nil];
+    //Parse singleton 初始化
+    _pe = [ParseDBSource shared];
+    
+    //background thread-1
+    dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+    dispatch_async(bg1, ^{
+        //取得照片的all info
+        [_pe getParseData:^(NSMutableArray *pfObject) {
+            //取得主線程(main thread)
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //停止轉轉
+                [_bouncingBalls setHidden:YES];
+                [self.tableView reloadData];
+            });
+        }];
+    });
+    
+    //background thread-2
+    dispatch_queue_t bg2 = dispatch_queue_create("bg2", nil);
+    dispatch_async(bg2, ^{
+        //取得全部相片的各自全部留言-->回傳字典給DataSource
+        [_pe getPhotoAllMessages:nil];
+    });
+
 }
 
 

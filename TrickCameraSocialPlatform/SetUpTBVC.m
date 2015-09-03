@@ -46,9 +46,8 @@
         [_slideBarBtn setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
-
-
 }
+
 
 //是否可以儲存相片在本機
 - (IBAction)savePictureInLocal:(id)sender {

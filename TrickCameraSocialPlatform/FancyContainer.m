@@ -6,7 +6,6 @@
 #import "FancyTBViewCon.h"
 #import "PicWallCollectionVC.h"
 
-
 @interface FancyContainer ()
 
 
@@ -52,7 +51,7 @@
         [_slideBarBtn setTarget:self.revealViewController];
         [_slideBarBtn setAction:@selector(revealToggle:)];
         //手勢-->取消掉，因為會影響Scroll的拖圖
-//        [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
+        //[self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
     
     //FancyTBView controller
@@ -63,7 +62,6 @@
     //PicWall controller
     _picWallCon = [self.storyboard instantiateViewControllerWithIdentifier:@"picWall"];
     [self addChildViewController:_picWallCon];
-   
 }
 
 
@@ -85,14 +83,5 @@
         _fancySwitch = YES;
     }
 }
-
-
-
-
-
-
-
-
-
 
 @end
