@@ -104,9 +104,12 @@
         infoViewSubFrame = CGRectOffset(infoViewFrame, 0, frame.size.height-infoViewFrame.origin.y-infoViewFrame.size.height-20.f);
     }
     UIButton *myButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];//生成一個圓角距形 Button
-    [myButton setFrame:CGRectMake(30 , 38, 60, 60)];//設定位置大小，大約是中偏上，width 120
-    [myButton setTitle:@"Back" forState:UIControlStateNormal]; //設定為顯示 Click，一般狀態顯示
+    [myButton setFrame:CGRectMake(15 , 15, 54, 54)];//設定位置大小，大約是中偏上，width 120
+//    [myButton setTitle:@"Back" forState:UIControlStateNormal]; //設定為顯示 Click，一般狀態顯示
     [myButton addTarget:self action:@selector(BackToRootView) forControlEvents:UIControlEventTouchUpInside];
+    UIImage *Goback =[UIImage imageNamed:@"Back.png"];
+//    [myButton setImage:Goback forState:UIControlStateNormal];
+    [myButton setBackgroundImage:Goback forState:UIControlStateNormal];
     [aView addSubview:myButton]; // 加到 self.view 中
     
     _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapped:)];
