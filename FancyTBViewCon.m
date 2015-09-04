@@ -30,7 +30,6 @@
 
 
 
-
 @interface FancyTBViewCon ()<UIScrollViewDelegate, UIGestureRecognizerDelegate,
 UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 

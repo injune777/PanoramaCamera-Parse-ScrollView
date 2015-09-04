@@ -1,10 +1,3 @@
-//
-//  PLITViewerVC.m
-//  Pano Lite
-//
-//  Created by Elias Khoury on 5/22/13.
-//  Copyright (c) 2013 Dermandar (Offshore) S.A.L. All rights reserved.
-//
 
 #import "PLITViewerVC.h"
 #import "PLITViewerVC+Controls.h"
@@ -17,6 +10,8 @@
 #import "PFLogInViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import "LocationManager.h"
+
 
 
 #define TMP_DIR [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"DMD_tmp"]
@@ -27,6 +22,8 @@
 - (void)setHideTimer:(NSTimeInterval)ti;
 - (void)hideNavBar:(NSTimer*)theTimer;
 - (void)showNavBar:(UIGestureRecognizer*)gestureRecognizer;
+
+@property(nonatomic, strong) LocationManager *locationManager;
 @end
 
 @implementation PLITViewerVC
@@ -57,7 +54,14 @@
 	[_panoViewer addGestureRecognizer:singleFingerTap];
 	
 	self.view = _panoViewer;
+    
+    //初始化地理管理員
+    _locationManager = [[LocationManager alloc] init];
+    
+    
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -155,14 +159,24 @@
     //把NSData轉為PFFile
     PFFile *photoFile = [PFFile fileWithData:imageData];
     //經緯度物件
-    //     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:40.0 longitude:-30.0];
+    CLLocationCoordinate2D coor = [_locationManager getCoordinate];
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:coor.latitude longitude:coor.longitude];
     
-    //開始上傳圖片 to parse
-    PFObject *userPhoto = [PFObject objectWithClassName:@"Photos"];
-    userPhoto[@"userPID"] = currentUser;
-    userPhoto[@"photo"] = photoFile;
-    //     userPhoto[@"postLocation"] = point;
-    [userPhoto saveInBackground];
+    
+    [_locationManager LocationZipCodeWithLatitude:coor.latitude withLongitude:coor.longitude withCompletion:^(CLPlacemark *placemark) {
+        
+        //開始上傳圖片 to parse
+        PFObject *userPhoto = [PFObject objectWithClassName:@"Photos"];
+        userPhoto[@"userPID"] = currentUser;
+        userPhoto[@"photo"] = photoFile;
+        userPhoto[@"postLocation"] = point;
+        userPhoto[@"postState"] = placemark.locality;
+        [userPhoto saveInBackground];
+    }];
+    
+    
+
+    
     
 }
 - (void)continueShooting:(id)sender
