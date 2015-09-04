@@ -79,6 +79,10 @@
     _currentLocationCoordinate = [locations.lastObject coordinate];
 }
 
+//取得經緯度
+-(CLLocationCoordinate2D) getCoordinate{
+    return _currentLocationCoordinate;
+}
 
 
 @end

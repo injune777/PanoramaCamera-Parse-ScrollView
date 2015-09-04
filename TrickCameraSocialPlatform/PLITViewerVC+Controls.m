@@ -1,10 +1,4 @@
-//
-//  PLITViewerVC+Controls.m
-//  Pano Lite
-//
-//  Created by Elias Khoury on 5/29/13.
-//  Copyright (c) 2013 Dermandar (Offshore) S.A.L. All rights reserved.
-//
+
 
 #import "PLITViewerVC+Controls.h"
 #import "PLITShootingVC.h"
@@ -15,6 +9,9 @@
 #import <FBSDKCoreKit/FBSDKGraphRequest.h>
 #import "PFLogInViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+
+
 #define TMP_DIR [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"DMD_tmp"]
 
 @implementation PLITViewerVC (Controls)
@@ -38,6 +35,8 @@
     nav.topViewController.navigationItem.backBarButtonItem  = goback;
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
 }
+
+
 -(void)goBackToMain:(id)sender
 {
 [self.navigationController popViewControllerAnimated:YES];
@@ -49,20 +48,21 @@
     [[Monitor instance] genEquiAt:ename withHeight:800 andWidth:0 andMaxWidth:0];
     UIImage *aimage = [UIImage imageWithData:[NSData dataWithContentsOfFile:ename]];
      //user物件
-     //    PFUser *currentUser =  [NSObject getOneUserInfo:@"RbUnhp98yE"];
      //取得目前的user
      PFUser *currentUser = [PFUser currentUser];
      //取得image
-     //    UIImage *myImage = [UIImage imageNamed:@"111.jpeg"];
      //轉為NSData並壓縮-->第2個參數為壓縮係數
      NSData *imageData = UIImageJPEGRepresentation(aimage, 0.3f);
      //把NSData轉為PFFile
      PFFile *photoFile = [PFFile fileWithData:imageData];
-     
+    //經緯度物件
+//     PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:40.0 longitude:-30.0];
+    
      //開始上傳圖片 to parse
      PFObject *userPhoto = [PFObject objectWithClassName:@"Photos"];
      userPhoto[@"userPID"] = currentUser;
      userPhoto[@"photo"] = photoFile;
+//     userPhoto[@"postLocation"] = point;
      [userPhoto saveInBackground];
 
 }

@@ -14,4 +14,7 @@
 -(void) calculateDistanceWithRestaurantLatitude:(double)latitude
                         withRestaurantLongitude:(double)longtitude
                                  withCompletion:(void(^)(CLLocationDistance meters))completion;
+
+
+-(CLLocationCoordinate2D) getCoordinate;
 @end

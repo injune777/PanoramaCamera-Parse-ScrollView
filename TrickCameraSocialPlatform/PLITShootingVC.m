@@ -294,6 +294,7 @@
              }
          }
      }];
+    
 //    UIImage *aimage = [UIImage imageWithData:[NSData dataWithContentsOfFile:ename]];
 //    //user物件
 //    //    PFUser *currentUser =  [NSObject getOneUserInfo:@"RbUnhp98yE"];

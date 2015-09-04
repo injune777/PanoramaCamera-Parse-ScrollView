@@ -39,26 +39,27 @@
                 NSArray *messageAry = [NSObject getFocusPhotoIDToMessage:tempObj.objectId];
                 [tempObj setObject:messageAry forKey:@"messageAry"];
                 //取得是否喜歡該照片
-                [NSObject getFocusUserLikeWithPhotoID:tempObj.objectId withUserID:meID completion:^(NSString *completion) {
-                    if ([completion isEqualToString:@"yes"]) {
-                        [tempObj setObject:@"yes" forKey:meID];
-                    }else{
-                        [tempObj setObject:@"no" forKey:meID];
-                    }
-                    [tempObj saveInBackground];
-                    [tempObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                        [tempAry addObject:tempObj];
-                        if (completion) {
-                            //轉型為NSMutableArray
-                            completions((NSMutableArray*)tempAry);
+                [NSObject getFocusUserLikeWithPhotoID:tempObj.objectId withUserID:meID completion:^(NSString *completion){
+                    dispatch_queue_t bg2 = dispatch_queue_create("bg2", nil);
+                    dispatch_async(bg2, ^{
+                        if ([completion isEqualToString:@"yes"]) {
+                            [tempObj setObject:@"yes" forKey:meID];
+                        }else{
+                            [tempObj setObject:@"no" forKey:meID];
                         }
-                    }];
+                        [tempObj saveInBackground];
+                        [tempObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                            [tempAry addObject:tempObj];
+                            if (completion) {
+                                //轉型為NSMutableArray
+                                completions((NSMutableArray*)tempAry);
+                            }
+                        }];
+                    });
                 }];
             }
         });
     }];
-    
-    
 }
 
 

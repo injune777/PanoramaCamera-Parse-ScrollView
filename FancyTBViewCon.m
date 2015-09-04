@@ -97,6 +97,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             //取得照片的all info
             [_pe getParseData:^(NSMutableArray *pfObject) {
                 //取得主線程(main thread)
+                
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //停止轉轉
                     [_bouncingBalls setHidden:YES];
@@ -157,6 +159,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     dispatch_async(bg1, ^{
         //取得照片的all info
         [_pe getParseData:^(NSMutableArray *pfObject) {
+            
             //取得主線程(main thread)
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -190,6 +193,14 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     NSString *identifier = [NSString stringWithFormat:@"cell%ld", indexPath.row];
     //connetc custom TableViewCell
     FancyTBViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[FancyTBViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+
+    
+    
+    
     
     //手勢初始化
     //[self initGesture];
@@ -228,6 +239,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //Label對齊方式-最後一行自然對齊
     cell.theNewMessage.textAlignment = NSTextAlignmentJustified;
     
+    
     //這裡要重新設計過
     //最新的一筆留言-->要先做空數組判斷，不然一定會crasth
     if ([_pe.parseData[indexPath.section][@"messageAry"] count] == 0) {
@@ -265,8 +277,11 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     }
     
 
+
     //最新發佈圖-陰影效果
     cell.fancyImageView = [UIImageView imageViewWithShadow:cell.fancyImageView withColor:[UIColor blackColor]];
+    
+    
     //Parse download
     _pfImageview = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
@@ -276,13 +291,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _pfImageview.image = thumbnailImage;
     [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
     
+    
     //scroll view設定大小
     cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
-                                                scaledToSizeWidth:490.0f
-                                               scaledToSizeHeight:180.0f];
-    
+                                               scaledToSizeWidth:490.0f
+                                              scaledToSizeHeight:180.0f];
+
+
     
     //設定大頭照
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
@@ -314,6 +331,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         self.navigationController.navigationBarHidden = NO;
     }
 }
+
+
 
 
 
@@ -454,10 +473,50 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         //取得全部相片的各自全部留言-->回傳字典給DataSource
         [_pe getPhotoAllMessages:nil];
     });
+    
+    //background thread-3
+    dispatch_queue_t bg3 = dispatch_queue_create("bg3", nil);
+    dispatch_async(bg3, ^{
+        [self getFaceBookData];
+    });
 
 }
 
-
+-(void) getFaceBookData{
+    //取得Facebook資料
+        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                // result is a dictionary with the user's Facebook data
+                NSDictionary *userData = (NSDictionary *)result;
+                NSString *facebookID = userData[@"id"];
+//                NSString *name = userData[@"name"];
+                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+                [NSURLConnection sendAsynchronousRequest:urlRequest
+                                                   queue:[NSOperationQueue mainQueue]
+                                       completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+                                           if (connectionError == nil && data != nil) {
+//                                               self.navigationItem.title = name;
+                                               UIImage *image = [UIImage imageWithData:data];
+//                                               _headPictureImageView.image = [UIImage imageCompressWithSimple:image
+//                                                                                            scaledToSizeWidth:150.0f
+//                                                                                           scaledToSizeHeight:150.0f];
+                                               //上傳大頭照到Parse
+                                               PFUser *user = [PFUser currentUser];
+                                               NSData *imageData = UIImagePNGRepresentation(image);
+                                               PFFile *photosFile = [PFFile fileWithData:imageData];
+                                               [photosFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                   if (succeeded) {
+                                                       user[@"headPhoto"] = photosFile;
+                                                       [user saveInBackground];
+                                                   }
+                                               }];
+                                           }
+                                       }];
+                }
+            }];
+}
 
 
 
