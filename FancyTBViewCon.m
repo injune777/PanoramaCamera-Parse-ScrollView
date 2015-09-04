@@ -280,6 +280,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //最新發佈圖-陰影效果
     cell.fancyImageView = [UIImageView imageViewWithShadow:cell.fancyImageView withColor:[UIColor blackColor]];
     
+    //scroll view設定大小
+    cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     
     //Parse download
     _pfImageview = [[PFImageView alloc] init];
@@ -290,16 +292,14 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _pfImageview.image = thumbnailImage;
     [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
     
-    
-    //scroll view設定大小
-    cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
+
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                scaledToSizeWidth:490.0f
                                               scaledToSizeHeight:180.0f];
-
-
     
+    
+
     //設定大頭照
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];
@@ -315,12 +315,28 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     cell.personalImageView.image = [UIImage imageCompressWithSimple:headPFimageView.image
                                                    scaledToSizeWidth:150.0f
                                                scaledToSizeHeight:150.0f];
+    
     [headPFimageView loadInBackground];
     [_pfImageview loadInBackground];
     
     return cell;
 }
 
+
+-(void)getParsePhoto:(PFFile*)photoFile complection:(void(^)(UIImage* image))complection{
+    
+        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+        dispatch_async(bg1, ^{
+
+            [photoFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+                if (!error) {
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    complection(image);
+                }
+            }];
+        });
+    
+}
 
 //往上滑動時隱藏NavigationBar-->delegate
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{

@@ -51,6 +51,7 @@
 		105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 105DAB2B1B75F7B7003BAAEB /* SearchVCon.m */; };
 		105DAB2F1B75F7F8003BAAEB /* SearchTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105DAB2E1B75F7F8003BAAEB /* SearchTBCell.m */; };
 		106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A6FF11B9897EE00EE184A /* MyAnnotation.m */; };
+		106A6FF51B99A01800EE184A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD81B95F78100032C14 /* Foundation.framework */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -107,7 +108,6 @@
 		4A85ECD31B95F76B00032C14 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD21B95F76B00032C14 /* MobileCoreServices.framework */; };
 		4A85ECD51B95F77300032C14 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD41B95F77300032C14 /* CoreVideo.framework */; };
 		4A85ECD71B95F77900032C14 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD61B95F77900032C14 /* AVFoundation.framework */; };
-		4A85ECD91B95F78100032C14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD81B95F78100032C14 /* Foundation.framework */; };
 		4A85ECDB1B95F7A000032C14 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDA1B95F7A000032C14 /* AssetsLibrary.framework */; };
 		4A85ECDD1B95F7A800032C14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDC1B95F7A700032C14 /* SystemConfiguration.framework */; };
 		4A85ECDF1B95F7C500032C14 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDE1B95F7C500032C14 /* OpenGLES.framework */; };
@@ -289,12 +289,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106A6FF51B99A01800EE184A /* Foundation.framework in Frameworks */,
 				107C448E1B6E113F00809DBF /* CoreGraphics.framework in Frameworks */,
 				4A85ECDF1B95F7C500032C14 /* OpenGLES.framework in Frameworks */,
 				1045324E1B7B8B0E006C6F0C /* QuartzCore.framework in Frameworks */,
 				4A85ECDD1B95F7A800032C14 /* SystemConfiguration.framework in Frameworks */,
 				4A85ECDB1B95F7A000032C14 /* AssetsLibrary.framework in Frameworks */,
-				4A85ECD91B95F78100032C14 /* Foundation.framework in Frameworks */,
 				4A85ECD71B95F77900032C14 /* AVFoundation.framework in Frameworks */,
 				4A85ECD51B95F77300032C14 /* CoreVideo.framework in Frameworks */,
 				4A85ECD31B95F76B00032C14 /* MobileCoreServices.framework in Frameworks */,

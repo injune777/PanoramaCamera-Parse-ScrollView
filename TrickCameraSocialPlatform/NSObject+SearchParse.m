@@ -47,7 +47,9 @@
                         }else{
                             [tempObj setObject:@"no" forKey:meID];
                         }
-                        [tempObj saveInBackground];
+                        
+                        //有問題
+//                        [tempObj saveInBackground];
                         [tempObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                             [tempAry addObject:tempObj];
                             if (completion) {

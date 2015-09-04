@@ -57,7 +57,7 @@
                                     <outlet property="fancyScrollView" destination="tqF-LK-mFf" id="3eH-fd-C5I"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="45" id="LRa-vX-blM" customClass="FancyTBViewCell">
+                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell1" rowHeight="45" id="LRa-vX-blM" customClass="FancyTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LRa-vX-blM" id="9Yn-Hw-vop">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -93,7 +93,7 @@
                                     <outlet property="userName" destination="yk8-hR-dD6" id="XOd-jn-Rpx"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="44" id="iGM-Zg-7Hr" customClass="FancyTBViewCell">
+                            <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell2" rowHeight="44" id="iGM-Zg-7Hr" customClass="FancyTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iGM-Zg-7Hr" id="j6J-tn-Yv7">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -117,7 +117,7 @@
                                     <outlet property="theNewMessage" destination="PRS-gU-3bG" id="ZzY-cE-wg7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="40" id="mTi-Zb-g8X" customClass="FancyTBViewCell">
+                            <tableViewCell tag="3" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell3" rowHeight="40" id="mTi-Zb-g8X" customClass="FancyTBViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mTi-Zb-g8X" id="0UV-uT-Mpv">
                                     <autoresizingMask key="autoresizingMask"/>
