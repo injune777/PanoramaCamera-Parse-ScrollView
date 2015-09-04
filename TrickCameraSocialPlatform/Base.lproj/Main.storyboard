@@ -1236,6 +1236,20 @@
                                             <segue destination="I55-Kd-Qoo" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Wfx-nM-P5a"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="9s1-eg-NL4">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9s1-eg-NL4" id="Zbx-Ee-LdJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="探索" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgO-Pi-tda">
+                                                    <rect key="frame" x="19" y="19" width="134" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" red="0.50196081399917603" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="61" id="dLH-RV-eQr">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1298,6 +1312,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cameraLbl" destination="fSP-Td-1DD" id="bnb-e6-jcg"/>
+                        <outlet property="discoverLbl" destination="fgO-Pi-tda" id="nCV-l4-KHN"/>
                         <outlet property="footLbl" destination="32l-fP-f3e" id="wG7-dI-A3U"/>
                         <outlet property="homeLbl" destination="K0H-S9-hmc" id="UIq-xk-sNy"/>
                         <outlet property="setUpLbl" destination="alr-YC-pZQ" id="VVb-JX-Gle"/>
