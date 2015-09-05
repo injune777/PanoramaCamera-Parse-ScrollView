@@ -52,6 +52,9 @@
 		105DAB2F1B75F7F8003BAAEB /* SearchTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 105DAB2E1B75F7F8003BAAEB /* SearchTBCell.m */; };
 		106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A6FF11B9897EE00EE184A /* MyAnnotation.m */; };
 		106A6FF51B99A01800EE184A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD81B95F78100032C14 /* Foundation.framework */; };
+		106A70281B9A432E00EE184A /* 1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 106A70231B9A432E00EE184A /* 1@2x.jpg */; };
+		106A702F1B9AC72400EE184A /* DiscoverTBC.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A702E1B9AC72400EE184A /* DiscoverTBC.m */; };
+		106A70321B9AC76B00EE184A /* DiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70311B9AC76B00EE184A /* DiscoverCell.m */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -178,6 +181,11 @@
 		105DAB2E1B75F7F8003BAAEB /* SearchTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTBCell.m; path = ../SearchTBCell.m; sourceTree = "<group>"; };
 		106A6FF01B9897EE00EE184A /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		106A6FF11B9897EE00EE184A /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		106A70231B9A432E00EE184A /* 1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1@2x.jpg"; sourceTree = "<group>"; };
+		106A702D1B9AC72400EE184A /* DiscoverTBC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTBC.h; sourceTree = "<group>"; };
+		106A702E1B9AC72400EE184A /* DiscoverTBC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTBC.m; sourceTree = "<group>"; };
+		106A70301B9AC76B00EE184A /* DiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverCell.h; sourceTree = "<group>"; };
+		106A70311B9AC76B00EE184A /* DiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverCell.m; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -543,6 +551,7 @@
 		107E0F1B1B4A5B2F004664C8 /* TrickCameraSocialPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				106A70231B9A432E00EE184A /* 1@2x.jpg */,
 				100888101B72832A007674DD /* API */,
 				105652B41B65056300F57BC9 /* View */,
 				105652B51B65056900F57BC9 /* Controller */,
@@ -623,6 +632,10 @@
 		10A4D8E01B931F8300641528 /* 02_Discovery */ = {
 			isa = PBXGroup;
 			children = (
+				106A702D1B9AC72400EE184A /* DiscoverTBC.h */,
+				106A702E1B9AC72400EE184A /* DiscoverTBC.m */,
+				106A70301B9AC76B00EE184A /* DiscoverCell.h */,
+				106A70311B9AC76B00EE184A /* DiscoverCell.m */,
 			);
 			name = 02_Discovery;
 			sourceTree = "<group>";
@@ -883,6 +896,7 @@
 				4A85ECE71B95FF5B00032C14 /* Back.png in Resources */,
 				105AD36D1B771A4D001739C0 /* navigationbar@2x.png in Resources */,
 				10BFA2541B87AF6700FE719F /* photo-placeholder.png in Resources */,
+				106A70281B9A432E00EE184A /* 1@2x.jpg in Resources */,
 				100888321B729BDA007674DD /* share@1x.png in Resources */,
 				10D2FD9C1B69540500D1C0B1 /* pictureWall@1x.png in Resources */,
 				100888361B729BDA007674DD /* message@3x.png in Resources */,
@@ -948,6 +962,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				107E0F221B4A5B2F004664C8 /* AppDelegate.m in Sources */,
+				106A702F1B9AC72400EE184A /* DiscoverTBC.m in Sources */,
 				105DAB241B75EC82003BAAEB /* InforTBCon.m in Sources */,
 				10D2FD8D1B69453A00D1C0B1 /* FancyContainer.m in Sources */,
 				10D084771B689ADB00BD0463 /* PicWallCollectionCell.m in Sources */,
@@ -986,6 +1001,7 @@
 				1045325B1B7B9556006C6F0C /* SetUpTBVC.m in Sources */,
 				105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */,
 				4A85ECB81B95EE1C00032C14 /* CRZoomScrollView.m in Sources */,
+				106A70321B9AC76B00EE184A /* DiscoverCell.m in Sources */,
 				107E99C71B954E4B0080798A /* NSObject+BlurImageView.m in Sources */,
 				105652B21B65055500F57BC9 /* FancyTBViewCon.m in Sources */,
 				10A4D90A1B9390BD00641528 /* UIView+Borders.m in Sources */,

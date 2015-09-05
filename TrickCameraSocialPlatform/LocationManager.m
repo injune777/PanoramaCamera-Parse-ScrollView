@@ -33,6 +33,7 @@
             //如果是當使用時授權的方式，這裡要用-->.....When......
             [_myLocationManager requestAlwaysAuthorization];
         }
+        
         //開始計算所在位地置的功能
         [_myLocationManager startUpdatingLocation];
 
