@@ -115,7 +115,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     }
     
     
-    
+//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
     
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0f;
