@@ -130,12 +130,7 @@
     //設定文字的粗體和大小
     cell.kmLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     
-//    cell.theImageView = [UIImageView imageViewWithShadow:cell.theImageView withColor:[UIColor blackColor]];
-//    //圖片栽剪成圓形
-//    cell.theImageView.layer.cornerRadius = cell.theImageView.frame.size.width/2;
-//    cell.theImageView.clipsToBounds = YES;
-    
-    
+  
     cell.nameLbl.text = _nearMeParse[indexPath.row][@"Name"];
     NSString *urlStr = [_nearMeParse[indexPath.row][@"Picture1"]
                         stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -155,11 +150,6 @@
                                    withCompletion:^(CLLocationDistance meters) {
                                        cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
                                    }];
-    //縮圖
-    //cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
-    //                                               scaledToSizeWidth:490.0f
-    //                                              scaledToSizeHeight:180.0f];
-
     
     return cell;
 }
