@@ -1050,7 +1050,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oED-wk-IWI">
-                                                    <rect key="frame" x="80" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="80" y="11" width="232" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1076,9 +1076,9 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oED-wk-IWI" secondAttribute="trailing" constant="190" id="2Ob-ZY-V96"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="oED-wk-IWI" secondAttribute="bottom" constant="3" id="5m3-c0-YHt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Th5-o8-LWy" secondAttribute="bottom" constant="2" id="7aA-Sh-gBn"/>
+                                                <constraint firstItem="oED-wk-IWI" firstAttribute="trailing" secondItem="LXy-EH-ale" secondAttribute="trailingMargin" id="8Rc-H7-GZR"/>
                                                 <constraint firstItem="oED-wk-IWI" firstAttribute="top" secondItem="LXy-EH-ale" secondAttribute="topMargin" constant="3" id="F7y-Sk-2AU"/>
                                                 <constraint firstItem="Th5-o8-LWy" firstAttribute="top" secondItem="LXy-EH-ale" secondAttribute="topMargin" constant="3" id="PNF-KH-xma"/>
                                                 <constraint firstItem="Th5-o8-LWy" firstAttribute="leading" secondItem="LXy-EH-ale" secondAttribute="leadingMargin" id="PfB-Zo-DkR"/>
@@ -1087,7 +1087,29 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="special" destination="oED-wk-IWI" id="CPR-5m-EfJ"/>
+                                            <outlet property="testdd" destination="oED-wk-IWI" id="zTT-eX-2Je"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell4" id="RQq-uZ-esM" customClass="DetailCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQq-uZ-esM" id="ANz-kW-0mf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgb-wa-BX9">
+                                                    <rect key="frame" x="8" y="11" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xgb-wa-BX9" secondAttribute="bottom" constant="3" id="8o2-Ck-48m"/>
+                                                <constraint firstItem="Xgb-wa-BX9" firstAttribute="leading" secondItem="ANz-kW-0mf" secondAttribute="leadingMargin" id="GHX-WD-g5C"/>
+                                                <constraint firstItem="Xgb-wa-BX9" firstAttribute="top" secondItem="ANz-kW-0mf" secondAttribute="topMargin" constant="3" id="JHv-60-tBw"/>
+                                                <constraint firstItem="Xgb-wa-BX9" firstAttribute="trailing" secondItem="ANz-kW-0mf" secondAttribute="trailingMargin" id="LKL-sS-XhG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1136,7 +1158,7 @@
             </objects>
             <point key="canvasLocation" x="-15913" y="672"/>
         </scene>
-        <!--美景-->
+        <!--DiscoverTBC-->
         <scene sceneID="HRN-jN-Dzd">
             <objects>
                 <tableViewController storyboardIdentifier="detailVC" id="srM-lz-n1A" customClass="DiscoverTBC" sceneMemberID="viewController">
@@ -1224,7 +1246,17 @@
                             <outlet property="delegate" destination="srM-lz-n1A" id="mC9-qu-QB6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="美景" id="EbS-RN-MQf"/>
+                    <navigationItem key="navigationItem" id="EbS-RN-MQf">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="jMV-wf-cZJ">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="附近"/>
+                                <segment title="全部"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHk-fv-HEA" userLabel="First Responder" sceneMemberID="firstResponder"/>

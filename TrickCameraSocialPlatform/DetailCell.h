@@ -8,5 +8,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UILabel *special;
+@property (weak, nonatomic) IBOutlet UILabel *testdd;
 
 @end
