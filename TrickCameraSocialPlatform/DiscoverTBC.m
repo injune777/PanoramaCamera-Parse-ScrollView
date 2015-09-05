@@ -170,7 +170,6 @@
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     //取user位置的最新一筆Coordinate(座標)
     _currentLocationCoordinate = [locations.lastObject coordinate];
-    NSLog(@"%@", locations.firstObject);
 }
 
 
