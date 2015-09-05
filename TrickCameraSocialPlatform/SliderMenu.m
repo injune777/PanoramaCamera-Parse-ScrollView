@@ -37,11 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        UIImage *backGroundImage = [UIImage imageNamed:@"sky.png"];
-//    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.png"]];
-//    [tempImageView setFrame:self.tableView.frame];
-//    
-//    self.tableView.backgroundView = tempImageView;
+        UIImage *backGroundImage = [UIImage imageNamed:@"sky2.png"];
     
     
     
@@ -70,7 +66,7 @@
     [pfImageview setFile:currentUser[@"headPhoto"]];
     _userPicture.image = pfImageview.image;
     [pfImageview loadInBackground];
-    
+   
     //縮圖
     _userPicture.image = [UIImage imageCompressWithSimple:pfImageview.image scaledToSizeWidth:200.0f scaledToSizeHeight:200.0f];
     
@@ -108,7 +104,7 @@
 //    }
     if (indexPath.row == 0) {
 
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood2.jpg"]];
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.png"]];
     }
 
     cell.backgroundColor = [UIColor clearColor];
