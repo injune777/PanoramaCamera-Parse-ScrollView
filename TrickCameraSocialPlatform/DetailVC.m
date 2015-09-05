@@ -7,6 +7,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "UIImageView+WebCache.h"
 #import "LocationManager.h"
+#import "WebViewController.h"
 
 @interface DetailVC ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -90,6 +91,20 @@
                                         //地圖附加大頭針
                                         [_detailMap addAnnotation:myPoint];
                                     }];
+    
+    if ([_detailObj[@"Website"] length] > 0) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"inter.png"]
+                                                       style:UIBarButtonItemStyleDone
+                                                      target:self action:@selector(interButton:)];
+        [rightButton setTintColor:[UIColor orangeColor]];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+}
+
+-(void)interButton:(id)sender{
+    WebViewController *webVC = [self.storyboard instantiateViewControllerWithIdentifier:@"webVC"];
+    webVC.webURL = _detailObj[@"Website"];
+    [self.navigationController pushViewController:webVC animated:NO];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -238,12 +253,6 @@
     NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
     //原地和指定地點的導航(單一指定位置)
     [targetMapItem openInMapsWithLaunchOptions:options];
-}
-
-
-
-//打開網頁
-- (IBAction)webSiteBtn:(id)sender {
 }
 
 
