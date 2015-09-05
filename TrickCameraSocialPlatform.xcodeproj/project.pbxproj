@@ -55,6 +55,8 @@
 		106A70281B9A432E00EE184A /* 1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 106A70231B9A432E00EE184A /* 1@2x.jpg */; };
 		106A702F1B9AC72400EE184A /* DiscoverTBC.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A702E1B9AC72400EE184A /* DiscoverTBC.m */; };
 		106A70321B9AC76B00EE184A /* DiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70311B9AC76B00EE184A /* DiscoverCell.m */; };
+		106A706A1B9B1A6D00EE184A /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70691B9B1A6D00EE184A /* DetailVC.m */; };
+		106A706D1B9B1FD900EE184A /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A706C1B9B1FD900EE184A /* DetailCell.m */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -186,6 +188,10 @@
 		106A702E1B9AC72400EE184A /* DiscoverTBC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTBC.m; sourceTree = "<group>"; };
 		106A70301B9AC76B00EE184A /* DiscoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverCell.h; sourceTree = "<group>"; };
 		106A70311B9AC76B00EE184A /* DiscoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverCell.m; sourceTree = "<group>"; };
+		106A70681B9B1A6D00EE184A /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
+		106A70691B9B1A6D00EE184A /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+		106A706B1B9B1FD900EE184A /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		106A706C1B9B1FD900EE184A /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -636,6 +642,10 @@
 				106A702E1B9AC72400EE184A /* DiscoverTBC.m */,
 				106A70301B9AC76B00EE184A /* DiscoverCell.h */,
 				106A70311B9AC76B00EE184A /* DiscoverCell.m */,
+				106A70681B9B1A6D00EE184A /* DetailVC.h */,
+				106A70691B9B1A6D00EE184A /* DetailVC.m */,
+				106A706B1B9B1FD900EE184A /* DetailCell.h */,
+				106A706C1B9B1FD900EE184A /* DetailCell.m */,
 			);
 			name = 02_Discovery;
 			sourceTree = "<group>";
@@ -999,6 +1009,7 @@
 				10021D931B6BF14D00A1A1D6 /* UIImage+ImageEffects.m in Sources */,
 				109936091B8B0F5100A6BD09 /* ParseDBSource.m in Sources */,
 				1045325B1B7B9556006C6F0C /* SetUpTBVC.m in Sources */,
+				106A706A1B9B1A6D00EE184A /* DetailVC.m in Sources */,
 				105DAB2C1B75F7B7003BAAEB /* SearchVCon.m in Sources */,
 				4A85ECB81B95EE1C00032C14 /* CRZoomScrollView.m in Sources */,
 				106A70321B9AC76B00EE184A /* DiscoverCell.m in Sources */,
@@ -1006,6 +1017,7 @@
 				105652B21B65055500F57BC9 /* FancyTBViewCon.m in Sources */,
 				10A4D90A1B9390BD00641528 /* UIView+Borders.m in Sources */,
 				106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */,
+				106A706D1B9B1FD900EE184A /* DetailCell.m in Sources */,
 				104C07DF1B6FC62C002C2C22 /* MePersonalPageVCon.m in Sources */,
 				10A4D8CF1B92525F00641528 /* FBLikeLayout.m in Sources */,
 				109936061B8A766B00A6BD09 /* NSObject+SearchParse.m in Sources */,

@@ -16,6 +16,8 @@
 #import "UIImageView+WebCache.h"
 #import "UIImageView+ClipAndspecific.h"
 
+#import "DetailVC.h"
+
 
 
 
@@ -104,7 +106,6 @@
 
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -129,7 +130,7 @@
     //設定文字的粗體和大小
     cell.kmLbl.font = [UIFont boldSystemFontOfSize:17.0f];
     
-    cell.theImageView = [UIImageView imageViewWithShadow:cell.theImageView withColor:[UIColor blackColor]];
+//    cell.theImageView = [UIImageView imageViewWithShadow:cell.theImageView withColor:[UIColor blackColor]];
 //    //圖片栽剪成圓形
 //    cell.theImageView.layer.cornerRadius = cell.theImageView.frame.size.width/2;
 //    cell.theImageView.clipsToBounds = YES;
@@ -203,8 +204,15 @@
 }
 
 
-
-
+//傳值
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //取得點擊的列
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    if ([segue.identifier isEqualToString:@"detailVC"]) {
+        DetailVC *targeView = segue.destinationViewController;
+        targeView.detailObj = _nearMeParse[path.row];
+    }
+}
 
 
 

@@ -277,7 +277,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
     //最新發佈圖-陰影效果
     cell.fancyImageView = [UIImageView imageViewWithShadow:cell.fancyImageView withColor:[UIColor blackColor]];
-    
+
     //scroll view設定大小
     cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     
@@ -294,8 +294,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
                                                scaledToSizeWidth:490.0f
                                               scaledToSizeHeight:180.0f];
     
-    
-
     //設定大頭照
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];
@@ -319,6 +317,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 }
 
 
+//多線程下載TableView的圖-->會一直閃爍
 -(void)getParsePhoto:(PFFile*)photoFile complection:(void(^)(UIImage* image))complection{
     
         dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
@@ -331,7 +330,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
                 }
             }];
         });
-    
 }
 
 //往上滑動時隱藏NavigationBar-->delegate

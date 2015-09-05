@@ -66,8 +66,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     //移除tableView分隔線
-     self.tableView.separatorStyle = NO;
+    //移除tableView分隔線
+    self.tableView.separatorStyle = NO;
     //消去TableView最後沒用到的欄位的分隔線
     self.tableView.tableFooterView = [[UIView alloc] init];
     //Navigation title標題
