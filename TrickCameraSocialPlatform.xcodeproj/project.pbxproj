@@ -57,6 +57,7 @@
 		106A70321B9AC76B00EE184A /* DiscoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70311B9AC76B00EE184A /* DiscoverCell.m */; };
 		106A706A1B9B1A6D00EE184A /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70691B9B1A6D00EE184A /* DetailVC.m */; };
 		106A706D1B9B1FD900EE184A /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A706C1B9B1FD900EE184A /* DetailCell.m */; };
+		106A706F1B9B62EB00EE184A /* around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 106A706E1B9B62EB00EE184A /* around.jpg */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -193,6 +194,7 @@
 		106A70691B9B1A6D00EE184A /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		106A706B1B9B1FD900EE184A /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		106A706C1B9B1FD900EE184A /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		106A706E1B9B62EB00EE184A /* around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = around.jpg; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 		107E0F101B4A5B2F004664C8 = {
 			isa = PBXGroup;
 			children = (
+				106A706E1B9B62EB00EE184A /* around.jpg */,
 				107E0F1B1B4A5B2F004664C8 /* TrickCameraSocialPlatform */,
 				107E0F351B4A5B2F004664C8 /* TrickCameraSocialPlatformTests */,
 				107E0F1A1B4A5B2F004664C8 /* Products */,
@@ -919,6 +922,7 @@
 				1008882F1B729BDA007674DD /* message@1x.png in Resources */,
 				104532561B7B93CE006C6F0C /* Fill 222@3x.png in Resources */,
 				10A4D8DB1B92756C00641528 /* slideBar@3x.png in Resources */,
+				106A706F1B9B62EB00EE184A /* around.jpg in Resources */,
 				10A4D8F11B9336AF00641528 /* notFollow@2x.png in Resources */,
 				100888281B729BDA007674DD /* share@3x.png in Resources */,
 				10A4D8EF1B9336AF00641528 /* notFollow@1x.png in Resources */,
