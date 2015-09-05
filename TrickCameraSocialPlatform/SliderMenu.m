@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        UIImage *backGroundImage = [UIImage imageNamed:@"sky2.png"];
+    UIImage *backGroundImage = [UIImage imageNamed:@"sky2.png"];
     
     
     
@@ -79,12 +79,10 @@
     
     
 //    模糊效果
-//    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
-//                                                            withRect:self.tableView.frame];
-//    self.tableView.backgroundView = backImageView;
-
-    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
-    self.tableView.backgroundView = backImageView;
+//    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
+    
+    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"around.jpg"]];
 
     
     
@@ -99,14 +97,6 @@
 
 //使靜態Cell背景透明
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row != 0) {
-//        cell.backgroundColor = [UIColor clearColor];
-//    }
-    if (indexPath.row == 0) {
-
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.png"]];
-    }
-
     cell.backgroundColor = [UIColor clearColor];
 }
 
