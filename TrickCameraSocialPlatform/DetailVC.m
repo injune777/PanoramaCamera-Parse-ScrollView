@@ -5,6 +5,7 @@
 
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "UIImageView+WebCache.h"
 
 @interface DetailVC ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -42,9 +43,30 @@
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    if ([_detailObj[@"Picture1"] count] == 0) {
-//        NSLog(@"沒有圖片");
-//    }
+    
+    if ([_detailObj[@"Picture1"] length] == 0) {
+        _detailMap.hidden = NO;
+        
+    }else{
+        NSString *urlStr = [_detailObj[@"Picture1"]
+                            stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [NSURL URLWithString:urlStr];
+        //判斷是有可圖片
+        [_theImageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (error) {
+                _detailMap.hidden = NO;
+            }else{
+                _detailMap.hidden = YES;
+                
+            }
+        }];
+    }
+    
+    
+    
+    
+    
+    
     
 //    //計算區域
 //    [_locationManager LocationZipCodeWithLatitude:_MyRestaurantLocation.coordinate.latitude
@@ -92,8 +114,7 @@
 
 
 
-- (IBAction)selectMap:(id)sender {
-}
+
 
 
 - (IBAction)webSiteBtn:(id)sender {
