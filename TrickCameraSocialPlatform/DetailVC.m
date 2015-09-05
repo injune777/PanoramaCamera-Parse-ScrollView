@@ -6,7 +6,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface DetailVC ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface DetailVC ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *theUIView;
 @property (weak, nonatomic) IBOutlet UIImageView *theImageView;
@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //去官網的Button
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *webSiteBtn;
+
+//地圖
+@property (weak, nonatomic) IBOutlet MKMapView *detailMap;
 
 
 
@@ -39,6 +42,25 @@
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    if ([_detailObj[@"Picture1"] count] == 0) {
+//        NSLog(@"沒有圖片");
+//    }
+    
+//    //計算區域
+//    [_locationManager LocationZipCodeWithLatitude:_MyRestaurantLocation.coordinate.latitude
+//                                    withLongitude:_MyRestaurantLocation.coordinate.longitude withCompletion:^(CLPlacemark *placemark) {
+//                                        //創造大頭針物件
+//                                        MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
+//                                        //附加緯經度給-->大頭針座標
+//                                        myPoint.coordinate = _MyRestaurantLocation.coordinate;
+//                                        //地區取區域別
+//                                        myPoint.title = placemark.locality;
+//                                        //餐廳所在區域別
+//                                        myPoint.subtitle = _tmpRestaurant.name;
+//                                        //地圖附加大頭針
+//                                        [_restaurantMapView addAnnotation:myPoint];
+//                                    }];
+
     
 }
 
@@ -53,6 +75,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellIdentify = [NSString stringWithFormat:@"cell%ld", indexPath.row];
     DetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify forIndexPath:indexPath];
+    //設定文字的粗體和大小
+    cell.place.font = [UIFont boldSystemFontOfSize:17.0f];
+    cell.address.font = [UIFont boldSystemFontOfSize:17.0f];
+    cell.phone.font = [UIFont boldSystemFontOfSize:17.0f];
+    cell.special.font = [UIFont boldSystemFontOfSize:17.0f];
     
     cell.place.text = _detailObj[@"Name"];
     cell.address.text = _detailObj[@"Add"];
