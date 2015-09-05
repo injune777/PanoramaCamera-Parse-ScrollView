@@ -176,11 +176,20 @@
         
         //導航功能加入
         //UIButtonTypeDetailDisclosure-->就是旁邊的驚嘆號
-        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        //用程式碼去實現Button的監聽
-        //forControlEvents-->參數是事件的種類
-        [rightButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        customPin.rightCalloutAccessoryView = rightButton;
+//        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//        //用程式碼去實現Button的監聽
+//        //forControlEvents-->參數是事件的種類
+//        [rightButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        customPin.rightCalloutAccessoryView = rightButton;
+        
+        UIButton *rightBUtton = [[UIButton alloc] init];
+        rightBUtton.frame = CGRectMake(0, 0, 40, 40);
+        
+        [rightBUtton setTitle:@"導航" forState:UIControlStateNormal];
+        [rightBUtton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        rightBUtton.backgroundColor = [UIColor orangeColor];
+        [rightBUtton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        customPin.rightCalloutAccessoryView = rightBUtton;
     }
     return customPin;
 }
