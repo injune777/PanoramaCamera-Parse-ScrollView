@@ -47,7 +47,7 @@
     
     if ([_detailObj[@"Picture1"] length] == 0) {
         _detailMap.hidden = NO;
-        
+        [_selectBtn setSelectedSegmentIndex:1];
     }else{
         NSString *urlStr = [_detailObj[@"Picture1"]
                             stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -56,9 +56,10 @@
         [_theImageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if (error) {
                 _detailMap.hidden = NO;
+                [_selectBtn setSelectedSegmentIndex:1];
             }else{
                 _detailMap.hidden = YES;
-                
+                _selectBtn.hidden = NO;
             }
         }];
     }
@@ -116,8 +117,21 @@
 }
 
 
-- (IBAction)select:(id)sender {
+- (IBAction)selectBtn:(UISegmentedControl *)sender {
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            _detailMap.hidden = YES;
+            break;
+        case 1:
+            _detailMap.hidden = NO;
+            break;
+        default:
+            break;
+    }
+
+
 }
+
 
 
 
