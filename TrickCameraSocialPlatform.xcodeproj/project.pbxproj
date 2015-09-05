@@ -58,6 +58,9 @@
 		106A706A1B9B1A6D00EE184A /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70691B9B1A6D00EE184A /* DetailVC.m */; };
 		106A706D1B9B1FD900EE184A /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A706C1B9B1FD900EE184A /* DetailCell.m */; };
 		106A706F1B9B62EB00EE184A /* around.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 106A706E1B9B62EB00EE184A /* around.jpg */; };
+		106A70731B9B7F9100EE184A /* inter@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70701B9B7F9100EE184A /* inter@1x.png */; };
+		106A70741B9B7F9100EE184A /* inter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70711B9B7F9100EE184A /* inter@2x.png */; };
+		106A70751B9B7F9100EE184A /* inter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70721B9B7F9100EE184A /* inter@3x.png */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -195,6 +198,9 @@
 		106A706B1B9B1FD900EE184A /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		106A706C1B9B1FD900EE184A /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		106A706E1B9B62EB00EE184A /* around.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = around.jpg; sourceTree = "<group>"; };
+		106A70701B9B7F9100EE184A /* inter@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@1x.png"; sourceTree = "<group>"; };
+		106A70711B9B7F9100EE184A /* inter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@2x.png"; sourceTree = "<group>"; };
+		106A70721B9B7F9100EE184A /* inter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@3x.png"; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -382,6 +388,9 @@
 		1050E7491B6650590004CA4A /* Placeholder */ = {
 			isa = PBXGroup;
 			children = (
+				106A70701B9B7F9100EE184A /* inter@1x.png */,
+				106A70711B9B7F9100EE184A /* inter@2x.png */,
+				106A70721B9B7F9100EE184A /* inter@3x.png */,
 				104373F61B8E4095009268E6 /* 3.jpeg */,
 				10BFA2531B87AF6700FE719F /* photo-placeholder.png */,
 				10BFA24F1B872DF100FE719F /* 20.jpeg */,
@@ -892,6 +901,7 @@
 				10D2FD9B1B69540500D1C0B1 /* pictureWall@2x.png in Resources */,
 				10D2FD9E1B69540500D1C0B1 /* lists@2x.png in Resources */,
 				105AD3811B776EFC001739C0 /* FacebookBG + f@1x.png in Resources */,
+				106A70731B9B7F9100EE184A /* inter@1x.png in Resources */,
 				104532581B7B93CE006C6F0C /* Fill 222@2x.png in Resources */,
 				107E0F281B4A5B2F004664C8 /* Main.storyboard in Resources */,
 				100888371B729BDA007674DD /* love 2@3x.png in Resources */,
@@ -926,12 +936,14 @@
 				10A4D8F11B9336AF00641528 /* notFollow@2x.png in Resources */,
 				100888281B729BDA007674DD /* share@3x.png in Resources */,
 				10A4D8EF1B9336AF00641528 /* notFollow@1x.png in Resources */,
+				106A70751B9B7F9100EE184A /* inter@3x.png in Resources */,
 				100888271B729BDA007674DD /* message@2x.png in Resources */,
 				1008882B1B729BDA007674DD /* share@2x.png in Resources */,
 				104532571B7B93CE006C6F0C /* Fill 222@1x.png in Resources */,
 				4A85ECE41B95FF3A00032C14 /* 3.jpg in Resources */,
 				107E0F2A1B4A5B2F004664C8 /* Images.xcassets in Resources */,
 				10A4D8F41B9336AF00641528 /* yesFollow@2x.png in Resources */,
+				106A70741B9B7F9100EE184A /* inter@2x.png in Resources */,
 				1008882D1B729BDA007674DD /* love 2@2x.png in Resources */,
 				105AD36F1B771A4D001739C0 /* navigationbar@1x.png in Resources */,
 				10A4D8F01B9336AF00641528 /* yesFollow@3x.png in Resources */,

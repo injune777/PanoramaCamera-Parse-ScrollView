@@ -6,6 +6,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "UIImageView+WebCache.h"
+#import "LocationManager.h"
 
 @interface DetailVC ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate, MKMapViewDelegate,CLLocationManagerDelegate>
 
@@ -23,7 +24,7 @@
 
 //地圖
 @property (weak, nonatomic) IBOutlet MKMapView *detailMap;
-
+@property(nonatomic, strong) LocationManager *locationManager;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectBtn;
 
@@ -63,30 +64,23 @@
             }
         }];
     }
+    //位置管理員
+    _locationManager = [[LocationManager alloc] init];
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    //計算區域
-//    [_locationManager LocationZipCodeWithLatitude:_MyRestaurantLocation.coordinate.latitude
-//                                    withLongitude:_MyRestaurantLocation.coordinate.longitude withCompletion:^(CLPlacemark *placemark) {
-//                                        //創造大頭針物件
-//                                        MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
-//                                        //附加緯經度給-->大頭針座標
-//                                        myPoint.coordinate = _MyRestaurantLocation.coordinate;
-//                                        //地區取區域別
-//                                        myPoint.title = placemark.locality;
-//                                        //餐廳所在區域別
-//                                        myPoint.subtitle = _tmpRestaurant.name;
-//                                        //地圖附加大頭針
-//                                        [_restaurantMapView addAnnotation:myPoint];
-//                                    }];
+    //計算區域
+    [_locationManager LocationZipCodeWithLatitude:[_detailObj[@"location"] latitude]
+                                    withLongitude:[_detailObj[@"location"] longitude]
+                                   withCompletion:^(CLPlacemark *placemark) {
+                                        //創造大頭針物件
+                                        MKPointAnnotation *myPoint = [[MKPointAnnotation alloc] init];
+                                        //附加緯經度給-->大頭針座標
+                                       CLLocationCoordinate2D coor = CLLocationCoordinate2DMake([_detailObj[@"location"] latitude], [_detailObj[@"location"] longitude]);
+                                        myPoint.coordinate = coor;
+                                        //地區取區域別
+                                        myPoint.title = placemark.locality;
+                                        //地圖附加大頭針
+                                        [_detailMap addAnnotation:myPoint];
+                                    }];
 
     
 }
