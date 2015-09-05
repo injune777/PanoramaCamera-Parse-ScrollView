@@ -37,6 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        UIImage *backGroundImage = [UIImage imageNamed:@"sky2.png"];
+    
+    
+    
     //消去TableView最後沒用到的欄位的分隔線
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -62,7 +66,7 @@
     [pfImageview setFile:currentUser[@"headPhoto"]];
     _userPicture.image = pfImageview.image;
     [pfImageview loadInBackground];
-    
+   
     //縮圖
     _userPicture.image = [UIImage imageCompressWithSimple:pfImageview.image scaledToSizeWidth:200.0f scaledToSizeHeight:200.0f];
     
@@ -70,12 +74,16 @@
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
+    
+
+    
+    
 //    模糊效果
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
 //                                                            withRect:self.tableView.frame];
 //    self.tableView.backgroundView = backImageView;
-    UIImage *wood = [UIImage imageNamed:@"wood2.jpg"];
-    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:wood withRect:self.tableView.frame];
+
+    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
     self.tableView.backgroundView = backImageView;
 
     
@@ -95,8 +103,8 @@
 //        cell.backgroundColor = [UIColor clearColor];
 //    }
     if (indexPath.row == 0) {
-        
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood2.jpg"]];
+
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.png"]];
     }
 
     cell.backgroundColor = [UIColor clearColor];

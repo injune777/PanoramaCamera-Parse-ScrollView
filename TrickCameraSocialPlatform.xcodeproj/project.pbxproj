@@ -122,6 +122,8 @@
 		4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE61B95FF5B00032C14 /* PanoCamera.png */; };
 		4A85ECED1B961B0F00032C14 /* PanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */; };
 		4A85ECF81B9B529500032C14 /* wood2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECF71B9B529500032C14 /* wood2.jpg */; };
+		4A85ECFA1B9B627400032C14 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECF91B9B627400032C14 /* sky.png */; };
+		4A85ECFC1B9B673E00032C14 /* sky2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECFB1B9B673E00032C14 /* sky2.png */; };
 		F744F28463338FD1D70B00FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D172A1109A3B49B7117F8F98 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -298,6 +300,8 @@
 		4A85ECEB1B961B0F00032C14 /* PanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaViewController.h; sourceTree = "<group>"; };
 		4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramaViewController.m; sourceTree = "<group>"; };
 		4A85ECF71B9B529500032C14 /* wood2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood2.jpg; sourceTree = "<group>"; };
+		4A85ECF91B9B627400032C14 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		4A85ECFB1B9B673E00032C14 /* sky2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky2.png; sourceTree = "<group>"; };
 		B307460B4430EB6A136A9E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D172A1109A3B49B7117F8F98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -578,6 +582,8 @@
 				107E0F211B4A5B2F004664C8 /* AppDelegate.m */,
 				107E0F291B4A5B2F004664C8 /* Images.xcassets */,
 				4A85ECF71B9B529500032C14 /* wood2.jpg */,
+				4A85ECF91B9B627400032C14 /* sky.png */,
+				4A85ECFB1B9B673E00032C14 /* sky2.png */,
 				107E0F2B1B4A5B2F004664C8 /* LaunchScreen.xib */,
 				107E0F1D1B4A5B2F004664C8 /* Info.plist */,
 				107E0F1E1B4A5B2F004664C8 /* main.m */,
@@ -904,6 +910,7 @@
 				10D2FD9D1B69540500D1C0B1 /* lists@1x.png in Resources */,
 				100888291B729BDA007674DD /* love@1x.png in Resources */,
 				10A4D8DC1B92756C00641528 /* slideBar@2x.png in Resources */,
+				4A85ECFC1B9B673E00032C14 /* sky2.png in Resources */,
 				4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */,
 				105AD3831B776EFC001739C0 /* FacebookBG + f@3x.png in Resources */,
 				10A4D8F21B9336AF00641528 /* yesFollow@1x.png in Resources */,
@@ -921,6 +928,7 @@
 				104373F71B8E4095009268E6 /* 3.jpeg in Resources */,
 				1008882F1B729BDA007674DD /* message@1x.png in Resources */,
 				104532561B7B93CE006C6F0C /* Fill 222@3x.png in Resources */,
+				4A85ECFA1B9B627400032C14 /* sky.png in Resources */,
 				10A4D8DB1B92756C00641528 /* slideBar@3x.png in Resources */,
 				106A706F1B9B62EB00EE184A /* around.jpg in Resources */,
 				10A4D8F11B9336AF00641528 /* notFollow@2x.png in Resources */,
