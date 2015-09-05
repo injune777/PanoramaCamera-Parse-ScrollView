@@ -198,9 +198,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     }
 
     
-    
-    
-    
+
     //手勢初始化
     //[self initGesture];
     //創造Tap手勢物件&加上單擊行為
@@ -291,8 +289,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     UIImage *thumbnailImage = [UIImage imageWithData:imageData];
     _pfImageview.image = thumbnailImage;
     [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
-    
-
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                scaledToSizeWidth:490.0f

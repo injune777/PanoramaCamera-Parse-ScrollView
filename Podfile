@@ -8,4 +8,5 @@ pod 'FBSDKShareKit', '~> 4.5.0'
 pod 'ParseFacebookUtilsV4', '~> 1.7.5.3'
 pod 'SWRevealViewController', '~> 2.3.0'
 pod 'PQFCustomLoaders', '~> 1.1.0'
+pod 'SDWebImage', '~> 3.7.3'
 

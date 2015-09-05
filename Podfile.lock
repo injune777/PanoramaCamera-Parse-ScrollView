@@ -32,6 +32,9 @@ PODS:
   - PQFCustomLoaders (1.1.0):
     - pop (~> 1.0)
     - UIColor+FlatColors
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
   - SWRevealViewController (2.3.0)
   - UIColor+FlatColors (0.0.2)
 
@@ -44,6 +47,7 @@ DEPENDENCIES:
   - ParseFacebookUtilsV4 (~> 1.7.5.3)
   - ParseUI (~> 1.1.4)
   - PQFCustomLoaders (~> 1.1.0)
+  - SDWebImage (~> 3.7.3)
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
@@ -57,6 +61,7 @@ SPEC CHECKSUMS:
   ParseUI: d1228541b02a36a7354c8f47747f5f7a89cf1ff0
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PQFCustomLoaders: 861daed580660069d1cb5c61db835baabf1f21a5
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
 

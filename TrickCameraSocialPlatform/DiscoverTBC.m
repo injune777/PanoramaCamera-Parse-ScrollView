@@ -13,6 +13,12 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#import "UIImageView+WebCache.h"
+#import "UIImageView+ClipAndspecific.h"
+
+
+
+
 
 @interface DiscoverTBC ()<CLLocationManagerDelegate>
 
@@ -22,7 +28,12 @@
 //CLLocationManager一定要設成全局變量，才可以使用代理模式
 @property(nonatomic, strong) CLLocationManager *myLocationManager;
 
-@property(nonatomic, strong) NSArray *nearMeParse;
+@property(nonatomic, strong) NSMutableArray *nearMeParse;
+@property(nonatomic, strong) NSArray *tempArray;
+@property(nonatomic, strong) NSMutableArray *stringArray;
+
+//現在經緯度座標
+@property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
 
 @end
 
@@ -33,7 +44,9 @@
 
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //初始化nearMeParse
-    _nearMeParse = [[NSArray alloc] init];
+    _nearMeParse = [[NSMutableArray alloc] init];
+    _tempArray = [[NSArray alloc] init];
+    _stringArray = [[NSMutableArray alloc] init];
     
     //初始化地理位置管理員
     _myLocationManager = [[CLLocationManager alloc] init];
@@ -67,24 +80,25 @@
     //經緯度轉成Parse用的object
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
         if (!error) {
-            NSLog(@"座標物件~~~%@", geoPoint.description);
             //User's location
             // Create a query for places
             PFQuery *query = [PFQuery queryWithClassName:@"travel"];
             // Interested in locations near user.
             [query whereKey:@"location" nearGeoPoint:geoPoint];
             // Limit what could be a lot of points.
-            query.limit = 10;
+            query.limit = 200;
             // Final list of objects
-            _nearMeParse = [query findObjects];
-            NSLog(@"最近景點物件~~%@",_nearMeParse[0]);
+            _tempArray = [query findObjects];
+            for (PFObject *obj in _tempArray) {
+                NSString *tmpStr = obj[@"Name"];
+                if ([_stringArray containsObject:tmpStr] == NO) {
+                    [_nearMeParse addObject:obj];
+                    [_stringArray addObject:tmpStr];
+                }
+            }
             [self.tableView reloadData];
         }
     }];
-    
-    
-    
-    
 }
 
 
@@ -103,33 +117,90 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DiscoverCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    
+    //設定文字的斷點
+    cell.nameLbl.lineBreakMode = NSLineBreakByTruncatingTail;
+    //設定文字的粗體和大小
+    cell.nameLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    //設定文字的粗體和大小
+    cell.nameLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    //設定文字的粗體和大小
+    cell.stateLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    //設定文字的粗體和大小
+    cell.kmLbl.font = [UIFont boldSystemFontOfSize:17.0f];
+    
+    cell.theImageView = [UIImageView imageViewWithShadow:cell.theImageView withColor:[UIColor blackColor]];
+//    //圖片栽剪成圓形
+//    cell.theImageView.layer.cornerRadius = cell.theImageView.frame.size.width/2;
+//    cell.theImageView.clipsToBounds = YES;
+    
+    
     cell.nameLbl.text = _nearMeParse[indexPath.row][@"Name"];
+    NSString *urlStr = [_nearMeParse[indexPath.row][@"Picture1"]
+                        stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    [cell.theImageView sd_setImageWithURL:url
+                         placeholderImage:[UIImage imageNamed:@"1.jpg"]
+                                  options:SDWebImageProgressiveDownload];
     
-    cell.kmLbl.text = @"122公里";
-    cell.theImageView.image = [UIImage imageNamed:@"1.jpg"];
-    
-    
-    
+    [self LocationZipCodeWithLatitude:[_nearMeParse[indexPath.row][@"location"] latitude]
+                        withLongitude:[_nearMeParse[indexPath.row][@"location"] longitude]
+                       withCompletion:^(CLPlacemark *placemark) {
+                           cell.stateLbl.text =  placemark.locality;
+                       }];
+
+    [self calculateDistanceWithRestaurantLatitude:[_nearMeParse[indexPath.row][@"location"] latitude]
+                          withRestaurantLongitude:[_nearMeParse[indexPath.row][@"location"] longitude]
+                                   withCompletion:^(CLLocationDistance meters) {
+                                       cell.kmLbl.text = [NSString stringWithFormat:@"%.0f公里", meters];
+                                   }];
+    //縮圖
+    //cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
+    //                                               scaledToSizeWidth:490.0f
+    //                                              scaledToSizeHeight:180.0f];
+
     
     return cell;
 }
 
+
+
 //更新user經緯度-->私有方法
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     //取user位置的最新一筆Coordinate(座標)
-//    _currentLocationCoordinate = [locations.lastObject coordinate];
+    _currentLocationCoordinate = [locations.lastObject coordinate];
     NSLog(@"%@", locations.firstObject);
-    NSLog(@"test");
 }
 
 
+//經緯度轉地址
+-(void) LocationZipCodeWithLatitude:(double)latitude withLongitude:(double)longitude
+                     withCompletion:(void(^)(CLPlacemark *placemark))completion{
+    CLLocation *locaiton = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    //創造一個地理編碼管理員在負責地址轉經緯度
+    CLGeocoder *geoder = [CLGeocoder new];
+    //開始把經緯度轉換成地址
+    [geoder reverseGeocodeLocation:locaiton completionHandler:^(NSArray *placemarks, NSError *error){
+        CLPlacemark *placemark = placemarks[0];
+        completion(placemark);
+    }];
+}
 
 
-
-
-
-
-
+//計算user離餐廳距離
+-(void) calculateDistanceWithRestaurantLatitude:(double)latitude withRestaurantLongitude:(double)longtitude
+                                 withCompletion:(void(^)(CLLocationDistance meters))completion{
+    //餐廳的坐標
+    CLLocation *restaurantLocation=[[CLLocation alloc] initWithLatitude:latitude longitude:longtitude];
+    //user的緯經度
+    double userLongitude = _currentLocationCoordinate.longitude;
+    double userLatitude = _currentLocationCoordinate.latitude;
+    //User的坐標
+    CLLocation *userLocation=[[CLLocation alloc] initWithLatitude:userLatitude longitude:userLongitude];
+     //計算距離
+    CLLocationDistance meters = [userLocation distanceFromLocation:restaurantLocation]/1000;
+    completion(meters);
+}
 
 
 
