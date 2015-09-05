@@ -1116,12 +1116,6 @@
                                 <action selector="selectBtn:" destination="XGI-F4-SNG" eventType="valueChanged" id="sOC-r4-mab"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" image="inter.png" id="ogJ-Hc-uhd">
-                            <color key="tintColor" red="1" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="webSiteBtn:" destination="XGI-F4-SNG" id="xp6-H2-6dq"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -1131,17 +1125,16 @@
                         <outlet property="tableView" destination="ukn-ob-WrD" id="6aG-q6-Wiv"/>
                         <outlet property="theImageView" destination="2uv-o8-5cf" id="rkY-Th-zBs"/>
                         <outlet property="theUIView" destination="zgs-9z-E34" id="n7D-nJ-8s3"/>
-                        <outlet property="webSiteBtn" destination="ogJ-Hc-uhd" id="q4S-SH-SJz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd9-XI-kKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15968" y="750"/>
+            <point key="canvasLocation" x="-15726" y="755"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="Ltq-ha-udf">
             <objects>
-                <viewController id="fmb-my-xcq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webVC" id="fmb-my-xcq" customClass="WebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ErA-e8-3Qs"/>
                         <viewControllerLayoutGuide type="bottom" id="6xU-Za-Yc9"/>
@@ -1153,6 +1146,9 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHO-cb-Q7S">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fmb-my-xcq" id="bLM-g9-UN3"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1164,12 +1160,15 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="theWebView" destination="xHO-cb-Q7S" id="oWb-4m-ppn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvZ-WA-sPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-16083" y="755"/>
         </scene>
-        <!--DiscoverTBC-->
+        <!--取景-->
         <scene sceneID="HRN-jN-Dzd">
             <objects>
                 <tableViewController storyboardIdentifier="detailVC" id="srM-lz-n1A" customClass="DiscoverTBC" sceneMemberID="viewController">
@@ -1257,23 +1256,12 @@
                             <outlet property="delegate" destination="srM-lz-n1A" id="mC9-qu-QB6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="EbS-RN-MQf">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="jMV-wf-cZJ">
-                            <rect key="frame" x="96" y="7" width="128" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="附近"/>
-                                <segment title="全部"/>
-                            </segments>
-                            <color key="tintColor" red="1" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </segmentedControl>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="取景" id="EbS-RN-MQf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHk-fv-HEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15501" y="696"/>
+            <point key="canvasLocation" x="-15596" y="750"/>
         </scene>
         <!--相機-->
         <scene sceneID="jb7-tg-7ut">
@@ -2147,7 +2135,6 @@
         <image name="FacebookBG + f.png" width="65" height="60"/>
         <image name="Sent 2.png" width="34" height="35"/>
         <image name="compact_camera-50.png" width="30" height="23"/>
-        <image name="inter.png" width="20" height="21"/>
         <image name="love 2.png" width="34" height="32"/>
         <image name="message.png" width="32" height="33"/>
         <image name="share.png" width="24" height="27"/>

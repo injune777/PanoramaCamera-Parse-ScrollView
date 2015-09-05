@@ -61,6 +61,7 @@
 		106A70731B9B7F9100EE184A /* inter@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70701B9B7F9100EE184A /* inter@1x.png */; };
 		106A70741B9B7F9100EE184A /* inter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70711B9B7F9100EE184A /* inter@2x.png */; };
 		106A70751B9B7F9100EE184A /* inter@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 106A70721B9B7F9100EE184A /* inter@3x.png */; };
+		106A70781B9B9A8F00EE184A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A70771B9B9A8F00EE184A /* WebViewController.m */; };
 		10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */; };
 		10709FB51B6DEA9C009F6DC0 /* PeoplesTBViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10709FB41B6DEA9C009F6DC0 /* PeoplesTBViewCell.m */; };
 		107C448C1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 107C448B1B6E0EDD00809DBF /* HFStretchableTableHeaderView.m */; };
@@ -201,6 +202,8 @@
 		106A70701B9B7F9100EE184A /* inter@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@1x.png"; sourceTree = "<group>"; };
 		106A70711B9B7F9100EE184A /* inter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@2x.png"; sourceTree = "<group>"; };
 		106A70721B9B7F9100EE184A /* inter@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inter@3x.png"; sourceTree = "<group>"; };
+		106A70761B9B9A8F00EE184A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		106A70771B9B9A8F00EE184A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		10709FAF1B6D9645009F6DC0 /* PeoplesVCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesVCon.h; sourceTree = "<group>"; };
 		10709FB01B6D9645009F6DC0 /* PeoplesVCon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeoplesVCon.m; sourceTree = "<group>"; };
 		10709FB31B6DEA9C009F6DC0 /* PeoplesTBViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeoplesTBViewCell.h; sourceTree = "<group>"; };
@@ -661,6 +664,8 @@
 				106A70691B9B1A6D00EE184A /* DetailVC.m */,
 				106A706B1B9B1FD900EE184A /* DetailCell.h */,
 				106A706C1B9B1FD900EE184A /* DetailCell.m */,
+				106A70761B9B9A8F00EE184A /* WebViewController.h */,
+				106A70771B9B9A8F00EE184A /* WebViewController.m */,
 			);
 			name = 02_Discovery;
 			sourceTree = "<group>";
@@ -1016,6 +1021,7 @@
 				100888131B728637007674DD /* UIImageView+ClipAndspecific.m in Sources */,
 				4A85ECB71B95EE1C00032C14 /* CRMotionView.m in Sources */,
 				10709FB11B6D9645009F6DC0 /* PeoplesVCon.m in Sources */,
+				106A70781B9B9A8F00EE184A /* WebViewController.m in Sources */,
 				4A85ECC91B95EE3C00032C14 /* PLITAppDelegate.m in Sources */,
 				105652B81B6505B700F57BC9 /* FancyTBViewCell.m in Sources */,
 				105DAB2F1B75F7F8003BAAEB /* SearchTBCell.m in Sources */,

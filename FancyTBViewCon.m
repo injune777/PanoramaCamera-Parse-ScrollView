@@ -67,7 +67,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _bouncingBalls.zoomAmount = 50;
     _bouncingBalls.separation = 30;
     _bouncingBalls.diameter = 20;
-    _bouncingBalls.label.text = @"Download...";
+    _bouncingBalls.label.text = @"請稍候...";
     _bouncingBalls.label.textColor = [UIColor orangeColor];
     _bouncingBalls.fontSize = 20;
     
@@ -97,7 +97,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             [_pe getParseData:^(NSMutableArray *pfObject) {
                 //取得主線程(main thread)
                 
-                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //停止轉轉
                     [_bouncingBalls setHidden:YES];
@@ -114,8 +113,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         });
     }
     
-    
-//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
     
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0f;
@@ -461,7 +458,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     [self dismissViewControllerAnimated:YES completion:nil];
     //Parse singleton 初始化
     _pe = [ParseDBSource shared];
-    
+    //開始轉轉
+    [_bouncingBalls showLoader];
     //background thread-1
     dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
     dispatch_async(bg1, ^{

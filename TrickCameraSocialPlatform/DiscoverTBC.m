@@ -18,7 +18,8 @@
 
 #import "DetailVC.h"
 
-
+//轉轉轉
+#import <PQFCustomLoaders/PQFCustomLoaders.h>
 
 
 
@@ -36,6 +37,8 @@
 
 //現在經緯度座標
 @property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
+//轉轉轉
+@property (nonatomic, strong) PQFBouncingBalls *bouncingBalls;
 
 @end
 
@@ -43,6 +46,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //轉轉轉
+    _bouncingBalls = [PQFBouncingBalls createModalLoader];
+    _bouncingBalls.loaderColor = [UIColor orangeColor];
+    _bouncingBalls.jumpAmount = 60;
+    _bouncingBalls.zoomAmount = 50;
+    _bouncingBalls.separation = 30;
+    _bouncingBalls.diameter = 20;
+    _bouncingBalls.label.text = @"請稍候...";
+    _bouncingBalls.label.textColor = [UIColor orangeColor];
+    _bouncingBalls.fontSize = 20;
+    //開始轉轉
+    [_bouncingBalls showLoader];
 
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //初始化nearMeParse
@@ -98,6 +114,8 @@
                     [_stringArray addObject:tmpStr];
                 }
             }
+            //停止轉轉
+            [_bouncingBalls setHidden:YES];
             [self.tableView reloadData];
         }
     }];
