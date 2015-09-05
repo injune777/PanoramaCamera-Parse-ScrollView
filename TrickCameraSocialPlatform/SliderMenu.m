@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage *backGroundImage = [UIImage imageNamed:@"sky2.png"];
+
     
     
     
