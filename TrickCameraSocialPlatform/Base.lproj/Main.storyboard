@@ -1108,6 +1108,9 @@
                                 <segment title="資料"/>
                                 <segment title="地圖"/>
                             </segments>
+                            <connections>
+                                <action selector="select:" destination="XGI-F4-SNG" eventType="valueChanged" id="pRB-De-2xN"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="網站" id="ogJ-Hc-uhd">
                             <connections>
@@ -1119,6 +1122,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="detailMap" destination="2HQ-g5-dCO" id="uw1-mo-AD5"/>
+                        <outlet property="selectBtn" destination="67n-ru-qkT" id="0Po-lx-hT5"/>
                         <outlet property="tableView" destination="ukn-ob-WrD" id="6aG-q6-Wiv"/>
                         <outlet property="theImageView" destination="2uv-o8-5cf" id="rkY-Th-zBs"/>
                         <outlet property="theUIView" destination="zgs-9z-E34" id="n7D-nJ-8s3"/>

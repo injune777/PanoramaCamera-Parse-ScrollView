@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *detailMap;
 
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectBtn;
 
 
 @end
@@ -61,6 +62,9 @@
             }
         }];
     }
+    
+    
+    
     
     
     
@@ -112,6 +116,8 @@
 }
 
 
+- (IBAction)select:(id)sender {
+}
 
 
 
