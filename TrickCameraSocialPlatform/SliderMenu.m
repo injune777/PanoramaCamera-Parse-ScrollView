@@ -70,10 +70,14 @@
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    //模糊效果
-    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
-                                                            withRect:self.tableView.frame];
+//    模糊效果
+//    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
+//                                                            withRect:self.tableView.frame];
+//    self.tableView.backgroundView = backImageView;
+    UIImage *wood = [UIImage imageNamed:@"wood.jpg"];
+    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:wood withRect:self.tableView.frame];
     self.tableView.backgroundView = backImageView;
+
     
     
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
@@ -87,13 +91,13 @@
 
 //使靜態Cell背景透明
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row != 0) {
-        cell.backgroundColor = [UIColor clearColor];
-    }
-//    if (indexPath.row == 0) {
-//        
-//        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"20.jpeg"]];
+//    if (indexPath.row != 0) {
+//        cell.backgroundColor = [UIColor clearColor];
 //    }
+    if (indexPath.row == 0) {
+        
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood.jpg"]];
+    }
 
     cell.backgroundColor = [UIColor clearColor];
 }
