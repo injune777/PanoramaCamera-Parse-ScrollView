@@ -46,7 +46,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 4;
 }
 
 //customer cell
@@ -58,7 +58,6 @@
     cell.address.text = _detailObj[@"Add"];
     cell.phone.text = _detailObj[@"Tel"];
     cell.special.text = _detailObj[@"Toldescribe"];
-    cell.testdd.text = _detailObj[@"Toldescribe"];
     
     return cell;
 }
