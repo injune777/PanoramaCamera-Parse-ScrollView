@@ -74,7 +74,7 @@
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:_thumbnailImage
 //                                                            withRect:self.tableView.frame];
 //    self.tableView.backgroundView = backImageView;
-    UIImage *wood = [UIImage imageNamed:@"wood.jpg"];
+    UIImage *wood = [UIImage imageNamed:@"wood2.jpg"];
     UIImageView *backImageView = [NSObject getBlurImageViewWithImage:wood withRect:self.tableView.frame];
     self.tableView.backgroundView = backImageView;
 
@@ -96,7 +96,7 @@
 //    }
     if (indexPath.row == 0) {
         
-        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood.jpg"]];
+        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wood2.jpg"]];
     }
 
     cell.backgroundColor = [UIColor clearColor];
