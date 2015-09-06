@@ -19,26 +19,40 @@
 
 
 @interface SliderMenu ()
+{
+        NSMutableArray *array_image;
+}
+
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
-
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *homeLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *homePic;
 @property (weak, nonatomic) IBOutlet UILabel *discoverLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *discoverPic;
 @property (weak, nonatomic) IBOutlet UILabel *footLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *footPic;
 @property (weak, nonatomic) IBOutlet UILabel *cameraLbl;
+@property (weak, nonatomic) IBOutlet UIImageView *cameraPic;
 @property (weak, nonatomic) IBOutlet UILabel *setUpLbl;
-
+@property (weak, nonatomic) IBOutlet UIImageView *setUpPic;
 @property(nonatomic, strong) UIImage *thumbnailImage;
 
 @end
 
 @implementation SliderMenu
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    array_image = [NSMutableArray new];
+    for (int i=1; i<=5; i++) {
+        NSString *image_name=[NSString stringWithFormat:@"image_%i.png",i];//圖片名稱
+        
+        [array_image addObject:image_name];//將圖加入陣列
+    }
 
-    
     
     
     //消去TableView最後沒用到的欄位的分隔線
@@ -82,12 +96,23 @@
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
 //    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
 
+    UIImage *pic1 = [UIImage imageNamed:@"image_1.png"];
+    UIImage *pic2 = [UIImage imageNamed:@"image_2.png"];
+    UIImage *pic3 = [UIImage imageNamed:@"image_3.png"];
+    UIImage *pic4 = [UIImage imageNamed:@"image_4.png"];
+    UIImage *pic5 = [UIImage imageNamed:@"image_5.png"];
+    
     
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
+    [_homePic setImage:pic1];
     [_homeLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+    [_discoverPic setImage:pic2];
     [_discoverLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+    [_footPic setImage:pic3];
     [_footLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+    [_cameraPic setImage:pic4];
     [_cameraLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+    [_setUpPic setImage:pic5];
     [_setUpLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
 }
 

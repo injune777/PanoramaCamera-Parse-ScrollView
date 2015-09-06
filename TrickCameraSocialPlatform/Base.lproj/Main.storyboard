@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -1621,14 +1621,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yd5-Gi-4eP" id="9BY-gF-zza">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMn-Vq-oos">
+                                                    <rect key="frame" x="15" y="2" width="48" height="48"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首頁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-S9-hmc">
-                                                    <rect key="frame" x="8" y="11" width="122" height="30"/>
+                                                    <rect key="frame" x="105" y="11" width="122" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" red="1" green="0.60883535359999996" blue="0.42987903519999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <segue destination="I55-Kd-Qoo" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Wfx-nM-P5a"/>
                                         </connections>
@@ -1638,14 +1642,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9s1-eg-NL4" id="Zbx-Ee-LdJ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGu-KN-Xk6">
+                                                    <rect key="frame" x="15" y="6" width="48" height="48"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="取景" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgO-Pi-tda">
-                                                    <rect key="frame" x="8" y="15" width="134" height="30"/>
+                                                    <rect key="frame" x="105" y="15" width="134" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" red="1" green="0.60883535359999996" blue="0.42987903519999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <segue destination="oMy-T1-HZj" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="g2I-wR-f1W"/>
                                         </connections>
@@ -1657,13 +1665,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="足跡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32l-fP-f3e">
-                                                    <rect key="frame" x="8" y="15" width="50" height="30"/>
+                                                    <rect key="frame" x="105" y="15" width="50" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" red="1" green="0.60883535359999996" blue="0.42987903519999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cry-iA-XjU">
+                                                    <rect key="frame" x="15" y="6" width="48" height="48"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <segue destination="w1Z-zZ-XEX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pm2-9p-OX9"/>
                                         </connections>
@@ -1675,13 +1687,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="相機" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-Td-1DD">
-                                                    <rect key="frame" x="8" y="11" width="126" height="30"/>
+                                                    <rect key="frame" x="105" y="11" width="126" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" red="1" green="0.60883535359999996" blue="0.42987903519999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Blg-eM-5zA">
+                                                    <rect key="frame" x="15" y="2" width="48" height="48"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="49" id="pan-GY-nHw">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1690,13 +1706,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alr-YC-pZQ">
-                                                    <rect key="frame" x="8" y="10" width="105" height="30"/>
+                                                    <rect key="frame" x="105" y="10" width="105" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" red="1" green="0.60883535359999996" blue="0.42987903519999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5N-if-qaK">
+                                                    <rect key="frame" x="15" y="1" width="48" height="48"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <segue destination="j6C-6b-PE9" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="U5s-3F-DoZ"/>
                                         </connections>
@@ -1712,10 +1732,15 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cameraLbl" destination="fSP-Td-1DD" id="bnb-e6-jcg"/>
+                        <outlet property="cameraPic" destination="Blg-eM-5zA" id="bdY-Oq-amo"/>
                         <outlet property="discoverLbl" destination="fgO-Pi-tda" id="nCV-l4-KHN"/>
+                        <outlet property="discoverPic" destination="NGu-KN-Xk6" id="qSl-yT-NUZ"/>
                         <outlet property="footLbl" destination="32l-fP-f3e" id="wG7-dI-A3U"/>
+                        <outlet property="footPic" destination="cry-iA-XjU" id="UMD-rW-17G"/>
                         <outlet property="homeLbl" destination="K0H-S9-hmc" id="UIq-xk-sNy"/>
+                        <outlet property="homePic" destination="wMn-Vq-oos" id="IuD-hz-QEu"/>
                         <outlet property="setUpLbl" destination="alr-YC-pZQ" id="VVb-JX-Gle"/>
+                        <outlet property="setUpPic" destination="x5N-if-qaK" id="o3e-vv-Tq8"/>
                         <outlet property="userName" destination="VYY-Ja-gqo" id="aX6-Fn-zu0"/>
                         <outlet property="userPicture" destination="exp-q1-69K" id="fzv-mK-kIZ"/>
                     </connections>
