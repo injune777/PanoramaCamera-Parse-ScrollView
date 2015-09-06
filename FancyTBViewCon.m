@@ -60,7 +60,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-        UIImage *seaImage = [UIImage imageNamed:@"sea,png"];
+    
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];
     _bouncingBalls.loaderColor = [UIColor orangeColor];
@@ -73,18 +73,28 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     _bouncingBalls.fontSize = 20;
     
     
-    //Facebook登入的部份還要再處理-->設定部份
+    //Facebook登入的部份
     //下拉更新文字屬性
     //Check if user is cached
     if (![PFUser currentUser] ||
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        // Check if user is linked to Facebook
+//        // Check if user is linked to Facebook
+//        _controller = [[PFLogInViewController alloc] init];
+//        _controller.delegate = self;
+//        //蓋住Parse5個字的logo
+//        [_controller.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
+//        //設定欄位
+//        _controller.fields = PFLogInFieldsFacebook;
+//        [self presentViewController:_controller animated:YES completion:nil];
+        
+        
+        //為了蓋住Parse5個字字的寫法
         _controller = [[PFLogInViewController alloc] init];
         _controller.delegate = self;
-        //設定欄位
         _controller.fields = PFLogInFieldsFacebook;
+        //蓋住Parse5個字的logo
+        [_controller.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
         [self presentViewController:_controller animated:YES completion:nil];
-        
     }else{
         //開始轉轉
         [_bouncingBalls showLoader];
@@ -275,7 +285,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         cell.likeImage.image = [UIImage imageNamed:@"love 2.png"];
     }
     
-
 
     //最新發佈圖-陰影效果
     cell.fancyImageView = [UIImageView imageViewWithShadow:cell.fancyImageView withColor:[UIColor blackColor]];

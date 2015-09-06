@@ -11,12 +11,14 @@
 
 #import "SWRevealViewController.h"
 
+
 @interface SetUpTBVC ()<PFLogInViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISwitch *savePictureInLocal;
 @property (weak, nonatomic) IBOutlet UISwitch *logOut;
 //parse and facebook 登入
 @property(nonatomic, strong) PFLogInViewController *controller;
+
 //Slide Bar
 @property(nonatomic, strong) UIBarButtonItem *slideBarBtn;
 
@@ -60,6 +62,10 @@
         _controller = [[PFLogInViewController alloc] init];
         _controller.delegate = self;
         _controller.fields = PFLogInFieldsFacebook;
+        
+        //蓋住Parse5個字的logo
+        [_controller.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
+        
         [self presentViewController:_controller animated:YES completion:nil];
     }
 }
