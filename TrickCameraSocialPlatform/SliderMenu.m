@@ -119,9 +119,11 @@
 
 //使靜態Cell背景透明
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row != 0) {
-        cell.backgroundColor = [UIColor clearColor];
-    }
+//    if (indexPath.row != 0) {
+//        cell.backgroundColor = [UIColor clearColor];
+//    }
+    cell.backgroundColor = [UIColor clearColor];
+
 }
 
 //跳出相機頁面-->Modal View
@@ -130,7 +132,7 @@
         CameraVC *cameraVC = [self.storyboard instantiateViewControllerWithIdentifier:@"cameraVC"];
         [self presentViewController:cameraVC animated:YES completion:nil];
     }
-
+    
 }
 
 
