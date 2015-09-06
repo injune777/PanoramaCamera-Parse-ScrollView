@@ -60,6 +60,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+        UIImage *seaImage = [UIImage imageNamed:@"sea,png"];
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];
     _bouncingBalls.loaderColor = [UIColor orangeColor];
@@ -117,6 +118,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //自適化TableViewCell高度
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     
     //下拉資料更新中
     self.refreshControl = [UIRefreshControl new];
@@ -278,6 +280,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //scroll view設定大小
     cell.fancyScrollView.contentSize = CGSizeMake(470, 0);
     
+    
     //Parse download
     _pfImageview = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
@@ -289,7 +292,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                scaledToSizeWidth:490.0f
-                                              scaledToSizeHeight:180.0f];
+                                              scaledToSizeHeight:180.0f
+                                 ];
     
     //設定大頭照
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
@@ -309,6 +313,10 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
     [headPFimageView loadInBackground];
     [_pfImageview loadInBackground];
+
+
+
+    
     
     return cell;
 }

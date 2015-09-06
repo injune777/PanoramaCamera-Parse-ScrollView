@@ -36,6 +36,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer *tapPhone;
+    tapPhone = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callTel:)];
+    tapPhone.numberOfTapsRequired =1;
+    [_tableView addGestureRecognizer:tapPhone];
+    
+    
+    
+    
     //消去TableView最後沒用到的欄位的分隔線
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -118,11 +127,27 @@
     cell.place.text = _detailObj[@"Name"];
     cell.address.text = _detailObj[@"Add"];
     cell.phone.text = _detailObj[@"Tel"];
+    
     cell.special.text = _detailObj[@"Toldescribe"];
     
+    
+    
+    
+  
+    
+
     return cell;
 }
-
+-(void)callTel:(UITapGestureRecognizer*)tapPhone
+{
+    NSString *phoneStr = [[NSString alloc] initWithFormat:@"tel:%@",_detailObj[@"Tel"]];
+//    NSString *telNumber = [[NSString alloc]initWithString:_detailObj[@"Tel"]];
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneStr]];
+    
+    
+    
+//    [self.view removeGestureRecognizer:tapPhone];
+}
 
 - (IBAction)selectBtn:(UISegmentedControl *)sender {
     switch ([sender selectedSegmentIndex]) {
