@@ -85,7 +85,6 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
 
     
-    
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
     [_homeLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
     [_discoverLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
@@ -97,7 +96,9 @@
 
 //使靜態Cell背景透明
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.backgroundColor = [UIColor clearColor];
+    if (indexPath.row != 0) {
+        cell.backgroundColor = [UIColor clearColor];
+    }
 }
 
 //跳出相機頁面-->Modal View
