@@ -61,7 +61,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     [super viewDidLoad];
     
     //tableview背景
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backPaper.jpg"]];
+//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backPaper.jpg"]];
 
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];

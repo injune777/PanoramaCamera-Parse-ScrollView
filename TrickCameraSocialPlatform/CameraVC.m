@@ -329,7 +329,6 @@ typedef void(^PropertyChangeBlock) (AVCaptureDevice *captureDevice);
 }
 -(void)tapScreen:(UITapGestureRecognizer *)tapGesture{
     CGPoint point= [tapGesture locationInView:self.viewContainer];
-    //将UI座標轉化为鏡頭坐标
     CGPoint cameraPoint= [self.captureVideoPreviewLayer captureDevicePointOfInterestForPoint:point];
     [self setFocusCursorWithPoint:point];
     [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];

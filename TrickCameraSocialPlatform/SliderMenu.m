@@ -96,11 +96,11 @@
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big.png"]];
 
-    UIImage *pic1 = [UIImage imageNamed:@"main"];
-    UIImage *pic2 = [UIImage imageNamed:@"map"];
-    UIImage *pic3 = [UIImage imageNamed:@"foot"];
-    UIImage *pic4 = [UIImage imageNamed:@"camera"];
-    UIImage *pic5 = [UIImage imageNamed:@"config"];
+    UIImage *pic1 = [UIImage imageNamed:@"main-page"];
+    UIImage *pic2 = [UIImage imageNamed:@"map30"];
+    UIImage *pic3 = [UIImage imageNamed:@"footprints15"];
+    UIImage *pic4 = [UIImage imageNamed:@"camera25"];
+    UIImage *pic5 = [UIImage imageNamed:@"cogwheel12"];
     
     
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
