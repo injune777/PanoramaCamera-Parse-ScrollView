@@ -82,7 +82,7 @@
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
     
     
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
+//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
 
     
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];

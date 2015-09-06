@@ -37,7 +37,8 @@
         FBLikeLayout *layout = [FBLikeLayout new];
         layout.minimumInteritemSpacing = 4;
         layout.singleCellWidth = (MIN(self.collectionView.bounds.size.width, self.collectionView.bounds.size.height)-self.collectionView.contentInset.left-self.collectionView.contentInset.right-8)/3.0;
-        layout.maxCellSpace = 3;
+        //調2的效果最好
+        layout.maxCellSpace = 2;
         layout.forceCellWidthForMinimumInteritemSpacing = YES;
         layout.fullImagePercentageOfOccurrency = 50;
         self.collectionView.collectionViewLayout = layout;

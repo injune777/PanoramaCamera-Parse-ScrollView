@@ -134,8 +134,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
                                              selector:@selector(peopleOK:)
                                                  name:PEOPLE_OK object:nil];
     
-    //tableview背景圖
-     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
     
 }
 //MESSAGE notification center
@@ -199,8 +197,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         cell = [[FancyTBViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-    //讓cell變成透明
-    cell.backgroundColor = [UIColor clearColor];
 
     
 
@@ -298,8 +294,17 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                scaledToSizeWidth:490.0f
-                                              scaledToSizeHeight:180.0f
-                                 ];
+                                              scaledToSizeHeight:180.0f];
+    
+    //採用GCD方式跑-->會一直閃爍
+//    PFFile *thumbnail = _pe.parseData[indexPath.section][@"photo"];
+//    [self getParsePhoto:thumbnail complection:^(UIImage *image) {
+//        cell.fancyImageView.image = [UIImage imageCompressWithSimple:image
+//                                                   scaledToSizeWidth:490.0f
+//                                                  scaledToSizeHeight:180.0f];
+//    }];
+    
+    
     
     //設定大頭照
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
