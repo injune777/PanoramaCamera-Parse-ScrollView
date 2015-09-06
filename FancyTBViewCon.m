@@ -134,6 +134,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
                                              selector:@selector(peopleOK:)
                                                  name:PEOPLE_OK object:nil];
     
+    //tableview背景圖
+     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
+    
 }
 //MESSAGE notification center
 -(void)messageOK:(NSNotification*)notification{
@@ -195,6 +198,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     if (!cell) {
         cell = [[FancyTBViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    
+    //讓cell變成透明
+    cell.backgroundColor = [UIColor clearColor];
 
     
 
