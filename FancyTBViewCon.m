@@ -59,8 +59,10 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     
+    //tableview背景
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big.png"]];
+
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];
     _bouncingBalls.loaderColor = [UIColor orangeColor];
@@ -183,6 +185,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         //取得相片的全部留言-->回傳字典給DataSource
         [_pe getPhotoAllMessages:nil];
     });
+    
 }
 
 
@@ -207,7 +210,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         cell = [[FancyTBViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
-
+    //讓cell變透明
+    cell.backgroundColor = [UIColor clearColor];
     
 
     //手勢初始化
