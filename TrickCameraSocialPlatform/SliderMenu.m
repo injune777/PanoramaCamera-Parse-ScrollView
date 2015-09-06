@@ -94,13 +94,13 @@
     
 //    模糊效果
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
-//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big.png"]];
 
-    UIImage *pic1 = [UIImage imageNamed:@"image_1.png"];
-    UIImage *pic2 = [UIImage imageNamed:@"image_2.png"];
-    UIImage *pic3 = [UIImage imageNamed:@"image_3.png"];
-    UIImage *pic4 = [UIImage imageNamed:@"image_4.png"];
-    UIImage *pic5 = [UIImage imageNamed:@"image_5.png"];
+    UIImage *pic1 = [UIImage imageNamed:@"main"];
+    UIImage *pic2 = [UIImage imageNamed:@"map"];
+    UIImage *pic3 = [UIImage imageNamed:@"foot"];
+    UIImage *pic4 = [UIImage imageNamed:@"camera"];
+    UIImage *pic5 = [UIImage imageNamed:@"config"];
     
     
     [_userName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:22]];
