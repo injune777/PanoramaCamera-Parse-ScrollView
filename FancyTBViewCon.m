@@ -221,14 +221,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
     
     //字型調整
-    [cell.userName  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.userName  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
+    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
 //    [cell.focusLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-    [cell.postDate setFont:[UIFont fontWithName:@"Helvetica-Bold" size:10]];
-    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [cell.likeLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [cell.messageLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
-    [cell.shareLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12]];
+    [cell.postDate setFont:[UIFont fontWithName:@"Helvetica-Bold" size:11]];
+    
+    [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
+    [cell.likeLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
+    [cell.messageLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
+    [cell.shareLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
     
     //使uiimageview的陰影不影響Tableview的速度
     cell.layer.shouldRasterize = YES;
@@ -325,10 +326,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     [headPFimageView loadInBackground];
     [_pfImageview loadInBackground];
 
-
-
-    
-    
     return cell;
 }
 
@@ -356,8 +353,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         self.navigationController.navigationBarHidden = NO;
     }
 }
-
-
 
 
 
@@ -440,17 +435,27 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 }
 
 
-//shareGestureTapMotion
+//shareGestureTapMotion-->目前只能抓第一個secion第一個row的圖。所以demo時候，只能點擊第一個
 -(void)shareGestureTapMotion:(UIGestureRecognizer*)sender{
     //好像一次只能跳出一個分享-->這裡是Facebook
     SLComposeViewController *socialController = [SLComposeViewController
                                                  composeViewControllerForServiceType:SLServiceTypeFacebook];
     // add initial text
-    [socialController setInitialText:@"Hello Facebook!"];
+    
+    UIImageView *selectedImageView=(UIImageView*)[sender view];
+    //取得NSIndexPath-->使用刺件的父物件的方法
+    NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
+
+
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    //因為返回的是UITableViewCell，所以要把她轉型為FancyTBviewCell
+    FancyTBViewCell *customCell =(FancyTBViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+
     // add an image
-    [socialController addImage:[UIImage imageNamed:@"98.jpg"]];
-    // add a URL
-    [socialController addURL:[NSURL URLWithString:@"http://wpguru.co.uk"]];
+    NSLog(@"%ld", indexPath.section);
+    [socialController addImage:customCell.fancyImageView.image];
+    NSLog(@"%@", customCell.fancyImageView.image);
+
     // present controller
     [self presentViewController:socialController animated:YES completion:nil];
 }

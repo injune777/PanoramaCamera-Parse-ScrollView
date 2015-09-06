@@ -80,8 +80,6 @@
     
 //    模糊效果
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
-    
-    
 //    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sky.jpg"]];
 
     
