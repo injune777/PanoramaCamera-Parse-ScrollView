@@ -25,6 +25,8 @@
 
 
 
+
+
 @interface FootMarkVC ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
 //地圖
@@ -32,12 +34,15 @@
 //Slide Bar
 @property(nonatomic, strong) UIBarButtonItem *slideBarBtn;
 
-
+//選單
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectBtn;
 
 //位置管理員
 @property(nonatomic, strong) CLLocationManager *locationManager;
 //現在經緯度座標
 @property(nonatomic, assign) CLLocationCoordinate2D currentLocationCoordinate;
+@property(nonatomic, assign) CLLocationCoordinate2D coor;
+
 //大頭針物件
 @property(nonatomic, strong) MKPointAnnotation *myPoint;
 
@@ -51,19 +56,13 @@
 @property(nonatomic, strong) NSMutableArray *parseDB;
 
 
-//getFocusUserAllPostPhotoWithUserI
+
 @end
 
 @implementation FootMarkVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    PFUser *currentUser = [PFUser currentUser];
-    //Parse抓指定user的資料
-    [NSObject getFocusUserAllPostPhotoWithUserID:currentUser.objectId completion:^(NSMutableArray *completion) {
-        _parseDB = completion;
-    }];
-    
     
     //Slide Bar Menu初始化
     _slideBarBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"slideBar.png"]
@@ -74,13 +73,6 @@
     self.navigationItem.leftBarButtonItem = _slideBarBtn;
     SWRevealViewController *revealViewController = [self revealViewController];
     
-    if (revealViewController) {
-        //調整寬度
-        revealViewController.rearViewRevealWidth = 220;
-        [_slideBarBtn setTarget:self.revealViewController];
-        [_slideBarBtn setAction:@selector(revealToggle:)];
-        [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
-    }
     
     //初始化地理位置管理員
     _locationManager = [[CLLocationManager alloc] init];
@@ -99,6 +91,50 @@
     //開始計算所在位地置的功能
     [_locationManager startUpdatingLocation];
 
+    
+    
+    if (revealViewController) {
+        //調整寬度
+        revealViewController.rearViewRevealWidth = 220;
+        [_slideBarBtn setTarget:self.revealViewController];
+        [_slideBarBtn setAction:@selector(revealToggle:)];
+        [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
+    }
+
+    
+    
+    PFUser *currentUser = [PFUser currentUser];
+
+    [NSObject getFocusUserAllPostPhotoWithUserID:currentUser.objectId completion:^(NSMutableArray *completion) {
+        _parseDB = completion;
+        NSInteger num = 0;
+        for (PFObject *obj in _parseDB) {
+            //大頭針初始化
+            _photoPoint = [[MyAnnotation alloc] init];
+            //取經緯度
+            _photoPoint.coordinate = CLLocationCoordinate2DMake([obj[@"postLocation"] latitude], [obj[@"postLocation"] longitude]);
+            _photoPoint.title = obj[@"postState"];
+            _photoPoint.subtitle = [self retunPostDate:[obj createdAt]];
+            _photoPoint.tag = num;
+            
+            //原圖的縮略圖==>placeHolder
+            PFFile *thumbnail = obj[@"photo"];
+            NSData *imageData = [thumbnail getData];
+            UIImage *thumbnailImage = [UIImage imageWithData:imageData];
+            thumbnailImage = [UIImage imageCompressWithSimple:thumbnailImage scaledToSizeWidth:50 scaledToSizeHeight:50];
+            _photoPoint.photoImage = thumbnailImage;
+            [_pointArray addObject:_photoPoint];
+            num++;
+        }
+        [_myFootMap addAnnotations:_pointArray];
+        
+        
+    }];
+
+
+
+    
+
     //地圖初始化
     //代理
     _myFootMap.delegate = self;
@@ -106,30 +142,28 @@
     _myFootMap.mapType = MKMapTypeStandard;
     //顯示user當前位置
     _myFootMap.showsUserLocation = YES;
-    
-    _pointArray = [[NSMutableArray alloc] init];
     //單例模式
-    NSInteger num = 0;
+    _pointArray = [[NSMutableArray alloc] init];
     
-    for (PFObject *obj in _parseDB) {
-        //大頭針初始化
-        _photoPoint = [[MyAnnotation alloc] init];
-        //取經緯度
-        _photoPoint.coordinate = CLLocationCoordinate2DMake([obj[@"postLocation"] latitude], [obj[@"postLocation"] longitude]);
-        _photoPoint.title = obj[@"postState"];
-        _photoPoint.subtitle = [self retunPostDate:[obj createdAt]];
-        _photoPoint.tag = num;
-        
-        //原圖的縮略圖==>placeHolder
-        PFFile *thumbnail = obj[@"photo"];
-        NSData *imageData = [thumbnail getData];
-        UIImage *thumbnailImage = [UIImage imageWithData:imageData];
-        thumbnailImage = [UIImage imageCompressWithSimple:thumbnailImage scaledToSizeWidth:50 scaledToSizeHeight:50];
-        _photoPoint.photoImage = thumbnailImage;
-        [_pointArray addObject:_photoPoint];
-        num++;
-    }
-    [_myFootMap addAnnotations:_pointArray];
+    
+//    CLLocation *currentlocation = self.locationManager.location;
+//    
+//    NSLog(@"經度度~~~~%f", currentlocation.coordinate.latitude);
+//
+//        //顯示範圍
+//    //coordinate-->座標
+//    MKCoordinateRegion region = _myFootMap.region;
+//    //CLLocationCoordinate2D coors = _myFootMap.userLocation.coordinate;
+//    CLLocationCoordinate2D coors = CLLocationCoordinate2DMake(currentlocation.coordinate.latitude,
+//                                                              currentlocation.coordinate.longitude);
+//    region.center = coors;
+//    //控制地圖的縮放-->無段式縮放 -->1度約1公里
+//    region.span.latitudeDelta = 0.02;
+//    //控制地圖的縮放-->無段式縮放
+//    region.span.longitudeDelta = 0.02;
+//    //跳過去的位置和動畫
+//    [_myFootMap setRegion:region animated:NO];
+ 
 }
 
 
@@ -172,16 +206,9 @@
         theImageView.contentMode = UIViewContentModeScaleToFill;
         theImageView.image = annotation.photoImage;
         customPin.leftCalloutAccessoryView = theImageView;
-        customPin.animatesDrop = NO;
+        customPin.animatesDrop = YES;
         
-        //導航功能加入
-        //UIButtonTypeDetailDisclosure-->就是旁邊的驚嘆號
-//        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//        //用程式碼去實現Button的監聽
-//        //forControlEvents-->參數是事件的種類
-//        [rightButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        customPin.rightCalloutAccessoryView = rightButton;
-        
+
         UIButton *rightBUtton = [[UIButton alloc] init];
         rightBUtton.frame = CGRectMake(0, 0, 40, 40);
         
@@ -211,7 +238,6 @@
     MKPlacemark *targetPlace = [[MKPlacemark alloc] initWithCoordinate:coordias addressDictionary:nil];
     //地圖導航用的物件-->目的地
     MKMapItem *targetMapItem = [[MKMapItem alloc] initWithPlacemark:targetPlace];
-//    targetMapItem.name = _tmpRestaurant.name;
     
     //呼叫Apple Map後，可以帶參數過去
     NSDictionary *options = @{MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving};
@@ -219,14 +245,29 @@
     [targetMapItem openInMapsWithLaunchOptions:options];
 }
 
+- (IBAction)selectBtnAction:(UISegmentedControl *)sender {
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            
+            break;
+        case 1:
+
+            break;
+        default:
+            break;
+    }
+    
+
+}
 
 
-////更新user經緯度-->私有方法
-//-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-//    //取user位置的最新一筆Coordinate(座標)
-//    _currentLocationCoordinate = [locations.lastObject coordinate];
-////    //設置地圖的顯示範圍
-////    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 80000.0f, 80000.0f);
-////    [_myFootMap setRegion:region animated:YES];
-//}
+//更新user經緯度-->私有方法
+-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    //取user位置的最新一筆Coordinate(座標)
+    _currentLocationCoordinate = [locations.lastObject coordinate];
+    
+//  //設置地圖的顯示範圍
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocationCoordinate, 400.0f, 400.0f);
+    [_myFootMap setRegion:region animated:YES];
+}
 @end

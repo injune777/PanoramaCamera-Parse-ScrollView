@@ -89,18 +89,24 @@
 //取得指定user的所有發文照片 + 留言次數 + 按喜歡次數 + post文日期 + postName
 +(void) getFocusUserAllPostPhotoWithUserID:(NSString*)userID
                                 completion:(void(^)(NSMutableArray *completion))completion{
-    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photos"];
-    [photoQuery includeKey:@"userPID"];
-    //排序
-    [photoQuery orderByDescending:@"createdAt"];
-    //很重要因為該欄位我設為point，所以要尋找時，只能用轉成PFObject的型態去找
-    PFUser *userPoint = [NSObject getOneUserInfo:userID];
-    [photoQuery whereKey:@"userPID" equalTo:userPoint];
-    NSArray *photos = [photoQuery findObjects];
-    //Block回傳值
-    if (completion) {
-        completion((NSMutableArray*)photos);
-    }
+    //這裡使用-->不知會不會有問題
+    dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+    dispatch_async(bg1, ^{
+        PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photos"];
+        [photoQuery includeKey:@"userPID"];
+        //排序
+        [photoQuery orderByDescending:@"createdAt"];
+        //很重要因為該欄位我設為point，所以要尋找時，只能用轉成PFObject的型態去找
+        PFUser *userPoint = [NSObject getOneUserInfo:userID];
+        [photoQuery whereKey:@"userPID" equalTo:userPoint];
+        NSArray *photos = [photoQuery findObjects];
+        //Block回傳值
+        if (completion) {
+            completion((NSMutableArray*)photos);
+        }
+
+        
+    });
 }
 
 

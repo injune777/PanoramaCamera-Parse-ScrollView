@@ -1129,7 +1129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd9-XI-kKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15726" y="755"/>
+            <point key="canvasLocation" x="-15789" y="677"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="Ltq-ha-udf">
@@ -1838,6 +1838,16 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sd3-VT-ZbL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ulr-1p-dCu">
+                                <rect key="frame" x="101" y="72" width="119" height="29"/>
+                                <segments>
+                                    <segment title="最新"/>
+                                    <segment title="全部"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectBtnAction:" destination="FsL-MU-xwo" eventType="valueChanged" id="tGn-n7-Ksu"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1851,6 +1861,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="myFootMap" destination="sd3-VT-ZbL" id="tgG-Mi-RlR"/>
+                        <outlet property="selectBtn" destination="Ulr-1p-dCu" id="zQF-fn-13C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-2y-TVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
