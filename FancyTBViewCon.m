@@ -60,9 +60,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //tableview背景
-//    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backPaper.jpg"]];
-
+    //tableview背景-->目標:模糊效果
+    //self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backPaper.jpg"]];
+    
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];
     _bouncingBalls.loaderColor = [UIColor orangeColor];
@@ -88,6 +88,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         //蓋住Parse5個字的logo
         [_controller.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
         [self presentViewController:_controller animated:YES completion:nil];
+        
     }else{
         //開始轉轉
         [_bouncingBalls showLoader];
@@ -100,7 +101,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             //取得照片的all info
             [_pe getParseData:^(NSMutableArray *pfObject) {
                 //取得主線程(main thread)
-                
+                NSLog(@"reloadata~~");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //停止轉轉
                     [_bouncingBalls setHidden:YES];
@@ -122,7 +123,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     self.tableView.estimatedRowHeight = 44.0f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
-    
     //下拉資料更新中
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(handleRefresh)
@@ -228,7 +228,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //字型調整
     [cell.userName  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
     [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-//    [cell.focusLblText  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
     [cell.postDate setFont:[UIFont fontWithName:@"Helvetica-Bold" size:11]];
     
     [cell.postState  setFont:[UIFont fontWithName:@"Helvetica-Bold" size:13]];
@@ -335,19 +334,20 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
 
 //多線程下載TableView的圖-->會一直閃爍
--(void)getParsePhoto:(PFFile*)photoFile complection:(void(^)(UIImage* image))complection{
-    
-        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
-        dispatch_async(bg1, ^{
+//-(void)getParsePhoto:(PFFile*)photoFile complection:(void(^)(UIImage* image))complection{
+//    
+//        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+//        dispatch_async(bg1, ^{
+//
+//            [photoFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+//                if (!error) {
+//                    UIImage *image = [UIImage imageWithData:imageData];
+//                    complection(image);
+//                }
+//            }];
+//        });
+//}
 
-            [photoFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-                if (!error) {
-                    UIImage *image = [UIImage imageWithData:imageData];
-                    complection(image);
-                }
-            }];
-        });
-}
 
 //往上滑動時隱藏NavigationBar-->delegate
 -(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
@@ -456,9 +456,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     FancyTBViewCell *customCell =(FancyTBViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
 
     // add an image
-    NSLog(@"%ld", indexPath.section);
     [socialController addImage:customCell.fancyImageView.image];
-    NSLog(@"%@", customCell.fancyImageView.image);
 
     // present controller
     [self presentViewController:socialController animated:YES completion:nil];
@@ -475,8 +473,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     vc.selectPhotoObj = _pe.parseData[myIndexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 
 
 //Protocol-->登入完成時用

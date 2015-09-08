@@ -38,6 +38,7 @@
                 //取得訊息集合
                 NSArray *messageAry = [NSObject getFocusPhotoIDToMessage:tempObj.objectId];
                 [tempObj setObject:messageAry forKey:@"messageAry"];
+                
                 //取得是否喜歡該照片
                 [NSObject getFocusUserLikeWithPhotoID:tempObj.objectId withUserID:meID completion:^(NSString *completion){
                     dispatch_queue_t bg2 = dispatch_queue_create("bg2", nil);
@@ -52,7 +53,7 @@
 //                        [tempObj saveInBackground];
                         [tempObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                             [tempAry addObject:tempObj];
-                            if (completion) {
+                            if (completions) {
                                 //轉型為NSMutableArray
                                 completions((NSMutableArray*)tempAry);
                             }
@@ -173,7 +174,7 @@
                                  completion:(void(^)(NSMutableArray *completion))completion{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Follow"];
-    //加includeKey才可以pointer的欄位的詳細資料包進來
+    //加includeKey才可以把pointer的欄位的詳細資料包進來
     [query includeKey:@"follower"];
     [query includeKey:@"followering"];
     [query whereKey:@"follower" equalTo:currentUser];
