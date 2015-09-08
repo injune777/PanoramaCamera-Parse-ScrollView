@@ -80,16 +80,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //Check if user is cached
     if (![PFUser currentUser] ||
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-//        // Check if user is linked to Facebook
-//        _controller = [[PFLogInViewController alloc] init];
-//        _controller.delegate = self;
-//        //蓋住Parse5個字的logo
-//        [_controller.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
-//        //設定欄位
-//        _controller.fields = PFLogInFieldsFacebook;
-//        [self presentViewController:_controller animated:YES completion:nil];
-        
-        
+
         //為了蓋住Parse5個字字的寫法
         _controller = [[PFLogInViewController alloc] init];
         _controller.delegate = self;
