@@ -257,15 +257,19 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //手勢初始化
     //[self initGesture];
     //創造Tap手勢物件&加上單擊行為
-//    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fancyPictureGestureTapMotion:)];
-    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalImageGestureTapMotion:)];
+//    _fancyPictureGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                   action:@selector(fancyPictureGestureTapMotion:)];
+    
+    _personalImageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                    action:@selector(personalImageGestureTapMotion:)];
+    
     _likeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likeGestureTapMotion:)];
     _messageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messageGestureTapMotion:)];
     _shareGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareGestureTapMotion:)];
     _theLongMessageGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(theLongMessageTapMotion:)];
     
     //附著手勢物件
-//    [cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
+    //[cell.fancyImageView addGestureRecognizer:_fancyPictureGesture];
     [cell.personalImageView addGestureRecognizer:_personalImageGesture];
     [cell.likeImage addGestureRecognizer:_likeGesture];
     [cell.messageImageView addGestureRecognizer:_messageGesture];
@@ -408,7 +412,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 }
 
 
-
 //fancyPictureGestureTapMotion
 //-(void)fancyPictureGestureTapMotion:(UIGestureRecognizer*)sender{
 //    
@@ -423,9 +426,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 //}
 
 
+
 //personalImageGestureTapMotion
 -(void)personalImageGestureTapMotion:(UIGestureRecognizer*)sender{
+    UIImageView *selectedImageView=(UIImageView*)[sender view];
+    //取得NSIndexPath-->使用刺件的父物件的方法-->這裡是Contentview
+    NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
+    
     PeoplesVCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PeoplePage"];
+    vc.selectPhotoObj = _turnData[myIndexPath.section][@"userPID"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

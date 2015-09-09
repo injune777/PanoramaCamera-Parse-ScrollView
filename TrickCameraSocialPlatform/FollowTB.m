@@ -106,7 +106,6 @@
                                                                  cell.statusLbl.image = [UIImage imageNamed:@"notFollow.png"];
                                                              }
                                                          });
-                                                         
                                                      }];
         });
 
