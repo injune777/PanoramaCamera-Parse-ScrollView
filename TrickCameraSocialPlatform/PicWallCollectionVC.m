@@ -15,6 +15,8 @@
 
 #import "FBLikeLayout.h"
 
+#import "FancyContainer.h"
+
 @interface PicWallCollectionVC ()<UIScrollViewDelegate, UIGestureRecognizerDelegate,UICollectionViewDelegateFlowLayout>
 //Tap手勢-->跳出照片
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGesturePicture;
@@ -23,6 +25,9 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapToOtherViewController;
 //ParseDBSingleTon
 @property(nonatomic, strong) ParseDBSource *pe;
+
+//轉換資料用
+@property (nonatomic, strong) NSMutableArray *turnData;
 
 @end
 
@@ -52,6 +57,7 @@
     [super viewDidLoad];
     //Parse singleton 初始化
     _pe = [ParseDBSource shared];
+    _turnData = _pe.parseData;
     
     //MESSAGE notification center
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -60,12 +66,33 @@
     
     //不規則佈局
     self.collectionView.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
+    
+    //Change one
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeONE:)
+                                                 name:CHANGE_ONE object:nil];
+    //Change two
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeTWO:)
+                                                 name:CHANGE_TWO object:nil];
 
 
 }
 //MESSAGE notification center
 -(void)messageOK:(NSNotification*)notification{
     NSLog(@"MESSAGE_OK完成同步");
+    [self.collectionView reloadData];
+}
+
+//改變照片的訊息量
+//changeONE notification center
+-(void)changeONE:(NSNotification*)notification{
+    _turnData = _pe.parseData;
+    [self.collectionView reloadData];
+}
+//changeONE notification center
+-(void)changeTWO:(NSNotification*)notification{
+    _turnData = _pe.allFocusPhotos;
     [self.collectionView reloadData];
 }
 
@@ -77,7 +104,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_pe.parseData count];
+    return [_turnData count];
 }
 //customer cell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -87,12 +114,12 @@
     [self initGesture];
     
     //原圖的縮略圖==>placeHolder
-    PFFile *thumbnail = _pe.parseData[indexPath.row][@"photo"];
+    PFFile *thumbnail = _turnData[indexPath.row][@"photo"];
     NSData *imageData = [thumbnail getData];
     UIImage *thumbnailImage = [UIImage imageWithData:imageData];
     PFImageView *pfImageview = [[PFImageView alloc] init];
     pfImageview.image = thumbnailImage;
-    pfImageview.file = _pe.parseData[indexPath.row][@"photo"];
+    pfImageview.file = _turnData[indexPath.row][@"photo"];
     //縮圖
 //    _cell.picWallImage.image = [UIImage imageCompressWithSimple:pfImageview.image
 //                                              scaledToSizeWidth:300.0f
@@ -145,7 +172,7 @@
     NSIndexPath *myIndexPath = [self.collectionView indexPathForCell:
                                 (PicWallCollectionCell *)[[selectedImageView superview] superview]];
     //傳選擇的photo物件-->選擇的照片物件
-    vc.selectPhotoObj = _pe.parseData[myIndexPath.row];
+    vc.selectPhotoObj = _turnData[myIndexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -153,7 +180,7 @@
 //不規則佈局
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     //原圖的縮略圖==>placeHolder
-    PFFile *thumbnail = _pe.parseData[indexPath.row][@"photo"];
+    PFFile *thumbnail = _turnData[indexPath.row][@"photo"];
     NSData *imageData = [thumbnail getData];
     UIImage *thumbnailImage = [UIImage imageWithData:imageData];
     return thumbnailImage.size;

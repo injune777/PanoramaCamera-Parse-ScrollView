@@ -23,6 +23,9 @@
 		100888321B729BDA007674DD /* share@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 100888201B729BDA007674DD /* share@1x.png */; };
 		100888361B729BDA007674DD /* message@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 100888241B729BDA007674DD /* message@3x.png */; };
 		100888371B729BDA007674DD /* love 2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 100888251B729BDA007674DD /* love 2@3x.png */; };
+		103A4EFE1B9F86F900ED395D /* bug@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 103A4EFB1B9F86F900ED395D /* bug@1x.png */; };
+		103A4EFF1B9F86F900ED395D /* bug@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 103A4EFC1B9F86F900ED395D /* bug@3x.png */; };
+		103A4F001B9F86F900ED395D /* bug@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 103A4EFD1B9F86F900ED395D /* bug@2x.png */; };
 		104373F71B8E4095009268E6 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 104373F61B8E4095009268E6 /* 3.jpeg */; };
 		1045324C1B7B8AFB006C6F0C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1045324B1B7B8AFB006C6F0C /* Accounts.framework */; };
 		1045324E1B7B8B0E006C6F0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1045324D1B7B8B0E006C6F0C /* QuartzCore.framework */; };
@@ -171,6 +174,9 @@
 		100888201B729BDA007674DD /* share@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@1x.png"; sourceTree = "<group>"; };
 		100888241B729BDA007674DD /* message@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@3x.png"; sourceTree = "<group>"; };
 		100888251B729BDA007674DD /* love 2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love 2@3x.png"; sourceTree = "<group>"; };
+		103A4EFB1B9F86F900ED395D /* bug@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug@1x.png"; sourceTree = "<group>"; };
+		103A4EFC1B9F86F900ED395D /* bug@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug@3x.png"; sourceTree = "<group>"; };
+		103A4EFD1B9F86F900ED395D /* bug@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bug@2x.png"; sourceTree = "<group>"; };
 		104373F61B8E4095009268E6 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		1045324B1B7B8AFB006C6F0C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1045324D1B7B8B0E006C6F0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -431,6 +437,16 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		103A4EFA1B9F86E700ED395D /* BackGround */ = {
+			isa = PBXGroup;
+			children = (
+				103A4EFB1B9F86F900ED395D /* bug@1x.png */,
+				103A4EFC1B9F86F900ED395D /* bug@3x.png */,
+				103A4EFD1B9F86F900ED395D /* bug@2x.png */,
+			);
+			name = BackGround;
+			sourceTree = "<group>";
+		};
 		1050E7491B6650590004CA4A /* Placeholder */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +506,7 @@
 		1050E76F1B66B0FB0004CA4A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				103A4EFA1B9F86E700ED395D /* BackGround */,
 				1050E7491B6650590004CA4A /* Placeholder */,
 				1050E74A1B6650770004CA4A /* Icons */,
 			);
@@ -1005,12 +1022,15 @@
 				105AD36D1B771A4D001739C0 /* navigationbar@2x.png in Resources */,
 				10BFA2541B87AF6700FE719F /* photo-placeholder.png in Resources */,
 				4A85ED481B9CBC6A00032C14 /* camera25@3x.png in Resources */,
+				103A4EFF1B9F86F900ED395D /* bug@3x.png in Resources */,
 				106A70281B9A432E00EE184A /* 1@2x.jpg in Resources */,
 				100888321B729BDA007674DD /* share@1x.png in Resources */,
+				103A4F001B9F86F900ED395D /* bug@2x.png in Resources */,
 				10D2FD9C1B69540500D1C0B1 /* pictureWall@1x.png in Resources */,
 				100888361B729BDA007674DD /* message@3x.png in Resources */,
 				1008882E1B729BDA007674DD /* love@2x.png in Resources */,
 				104373F71B8E4095009268E6 /* 3.jpeg in Resources */,
+				103A4EFE1B9F86F900ED395D /* bug@1x.png in Resources */,
 				1008882F1B729BDA007674DD /* message@1x.png in Resources */,
 				4A85ED511B9CBC6A00032C14 /* main-page@3x.png in Resources */,
 				4A85ED531B9CBC6A00032C14 /* map30@2x.png in Resources */,

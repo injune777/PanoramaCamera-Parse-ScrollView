@@ -89,9 +89,6 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     
-
-    
-    
 //    模糊效果
 //    UIImageView *backImageView = [NSObject getBlurImageViewWithImage:backGroundImage withRect:self.tableView.frame];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"big.png"]];
@@ -119,9 +116,6 @@
 
 //使靜態Cell背景透明
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row != 0) {
-//        cell.backgroundColor = [UIColor clearColor];
-//    }
     cell.backgroundColor = [UIColor clearColor];
 
 }

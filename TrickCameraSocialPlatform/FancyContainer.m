@@ -67,6 +67,17 @@
 
 //切換選單
 - (IBAction)segmentedBtn:(id)sender {
+    switch ([sender selectedSegmentIndex]) {
+        case 0:
+            [[NSNotificationCenter defaultCenter] postNotificationName:CHANGE_ONE object:nil];
+            break;
+        case 1:
+            //發佈者
+            [[NSNotificationCenter defaultCenter] postNotificationName:CHANGE_TWO object:nil];
+            break;
+        default:
+            break;
+    }
 }
 
 

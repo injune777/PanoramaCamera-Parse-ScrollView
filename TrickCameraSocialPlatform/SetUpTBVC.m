@@ -48,6 +48,8 @@
         [_slideBarBtn setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
+    //消去TableView最後沒用到的欄位的分隔線
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 
