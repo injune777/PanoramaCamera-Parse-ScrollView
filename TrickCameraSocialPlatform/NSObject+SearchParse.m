@@ -213,8 +213,17 @@
         
         //取得關注好友所有的發文結果
         [NSObject getMyFollowInfo:nameArray complection:^(NSMutableArray *completion) {
+            
+            //調用Block前要先判斷，如果呼叫時為nil的block的話，就忽略~~
+            NSMutableArray *tempAry = [[NSMutableArray alloc] init];
+            for (PFObject *tempObj in completion) {
+                //取得訊息集合
+                NSArray *messageAry = [NSObject getFocusPhotoIDToMessage:tempObj.objectId];
+                [tempObj setObject:messageAry forKey:@"messageAry"];
+                [tempAry addObject:tempObj];
+            }
             if (myCompletion) {
-                 myCompletion(completion);
+                myCompletion(tempAry);
             }
         }];
     }];

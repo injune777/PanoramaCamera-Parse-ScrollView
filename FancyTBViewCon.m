@@ -26,6 +26,7 @@
 #import "ParseDBSource.h"
 //轉轉轉
 #import <PQFCustomLoaders/PQFCustomLoaders.h>
+#import "FancyContainer.h"
 
 
 
@@ -53,6 +54,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 //轉轉轉
 @property (nonatomic, strong) PQFBouncingBalls *bouncingBalls;
 
+//轉換資料用
+@property (nonatomic, strong) NSMutableArray *turnData;
+
 @end
 
 @implementation FancyTBViewCon
@@ -60,8 +64,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //tableview背景-->目標:模糊效果
-    //self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backPaper.jpg"]];
+    //轉換資料初始化
+    _turnData = [[NSMutableArray alloc] init];
     
     //轉轉轉
     _bouncingBalls = [PQFBouncingBalls createModalLoader];
@@ -81,7 +85,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     if (![PFUser currentUser] ||
         ![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
 
-        //為了蓋住Parse5個字字的寫法
+        //為了蓋住Parse5個字的寫法
         _controller = [[PFLogInViewController alloc] init];
         _controller.delegate = self;
         _controller.fields = PFLogInFieldsFacebook;
@@ -100,8 +104,10 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         dispatch_async(bg1, ^{
             //取得照片的all info
             [_pe getParseData:^(NSMutableArray *pfObject) {
+                
+                //預設的資料組-->全部的發文照片的資料
+                _turnData = _pe.parseData;
                 //取得主線程(main thread)
-                NSLog(@"reloadata~~");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //停止轉轉
                     [_bouncingBalls setHidden:YES];
@@ -122,9 +128,9 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
         dispatch_async(bg3, ^{
             //取得關注人數的所有的發文照片
             [_pe getFocusPhotos:^(NSMutableArray *focusPhotos){
-                NSLog(@"%ld", focusPhotos.count);
             }];
         });
+        
         
     }
     
@@ -147,6 +153,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
                                              selector:@selector(peopleOK:)
                                                  name:PEOPLE_OK object:nil];
     
+    //Change one
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeONE:)
+                                                 name:CHANGE_ONE object:nil];
+    //Change two
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeTWO:)
+                                                 name:CHANGE_TWO object:nil];
+    
     
 }
 //MESSAGE notification center
@@ -159,6 +174,21 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     NSLog(@"peopleOK完成同步");
     [self.tableView reloadData];
 }
+
+
+//改變照片的訊息量
+//changeONE notification center
+-(void)changeONE:(NSNotification*)notification{
+    _turnData = _pe.parseData;
+    [self.tableView reloadData];
+}
+//changeONE notification center
+-(void)changeTWO:(NSNotification*)notification{
+    _turnData = _pe.allFocusPhotos;
+    [self.tableView reloadData];
+}
+
+
 
 
 //下拉更新method
@@ -174,6 +204,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             
             //取得主線程(main thread)
             dispatch_async(dispatch_get_main_queue(), ^{
+                _turnData = _pe.parseData;
                 [self.tableView reloadData];
                 [self.refreshControl endRefreshing];
             });
@@ -192,7 +223,6 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     dispatch_async(bg3, ^{
         //取得關注人數的所有的發文照片
         [_pe getFocusPhotos:^(NSMutableArray *focusPhotos){
-            NSLog(@"%ld", focusPhotos.count);
         }];
     });
     
@@ -202,7 +232,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [_pe.parseData count];
+    return [_turnData count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -264,17 +294,17 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
     //這裡要重新設計過
     //最新的一筆留言-->要先做空數組判斷，不然一定會crasth
-    if ([_pe.parseData[indexPath.section][@"messageAry"] count] == 0) {
+    if ([_turnData[indexPath.section][@"messageAry"] count] == 0) {
         cell.theNewMessage.text = @"留言";
     }else{
-        cell.theNewMessage.text = _pe.parseData[indexPath.section][@"messageAry"][0][@"message"];
+        cell.theNewMessage.text = _turnData[indexPath.section][@"messageAry"][0][@"message"];
     }
     
     
     //Post userName
-    cell.userName.text = _pe.parseData[indexPath.section][@"userPID"][@"displayName"];
+    cell.userName.text = _turnData[indexPath.section][@"userPID"][@"displayName"];
     //NSDate轉字符串-->發佈日期
-    NSDate *postDate = [_pe.parseData[indexPath.section] createdAt];
+    NSDate *postDate = [_turnData[indexPath.section] createdAt];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *currentDateString = [dateFormatter stringFromDate:postDate];
@@ -282,15 +312,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
 
     //拍照地點
-    cell.postState.text = _pe.parseData[indexPath.section][@"postState"];
+    cell.postState.text = _turnData[indexPath.section][@"postState"];
     //留言的數量-NSNumber轉NSString
-    cell.messageNumbers.text = [_pe.parseData[indexPath.section][@"messageNumbers"] stringValue];
+    cell.messageNumbers.text = [_turnData[indexPath.section][@"messageNumbers"] stringValue];
     //喜歡數量
-    cell.likeNumbers.text = [_pe.parseData[indexPath.section][@"likeNumbers"] stringValue];
+    cell.likeNumbers.text = [_turnData[indexPath.section][@"likeNumbers"] stringValue];
     
     
     PFUser *meUser = [PFUser currentUser];
-    NSString *outcome = _pe.parseData[indexPath.section][[meUser objectId]];
+    NSString *outcome = _turnData[indexPath.section][[meUser objectId]];
     //判斷目前user是否喜歡該張照片，如果是則是實心的，如果不是則是空心的
     if ([outcome isEqualToString:@"yes"]) {
         cell.likeImage.image = [UIImage imageNamed:@"love.png"];
@@ -309,18 +339,18 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     //Parse download
     _pfImageview = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
-    PFFile *thumbnail = _pe.parseData[indexPath.section][@"photo"];
+    PFFile *thumbnail = _turnData[indexPath.section][@"photo"];
     NSData *imageData = [thumbnail getData];
     UIImage *thumbnailImage = [UIImage imageWithData:imageData];
     _pfImageview.image = thumbnailImage;
-    [_pfImageview setFile:_pe.parseData[indexPath.section][@"photo"]];
+    [_pfImageview setFile:_turnData[indexPath.section][@"photo"]];
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
                                                scaledToSizeWidth:490.0f
                                               scaledToSizeHeight:180.0f];
     
     //採用GCD方式跑-->會一直閃爍
-//    PFFile *thumbnail = _pe.parseData[indexPath.section][@"photo"];
+//    PFFile *thumbnail = _turnData[indexPath.section][@"photo"];
 //    [self getParsePhoto:thumbnail complection:^(UIImage *image) {
 //        cell.fancyImageView.image = [UIImage imageCompressWithSimple:image
 //                                                   scaledToSizeWidth:490.0f
@@ -333,11 +363,11 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     cell.personalImageView = [UIImageView imageViewWithClipCircle: cell.personalImageView];
     PFImageView *headPFimageView = [[PFImageView alloc] init];
     //原圖的縮略圖==>placeHolder
-    PFFile *thumbnail_head = _pe.parseData[indexPath.section][@"usrPID"][@"headPhoto"];
+    PFFile *thumbnail_head = _turnData[indexPath.section][@"usrPID"][@"headPhoto"];
     NSData *imageData_head = [thumbnail_head getData];
     UIImage *thumbnailImage_head = [UIImage imageWithData:imageData_head];
     headPFimageView.image = thumbnailImage_head;
-    [headPFimageView setFile:_pe.parseData[indexPath.section][@"userPID"][@"headPhoto"]];
+    [headPFimageView setFile:_turnData[indexPath.section][@"userPID"][@"headPhoto"]];
     
     
     //縮圖
@@ -411,30 +441,30 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     
     //更換喜歡圖片
     PFUser *meUser = [PFUser currentUser];
-    NSString *outcome = _pe.parseData[myIndexPath.section][[meUser objectId]];
+    NSString *outcome = _turnData[myIndexPath.section][[meUser objectId]];
     
     //判斷目前user是否喜歡該張照片
     if ([outcome isEqualToString:@"yes"]) {
         selectedImageView.image = [UIImage imageNamed:@"love 2.png"];
-        [_pe.parseData[myIndexPath.section] incrementKey:@"likeNumbers" byAmount:@-1];
-        [_pe.parseData[myIndexPath.section] setObject:@"no" forKey:[meUser objectId]];
+        [_turnData[myIndexPath.section] incrementKey:@"likeNumbers" byAmount:@-1];
+        [_turnData[myIndexPath.section] setObject:@"no" forKey:[meUser objectId]];
         //刪除Like集合裡喜歡的照片
-        [NSObject removeFocusUserLikeWithPhotoID:[_pe.parseData[myIndexPath.section] objectId]
+        [NSObject removeFocusUserLikeWithPhotoID:[_turnData[myIndexPath.section] objectId]
                                       withUserID:meUser.objectId completions:nil];
     }else{
-        [_pe.parseData[myIndexPath.section] incrementKey:@"likeNumbers"];
-        [_pe.parseData[myIndexPath.section] setObject:@"yes" forKey:[meUser objectId]];
+        [_turnData[myIndexPath.section] incrementKey:@"likeNumbers"];
+        [_turnData[myIndexPath.section] setObject:@"yes" forKey:[meUser objectId]];
         selectedImageView.image = [UIImage imageNamed:@"love.png"];
         [NSObject saveOneObjectWithClassName:@"Likes" complection:^(PFObject *pfObject) {
             //likes-userID欄位
             [pfObject setObject:meUser.objectId forKey:@"userID"];
             //likes-photoID欄位
-            [pfObject setObject:[_pe.parseData[myIndexPath.section] objectId] forKey:@"photoID"];
+            [pfObject setObject:[_turnData[myIndexPath.section] objectId] forKey:@"photoID"];
             [pfObject saveInBackground];
         }];
     }
     
-    [_pe.parseData[myIndexPath.section] saveInBackground];
+    [_turnData[myIndexPath.section] saveInBackground];
     //局部section刷新
     //刷新的部位-->section
     NSIndexPath *te=[NSIndexPath indexPathForRow:3 inSection:myIndexPath.section];
@@ -453,7 +483,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     UIImageView *selectedImageView=(UIImageView*)[sender view];
     NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
     //傳選擇的photo物件-->選擇的照片物件
-    vc.selectPhotoObj = _pe.parseData[myIndexPath.section];
+    vc.selectPhotoObj = _turnData[myIndexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -489,7 +519,7 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     UIImageView *selectedImageView=(UIImageView*)[sender view];
     NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(FancyTBViewCell *)[[selectedImageView superview] superview]];
     //傳選擇的photo物件-->選擇的照片物件
-    vc.selectPhotoObj = _pe.parseData[myIndexPath.section];
+    vc.selectPhotoObj = _turnData[myIndexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
