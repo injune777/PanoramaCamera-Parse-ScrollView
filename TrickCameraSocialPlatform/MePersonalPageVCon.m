@@ -22,6 +22,8 @@
 #import "NSObject+SaveParse.h"
 #import "NSObject+SearchParse.h"
 
+#import "FollowTB.h"
+
 
 
 @interface MePersonalPageVCon ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate,
@@ -63,6 +65,15 @@ UIGestureRecognizerDelegate>
 //Slide Bar
 @property(nonatomic, strong) UIBarButtonItem *slideBarBtn;
 
+//左邊-->跟隨者
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *followerGesture;
+//正在跟隨的人
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *followeringGesture;
+
+//追蹤我的人的array
+@property(strong, nonatomic) NSMutableArray *followerArray;
+//我追蹤的人的array
+@property(strong, nonatomic) NSMutableArray *followeringArray;
 
 @end
 
@@ -88,15 +99,12 @@ UIGestureRecognizerDelegate>
         [_slideBarBtn setAction:@selector(revealToggle:)];
         [self.view addGestureRecognizer:revealViewController.panGestureRecognizer];
     }
-    //Label字體加粗
-//    [_peopleName setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-//    [_atLookLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-//    [_myLookLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-//    [_myLookNumbersLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-//    [_atLookNumbersLbl setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
-//    
-//    _myLookNumbersLbl.text = [NSString stringWithFormat:@"%d", 34];
-//    _atLookNumbersLbl.text = [NSString stringWithFormat:@"%d", 34];
+    
+    //手勢初始化
+    _followerGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followerTapGesture:)];
+    _followeringGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followeringTapGesture:)];
+    [_followersNum addGestureRecognizer:_followerGesture];
+    [_followeringNum addGestureRecognizer:_followeringGesture];
     
     
     //移除tableView分隔線
@@ -143,6 +151,29 @@ UIGestureRecognizerDelegate>
 }
 
 
+//取得追蹤我的人
+-(void)followerTapGesture:(UIGestureRecognizer*)sender{
+    NSLog(@"左邊");
+    
+    FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
+    vc.followArray = _followerArray;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+//取得我追蹤的人
+-(void)followeringTapGesture:(UIGestureRecognizer*)sender{
+    NSLog(@"右邊");
+    
+    FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
+    vc.followArray = _followeringArray;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+   
+}
+
+
+
 //更新而存在
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -162,6 +193,28 @@ UIGestureRecognizerDelegate>
     
     //取得追隨數量
     [self getFollowNumbers];
+    
+
+    PFUser *currentUser = [PFUser currentUser];
+    //取得追蹤我的人
+    dispatch_queue_t bg2 = dispatch_queue_create("bg2", nil);
+    dispatch_async(bg2, ^{
+        
+        [NSObject getFollowerNumbersWithCurrentUser:currentUser completion:^(NSMutableArray *completion){
+            _followerArray = completion;
+            NSLog(@"取得追蹤我的人OK");
+        }];
+        
+    });
+    
+    //取得我追蹤的人
+    dispatch_queue_t bg3 = dispatch_queue_create("bg3", nil);
+    dispatch_async(bg3, ^{
+        [NSObject getFolloweringNumbersWithCurrentUser:currentUser completion:^(NSMutableArray *completion) {
+            _followeringArray = completion;
+             NSLog(@"取得我追蹤的人OK");
+        }];
+    });
 }
 
 
@@ -229,6 +282,10 @@ UIGestureRecognizerDelegate>
 
 
 -(void)getInfoInCell{
+    
+    
+
+    
     //原圖的縮略圖
     PFImageView *pfLeftImageview = [[PFImageView alloc] init];
     PFFile *thumbnail = _pe.focusUserALlPicts[_myIndexPath.section][@"photo"];
@@ -238,8 +295,10 @@ UIGestureRecognizerDelegate>
     [pfLeftImageview setFile:_pe.focusUserALlPicts[_myIndexPath.section][@"photo"]];
     //縮圖
     _cell.peopleImageViewLeft.image = [UIImage imageCompressWithSimple:pfLeftImageview.image
-                                                     scaledToSizeWidth:300.0f
-                                                    scaledToSizeHeight:300.0f];
+                                                     scaledToSizeWidth:400.0f
+                                                    scaledToSizeHeight:400.0f];
+
+    
     
     
     //設定大頭照圓形
@@ -285,7 +344,7 @@ UIGestureRecognizerDelegate>
     //likeButton的tag
     _cell.likeBtn.tag = _myIndexPath.section;
     
-    [pfLeftImageview loadInBackground];
+    [_pfImageview loadInBackground];
     [headPFimageView loadInBackground];
 }
 
