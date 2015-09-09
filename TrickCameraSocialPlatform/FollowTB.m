@@ -13,6 +13,7 @@
 #import "UIImageView+ClipAndspecific.h"
 
 #import "NSObject+SearchParse.h"
+#import "PeoplesVCon.h"
 
 @interface FollowTB ()
 
@@ -40,43 +41,96 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FollowCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    if (_followerBool == YES) {
+        //追蹤我的人
+        cell.nameLbl.text = _followArray[indexPath.row][@"follower"][@"displayName"];
+        
+        //設定大頭照
+        PFImageView *headPFimageView = [[PFImageView alloc] init];
+        //原圖的縮略圖==>placeHolder
+        PFFile *thumbnail_head = _followArray[indexPath.row][@"follower"][@"headPhoto"];
+        NSData *imageData_head = [thumbnail_head getData];
+        UIImage *thumbnailImage_head = [UIImage imageWithData:imageData_head];
+        headPFimageView.image = thumbnailImage_head;
+        [headPFimageView setFile:_followArray[indexPath.row][@"follower"][@"headPhoto"]];
+        cell.headImageView = [UIImageView imageViewWithClipCircle:cell.headImageView];
+        cell.headImageView.image = headPFimageView.image;
+        
+        
+        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+        dispatch_async(bg1, ^{
+            PFUser *currentUser = [PFUser currentUser];
+            [NSObject getFoucsUserIsOtherUserFollowerWithUserID:currentUser
+                                                withOtherUserID:_followArray[indexPath.row][@"follower"]
+                                                     completion:^(BOOL completion) {
+                                                         //取得主線程(main thread)
+                                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                                             if (completion == YES) {
+                                                                 cell.statusLbl.image = [UIImage imageNamed:@"yesFollow.png"];
+                                                             }else{
+                                                                 cell.statusLbl.image = [UIImage imageNamed:@"notFollow.png"];
+                                                             }
+                                                         });
+                                                         
+                                                     }];
+        });
+
+    }else{
+        
+        //我正在追蹤的人
+        cell.nameLbl.text = _followArray[indexPath.row][@"followering"][@"displayName"];
+        
+        //設定大頭照
+        PFImageView *headPFimageView = [[PFImageView alloc] init];
+        //原圖的縮略圖==>placeHolder
+        PFFile *thumbnail_head = _followArray[indexPath.row][@"followering"][@"headPhoto"];
+        NSData *imageData_head = [thumbnail_head getData];
+        UIImage *thumbnailImage_head = [UIImage imageWithData:imageData_head];
+        headPFimageView.image = thumbnailImage_head;
+        [headPFimageView setFile:_followArray[indexPath.row][@"followering"][@"headPhoto"]];
+        cell.headImageView = [UIImageView imageViewWithClipCircle:cell.headImageView];
+        cell.headImageView.image = headPFimageView.image;
+        
+        
+        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+        dispatch_async(bg1, ^{
+            PFUser *currentUser = [PFUser currentUser];
+            [NSObject getFoucsUserIsOtherUserFollowerWithUserID:currentUser
+                                                withOtherUserID:_followArray[indexPath.row][@"followering"]
+                                                     completion:^(BOOL completion) {
+                                                         //取得主線程(main thread)
+                                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                                             if (completion == YES) {
+                                                                 cell.statusLbl.image = [UIImage imageNamed:@"yesFollow.png"];
+                                                             }else{
+                                                                 cell.statusLbl.image = [UIImage imageNamed:@"notFollow.png"];
+                                                             }
+                                                         });
+                                                         
+                                                     }];
+        });
+
+    }
     
-    cell.nameLbl.text = _followArray[indexPath.row][@"followering"][@"displayName"];
-    
-    
-    //設定大頭照
-    PFImageView *headPFimageView = [[PFImageView alloc] init];
-    //原圖的縮略圖==>placeHolder
-    PFFile *thumbnail_head = _followArray[indexPath.row][@"followering"][@"headPhoto"];
-    NSData *imageData_head = [thumbnail_head getData];
-    UIImage *thumbnailImage_head = [UIImage imageWithData:imageData_head];
-    headPFimageView.image = thumbnailImage_head;
-    [headPFimageView setFile:_followArray[indexPath.row][@"followering"][@"headPhoto"]];
-    cell.headImageView = [UIImageView imageViewWithClipCircle:cell.headImageView];
-    cell.headImageView.image = headPFimageView.image;
-    
-    
-    dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
-    dispatch_async(bg1, ^{
-        PFUser *currentUser = [PFUser currentUser];
-        [NSObject getFoucsUserIsOtherUserFollowerWithUserID:currentUser
-                                            withOtherUserID:_followArray[indexPath.row][@"followering"]
-                                                 completion:^(BOOL completion) {
-                                                     //取得主線程(main thread)
-                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                         if (completion == YES) {
-                                                             cell.statusLbl.image = [UIImage imageNamed:@"yesFollow.png"];
-                                                         }else{
-                                                             cell.statusLbl.image = [UIImage imageNamed:@"notFollow.png"];
-                                                         }
-                                                     });
-                                                     
-                                                 }];
-    });
-    
-    
-    
+
     return cell;
+}
+
+//##每列被選擇時
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (_followerBool == YES){
+        PeoplesVCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PeoplePage"];
+        vc.selectPhotoObj = _followArray[indexPath.row][@"follower"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        PeoplesVCon *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PeoplePage"];
+        vc.selectPhotoObj = _followArray[indexPath.row][@"followering"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
+    
 }
 
 

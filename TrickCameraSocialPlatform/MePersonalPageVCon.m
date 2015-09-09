@@ -157,6 +157,7 @@ UIGestureRecognizerDelegate>
     
     FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
     vc.followArray = _followerArray;
+    vc.followerBool = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -167,6 +168,7 @@ UIGestureRecognizerDelegate>
     
     FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
     vc.followArray = _followeringArray;
+    vc.followerBool = NO;
     [self.navigationController pushViewController:vc animated:YES];
     
    

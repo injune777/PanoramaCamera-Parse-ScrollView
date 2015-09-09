@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X3A-JP-gGE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -1322,123 +1322,6 @@
             </objects>
             <point key="canvasLocation" x="-15809" y="-159"/>
         </scene>
-        <!--搜尋-->
-        <scene sceneID="mAj-J4-qxe">
-            <objects>
-                <viewController id="grR-ay-Ya2" customClass="SearchVCon" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Xdd-Qn-HIe"/>
-                        <viewControllerLayoutGuide type="bottom" id="cQ1-9u-ibh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Iff-qO-rxV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mp4-c5-Zdr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="U1V-Tg-5PY">
-                                <rect key="frame" x="0.0" y="131" width="320" height="388"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell0" rowHeight="50" id="f8w-2W-rnE" customClass="SearchTBCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="253" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8w-2W-rnE" id="i3R-Wm-Ezw">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-hH-SbB">
-                                                    <rect key="frame" x="8" y="5" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Luo-g8-YCA"/>
-                                                        <constraint firstAttribute="width" constant="40" id="NW2-TZ-9FK"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il6-qn-dAq">
-                                                    <rect key="frame" x="56" y="14" width="185" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v5d-Mb-AMo">
-                                                    <rect key="frame" x="282" y="10" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="6GI-po-v1v"/>
-                                                        <constraint firstAttribute="height" constant="30" id="nkl-VI-Hse"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="v5d-Mb-AMo" firstAttribute="trailing" secondItem="i3R-Wm-Ezw" secondAttribute="trailingMargin" id="1UR-qu-vWt"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="v5d-Mb-AMo" secondAttribute="bottom" constant="1" id="3tf-d1-9I2"/>
-                                                <constraint firstItem="v5d-Mb-AMo" firstAttribute="leading" secondItem="il6-qn-dAq" secondAttribute="trailing" constant="41" id="4r9-fT-km5"/>
-                                                <constraint firstItem="il6-qn-dAq" firstAttribute="leading" secondItem="YeE-hH-SbB" secondAttribute="trailing" constant="8" symbolic="YES" id="7s2-wv-6Po"/>
-                                                <constraint firstItem="YeE-hH-SbB" firstAttribute="leading" secondItem="i3R-Wm-Ezw" secondAttribute="leadingMargin" id="QMd-di-PfE"/>
-                                                <constraint firstItem="v5d-Mb-AMo" firstAttribute="top" secondItem="i3R-Wm-Ezw" secondAttribute="topMargin" constant="2" id="Z1U-RE-g96"/>
-                                                <constraint firstItem="il6-qn-dAq" firstAttribute="centerY" secondItem="i3R-Wm-Ezw" secondAttribute="centerY" id="arc-rT-43u"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YeE-hH-SbB" secondAttribute="bottom" constant="-4" id="mc4-Ps-3bA"/>
-                                                <constraint firstItem="YeE-hH-SbB" firstAttribute="top" secondItem="i3R-Wm-Ezw" secondAttribute="topMargin" constant="-3" id="tFw-qm-nDn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="personNameLbl" destination="il6-qn-dAq" id="URb-7Q-4OF"/>
-                                            <outlet property="searchPersonImageView" destination="YeE-hH-SbB" id="w6L-wN-Es9"/>
-                                            <outlet property="statusImageView" destination="v5d-Mb-AMo" id="BAn-id-reL"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="grR-ay-Ya2" id="wJN-Eu-JXD"/>
-                                    <outlet property="delegate" destination="grR-ay-Ya2" id="pFN-dz-HcS"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ci-Iy-rWz">
-                                <rect key="frame" x="0.0" y="64" width="320" height="59"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FacebookBG + f.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ac1-v0-9IB">
-                                        <rect key="frame" x="32" y="5" width="50" height="50"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Cjv-ea-eb9" appends="YES" id="2Sa-zc-Pu0"/>
-                                        </connections>
-                                    </imageView>
-                                    <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FacebookBG + f.png" translatesAutoresizingMaskIntoConstraints="NO" id="mOD-Op-BeA">
-                                        <rect key="frame" x="135" y="5" width="50" height="50"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Cjv-ea-eb9" appends="YES" id="b16-Je-jab"/>
-                                        </connections>
-                                    </imageView>
-                                    <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FacebookBG + f.png" translatesAutoresizingMaskIntoConstraints="NO" id="ohB-A8-55P">
-                                        <rect key="frame" x="238" y="5" width="50" height="50"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Cjv-ea-eb9" appends="YES" id="t5Q-Jb-phE"/>
-                                        </connections>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="搜尋" id="aSl-h6-zpN"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="centerImageView" destination="mOD-Op-BeA" id="VVz-GT-yWi"/>
-                        <outlet property="leftImageView" destination="Ac1-v0-9IB" id="Ehd-cY-WzS"/>
-                        <outlet property="rightImageView" destination="ohB-A8-55P" id="ccL-jP-pbQ"/>
-                        <outlet property="tableView" destination="U1V-Tg-5PY" id="dpY-T3-Z1y"/>
-                        <outlet property="tapImageChangeStatus" destination="Cjv-ea-eb9" id="Ejd-xb-2BG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mhZ-a9-ygp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Cjv-ea-eb9">
-                    <connections>
-                        <outlet property="delegate" destination="grR-ay-Ya2" id="QCf-OV-B4L"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-15789" y="3468"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="t3A-Jk-04S">
             <objects>
@@ -1822,25 +1705,6 @@
                 <rotationGestureRecognizer id="PKX-GS-0h8"/>
             </objects>
             <point key="canvasLocation" x="-16632" y="1623"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QRT-00-pR2">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="byt-Mt-di6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kDj-ld-QbS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="grR-ay-Ya2" kind="relationship" relationship="rootViewController" id="d5s-wO-qeL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I0j-T8-7uZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-16152" y="3468"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jhw-0c-Ueu">
@@ -2286,7 +2150,6 @@
     <resources>
         <image name="20.jpeg" width="950" height="1425"/>
         <image name="3.jpeg" width="1050" height="800"/>
-        <image name="FacebookBG + f.png" width="65" height="60"/>
         <image name="Sent 2.png" width="34" height="35"/>
         <image name="compact_camera-50.png" width="30" height="23"/>
         <image name="love 2.png" width="34" height="32"/>

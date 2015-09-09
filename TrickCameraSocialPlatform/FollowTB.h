@@ -13,5 +13,7 @@
 @interface FollowTB : UITableViewController
 
 @property(nonatomic, strong) NSMutableArray *followArray;
+//是否是查詢追蹤我的人
+@property(nonatomic) BOOL followerBool;
 
 @end
