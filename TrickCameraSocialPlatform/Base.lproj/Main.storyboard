@@ -224,7 +224,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-15315" y="1420"/>
+            <point key="canvasLocation" x="-15769" y="1343"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="W4n-0V-eyg">
@@ -754,7 +754,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rU7-Zd-iHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15789" y="1649"/>
+            <point key="canvasLocation" x="-16202" y="1343"/>
         </scene>
         <!--Pic Wall CollectionVC-->
         <scene sceneID="CwB-4i-nbg">
@@ -822,7 +822,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-15037" y="1420"/>
+            <point key="canvasLocation" x="-15122" y="1114"/>
         </scene>
         <!--ShootingVC-->
         <scene sceneID="Ut5-0H-zQ0">
@@ -1261,7 +1261,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHk-fv-HEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15617" y="741"/>
+            <point key="canvasLocation" x="-15664" y="669"/>
         </scene>
         <!--相機-->
         <scene sceneID="jb7-tg-7ut">
@@ -2163,7 +2163,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqp-e6-9P2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15218" y="874"/>
+            <point key="canvasLocation" x="-15052" y="741"/>
         </scene>
     </scenes>
     <resources>
