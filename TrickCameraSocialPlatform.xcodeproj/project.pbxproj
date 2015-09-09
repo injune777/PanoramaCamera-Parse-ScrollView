@@ -125,7 +125,6 @@
 		4A85ECDD1B95F7A800032C14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDC1B95F7A700032C14 /* SystemConfiguration.framework */; };
 		4A85ECDF1B95F7C500032C14 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECDE1B95F7C500032C14 /* OpenGLES.framework */; };
 		4A85ECE41B95FF3A00032C14 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE31B95FF3A00032C14 /* 3.jpg */; };
-		4A85ECE71B95FF5B00032C14 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE51B95FF5B00032C14 /* Back.png */; };
 		4A85ECE81B95FF5B00032C14 /* PanoCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECE61B95FF5B00032C14 /* PanoCamera.png */; };
 		4A85ECED1B961B0F00032C14 /* PanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */; };
 		4A85ECFE1B9B71A500032C14 /* sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ECFD1B9B71A500032C14 /* sky.jpg */; };
@@ -148,6 +147,7 @@
 		4A85ED531B9CBC6A00032C14 /* map30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ED441B9CBC6A00032C14 /* map30@2x.png */; };
 		4A85ED541B9CBC6A00032C14 /* map30@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ED451B9CBC6A00032C14 /* map30@3x.png */; };
 		4A85ED561B9CBDBA00032C14 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ED551B9CBDBA00032C14 /* logo.png */; };
+		4A85ED581BA0AD0A00032C14 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A85ED571BA0AD0A00032C14 /* Back.png */; };
 		F744F28463338FD1D70B00FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D172A1109A3B49B7117F8F98 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -326,7 +326,6 @@
 		4A85ECDC1B95F7A700032C14 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4A85ECDE1B95F7C500032C14 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		4A85ECE31B95FF3A00032C14 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		4A85ECE51B95FF5B00032C14 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		4A85ECE61B95FF5B00032C14 /* PanoCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PanoCamera.png; sourceTree = "<group>"; };
 		4A85ECEB1B961B0F00032C14 /* PanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaViewController.h; sourceTree = "<group>"; };
 		4A85ECEC1B961B0F00032C14 /* PanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramaViewController.m; sourceTree = "<group>"; };
@@ -350,6 +349,7 @@
 		4A85ED441B9CBC6A00032C14 /* map30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map30@2x.png"; sourceTree = "<group>"; };
 		4A85ED451B9CBC6A00032C14 /* map30@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map30@3x.png"; sourceTree = "<group>"; };
 		4A85ED551B9CBDBA00032C14 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		4A85ED571BA0AD0A00032C14 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		B307460B4430EB6A136A9E03 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D172A1109A3B49B7117F8F98 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -736,7 +736,7 @@
 				10A4D8E31B9321AD00641528 /* CameraVC.h */,
 				4A85ECE31B95FF3A00032C14 /* 3.jpg */,
 				10A4D8E41B9321AD00641528 /* CameraVC.m */,
-				4A85ECE51B95FF5B00032C14 /* Back.png */,
+				4A85ED571BA0AD0A00032C14 /* Back.png */,
 				4A85ECE61B95FF5B00032C14 /* PanoCamera.png */,
 				4A85ECB21B95EE0F00032C14 /* PanoCamera */,
 				4A85ECB11B95EE0800032C14 /* PanoView */,
@@ -1000,11 +1000,11 @@
 				107E0F2D1B4A5B2F004664C8 /* LaunchScreen.xib in Resources */,
 				100888261B729BDA007674DD /* love@3x.png in Resources */,
 				4A85ED521B9CBC6A00032C14 /* map30@1x.png in Resources */,
-				4A85ECE71B95FF5B00032C14 /* Back.png in Resources */,
 				105AD36D1B771A4D001739C0 /* navigationbar@2x.png in Resources */,
 				10BFA2541B87AF6700FE719F /* photo-placeholder.png in Resources */,
 				4A85ED481B9CBC6A00032C14 /* camera25@3x.png in Resources */,
 				103A4EFF1B9F86F900ED395D /* bug@3x.png in Resources */,
+				4A85ED581BA0AD0A00032C14 /* Back.png in Resources */,
 				106A70281B9A432E00EE184A /* 1@2x.jpg in Resources */,
 				100888321B729BDA007674DD /* share@1x.png in Resources */,
 				103A4F001B9F86F900ED395D /* bug@2x.png in Resources */,
