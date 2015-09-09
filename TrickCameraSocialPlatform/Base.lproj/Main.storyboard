@@ -1761,6 +1761,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PKX-GS-0h8" appends="YES" id="q1h-0B-K0e"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -1769,6 +1773,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izs-md-ElR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="PKX-GS-0h8"/>
             </objects>
             <point key="canvasLocation" x="-16632" y="1623"/>
         </scene>
@@ -2176,6 +2181,6 @@
         <image name="share.png" width="24" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wfx-nM-P5a"/>
+        <segue reference="2kd-NU-Bmj"/>
     </inferredMetricsTieBreakers>
 </document>
