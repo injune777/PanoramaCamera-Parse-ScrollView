@@ -346,8 +346,8 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     [_pfImageview setFile:_turnData[indexPath.section][@"photo"]];
     //縮圖
     cell.fancyImageView.image = [UIImage imageCompressWithSimple:_pfImageview.image
-                                               scaledToSizeWidth:490.0f
-                                              scaledToSizeHeight:180.0f];
+                                               scaledToSizeWidth:640.0f
+                                              scaledToSizeHeight:360.0f];
     
     //採用GCD方式跑-->會一直閃爍
 //    PFFile *thumbnail = _turnData[indexPath.section][@"photo"];
