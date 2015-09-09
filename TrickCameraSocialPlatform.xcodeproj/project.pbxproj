@@ -50,6 +50,7 @@
 		105AD3811B776EFC001739C0 /* FacebookBG + f@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 105AD37E1B776EFC001739C0 /* FacebookBG + f@1x.png */; };
 		105AD3821B776EFC001739C0 /* FacebookBG + f@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 105AD37F1B776EFC001739C0 /* FacebookBG + f@2x.png */; };
 		105AD3831B776EFC001739C0 /* FacebookBG + f@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 105AD3801B776EFC001739C0 /* FacebookBG + f@3x.png */; };
+		105B287F1BA0F48B00A7EC08 /* WethrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 105B287E1BA0F48B00A7EC08 /* WethrView.m */; };
 		105DAB291B75F2FA003BAAEB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105DAB281B75F2FA003BAAEB /* CoreLocation.framework */; };
 		106A6FF21B9897EE00EE184A /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 106A6FF11B9897EE00EE184A /* MyAnnotation.m */; };
 		106A6FF51B99A01800EE184A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECD81B95F78100032C14 /* Foundation.framework */; };
@@ -206,6 +207,8 @@
 		105AD37E1B776EFC001739C0 /* FacebookBG + f@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookBG + f@1x.png"; sourceTree = "<group>"; };
 		105AD37F1B776EFC001739C0 /* FacebookBG + f@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookBG + f@2x.png"; sourceTree = "<group>"; };
 		105AD3801B776EFC001739C0 /* FacebookBG + f@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FacebookBG + f@3x.png"; sourceTree = "<group>"; };
+		105B287D1BA0F48B00A7EC08 /* WethrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WethrView.h; sourceTree = "<group>"; };
+		105B287E1BA0F48B00A7EC08 /* WethrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WethrView.m; sourceTree = "<group>"; };
 		105DAAB31B74E70B003BAAEB /* CustomProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomProtocol.h; sourceTree = "<group>"; };
 		105DAB281B75F2FA003BAAEB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		106A6FF01B9897EE00EE184A /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
@@ -419,6 +422,7 @@
 		100888101B72832A007674DD /* API */ = {
 			isa = PBXGroup;
 			children = (
+				105B28791BA0EF3600A7EC08 /* Weather */,
 				10A4D90B1B93933300641528 /* ANBlurredTableView */,
 				10A4D8DE1B92E52C00641528 /* FBLikeLayout */,
 				105DAAB51B74E8AF003BAAEB /* Protocol */,
@@ -563,6 +567,15 @@
 				104C07E11B6FC65E002C2C22 /* MePersonalPageTBCell.m */,
 			);
 			name = 00_Personal;
+			sourceTree = "<group>";
+		};
+		105B28791BA0EF3600A7EC08 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				105B287D1BA0F48B00A7EC08 /* WethrView.h */,
+				105B287E1BA0F48B00A7EC08 /* WethrView.m */,
+			);
+			name = Weather;
 			sourceTree = "<group>";
 		};
 		105DAAB51B74E8AF003BAAEB /* Protocol */ = {
@@ -1112,6 +1125,7 @@
 				4A85ECC91B95EE3C00032C14 /* PLITAppDelegate.m in Sources */,
 				105652B81B6505B700F57BC9 /* FancyTBViewCell.m in Sources */,
 				10D084741B689AC600BD0463 /* PicWallCollectionVC.m in Sources */,
+				105B287F1BA0F48B00A7EC08 /* WethrView.m in Sources */,
 				109700451B6A534000D2027B /* MessageTBViewCell.m in Sources */,
 				103A4F041BA09F9700ED395D /* FollowTB.m in Sources */,
 				4A85ECCB1B95EE3C00032C14 /* PLITShootingVC.m in Sources */,
