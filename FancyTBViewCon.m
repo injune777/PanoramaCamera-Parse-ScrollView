@@ -116,6 +116,16 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
             //取得全部相片的各自全部留言-->回傳字典給DataSource
             [_pe getPhotoAllMessages:nil];
         });
+        
+        //background thread-3
+        dispatch_queue_t bg3 = dispatch_queue_create("bg3", nil);
+        dispatch_async(bg3, ^{
+            //取得關注人數的所有的發文照片
+            [_pe getFocusPhotos:^(NSMutableArray *focusPhotos){
+                NSLog(@"%ld", focusPhotos.count);
+            }];
+        });
+        
     }
     
     
@@ -175,6 +185,15 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
     dispatch_async(bg2, ^{
         //取得相片的全部留言-->回傳字典給DataSource
         [_pe getPhotoAllMessages:nil];
+    });
+    
+    //background thread-3
+    dispatch_queue_t bg3 = dispatch_queue_create("bg3", nil);
+    dispatch_async(bg3, ^{
+        //取得關注人數的所有的發文照片
+        [_pe getFocusPhotos:^(NSMutableArray *focusPhotos){
+            NSLog(@"%ld", focusPhotos.count);
+        }];
     });
     
 }

@@ -79,6 +79,24 @@ static ParseDBSource *_parseDBSingleTon = nil;
 }
 
 
+//取得關注人的所有相片information
+-(void)getFocusPhotos:(void(^)(NSMutableArray *focusPhotos))theCompletion{
+    dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+    dispatch_async(bg1, ^{
+        _allFocusPhotos = [[NSMutableArray alloc] init];
+        //取Parse資料
+        PFUser *currentUser = [PFUser currentUser];
+        [NSObject getMyFollowingPostPhotos:currentUser myCompletion:^(NSMutableArray *completion){
+            //全例變數賦值
+            _allFocusPhotos = completion;
+            if (theCompletion) {
+                theCompletion(completion);
+            }
+        }];
+    });
+}
+
+
 
 
 

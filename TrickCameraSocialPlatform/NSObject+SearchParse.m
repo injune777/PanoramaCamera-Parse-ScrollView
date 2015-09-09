@@ -193,4 +193,60 @@
     return postedUser;
 }
 
+
+//NSLog(@"%@", [completion[0][@"followering"] objectId]);
+//查我正在追隨的人數(followering) + 和他的所有的發文-->依時間的順序
++(void)getMyFollowingPostPhotos:(PFUser*)currentUser
+                   myCompletion:(void(^)(NSMutableArray *completion))myCompletion{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Follow"];
+    //加includeKey才可以把pointer的欄位的詳細資料包進來
+    [query includeKey:@"follower"];
+    [query includeKey:@"followering"];
+    [query whereKey:@"follower" equalTo:currentUser];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        //關注好友搜尋清單
+        NSMutableArray *nameArray = [[NSMutableArray alloc] init];
+        for (PFObject *name in objects) {
+            [nameArray addObject:name[@"followering"]];
+        }
+        
+        //取得關注好友所有的發文結果
+        [NSObject getMyFollowInfo:nameArray complection:^(NSMutableArray *completion) {
+            if (myCompletion) {
+                 myCompletion(completion);
+            }
+        }];
+    }];
+}
+
+//取好友的關注資料-->副程式
++(void)getMyFollowInfo:(NSMutableArray*)nameArray
+           complection:(void(^)(NSMutableArray *completion))complection{
+    
+    //要搜尋的class-->Photos
+    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photos"];
+    //發文時間的排序
+    [photoQuery orderByDescending:@"createdAt"];
+    [photoQuery includeKey:@"userPID"];
+    //取關注好友的發文資料
+    [photoQuery whereKey:@"userPID" containedIn:nameArray];
+    [photoQuery findObjectsInBackgroundWithBlock:^(NSArray *outputs, NSError *error){
+        complection((NSMutableArray*)outputs);
+        //Background thread
+        dispatch_queue_t bg1 = dispatch_queue_create("bg1", nil);
+        dispatch_async(bg1, ^{
+            if (error){
+                NSLog(@"Error: %@", error.description);
+                return;
+            }
+            if (complection) {
+                 complection((NSMutableArray*)outputs);
+            }
+        });
+    }];
+    
+}
+
+
 @end

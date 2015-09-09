@@ -40,4 +40,9 @@
 +(void)getFolloweringNumbersWithCurrentUser:(PFUser*)currentUser
                                  completion:(void(^)(NSMutableArray *completion))completion;
 
+
+//查所有關注人的所有發文照片info
++(void)getMyFollowingPostPhotos:(PFUser*)currentUser
+                   myCompletion:(void(^)(NSMutableArray *completion))myCompletion;
+
 @end
