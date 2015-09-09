@@ -170,8 +170,6 @@ UIGestureRecognizerDelegate>
     vc.followArray = _followeringArray;
     vc.followerBool = NO;
     [self.navigationController pushViewController:vc animated:YES];
-    
-   
 }
 
 

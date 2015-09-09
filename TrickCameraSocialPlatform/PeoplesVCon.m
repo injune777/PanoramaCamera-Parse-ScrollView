@@ -18,6 +18,7 @@
 #import "ParseDBSource.h"
 #import "NSObject+SaveParse.h"
 #import "NSObject+SearchParse.h"
+#import "FollowTB.h"
 
 
 
@@ -58,6 +59,17 @@
 
 @property(nonatomic) BOOL followBool;
 
+
+//左邊-->跟隨者
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *followerGesture;
+//正在跟隨的人
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *followeringGesture;
+
+//追蹤我的人的array
+@property(strong, nonatomic) NSMutableArray *followerArray;
+//我追蹤的人的array
+@property(strong, nonatomic) NSMutableArray *followeringArray;
+
 @end
 
 
@@ -72,6 +84,13 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     //Navigation title標題
     [self.navigationItem setTitle:_selectPhotoObj[@"displayName"]];
+    
+    //手勢初始化
+    _followerGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followerTapGesture:)];
+    _followeringGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(followeringTapGesture:)];
+    [_followersNum addGestureRecognizer:_followerGesture];
+    [_followeringNum addGestureRecognizer:_followeringGesture];
+
     
     
     //prepare backgroundImageView放大縮小效果
@@ -136,19 +155,72 @@
                                         withOtherUserID:(PFUser*)_selectPhotoObj
                                              completion:^(BOOL completion) {
                                                  
-                                                 if (completion) {
-                                                     _followBool = YES;
-                                                     [_focusBtn setImage:[UIImage imageNamed:@"yesFollow.png"]
-                                                                forState:UIControlStateNormal];
+                                                 NSLog(@"%@", currentUser.objectId);
+                                                 NSLog(@"%@", [(PFUser*)_selectPhotoObj objectId]);
+                                                 
+                                                 
+                                                 if ([currentUser.objectId isEqualToString:[(PFUser*)_selectPhotoObj objectId]]) {
+                                                     _focusBtn.hidden = YES;
                                                  }else{
-                                                     _followBool = NO;
-                                                     [_focusBtn setImage:[UIImage imageNamed:@"notFollow.png"] forState:UIControlStateNormal];
+                                                     if (completion) {
+                                                         _followBool = YES;
+                                                         [_focusBtn setImage:[UIImage imageNamed:@"yesFollow.png"]
+                                                                    forState:UIControlStateNormal];
+                                                     }else{
+                                                         _followBool = NO;
+                                                         [_focusBtn setImage:[UIImage imageNamed:@"notFollow.png"] forState:UIControlStateNormal];
+                                                     }
                                                  }
                                              }];
     //取得追隨數量
     [self getFollowNumbers];
-   
+    
+    
+    
+    //取得追蹤我的人
+    dispatch_queue_t bg2 = dispatch_queue_create("bg2", nil);
+    dispatch_async(bg2, ^{
+        
+        [NSObject getFollowerNumbersWithCurrentUser:(PFUser*)_selectPhotoObj completion:^(NSMutableArray *completion){
+            _followerArray = completion;
+            NSLog(@"取得追蹤我的人OK");
+        }];
+        
+    });
+    
+    //取得我追蹤的人
+    dispatch_queue_t bg3 = dispatch_queue_create("bg3", nil);
+    dispatch_async(bg3, ^{
+        [NSObject getFolloweringNumbersWithCurrentUser:(PFUser*)_selectPhotoObj completion:^(NSMutableArray *completion) {
+            _followeringArray = completion;
+            NSLog(@"取得我追蹤的人OK");
+        }];
+    });
 }
+
+//取得追蹤我的人
+-(void)followerTapGesture:(UIGestureRecognizer*)sender{
+    NSLog(@"左邊");
+    
+    FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
+    vc.followArray = _followerArray;
+    vc.followerBool = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+//取得我追蹤的人
+-(void)followeringTapGesture:(UIGestureRecognizer*)sender{
+    NSLog(@"右邊");
+    
+    FollowTB *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"follower"];
+    vc.followArray = _followeringArray;
+    vc.followerBool = NO;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 
 
 //follower
