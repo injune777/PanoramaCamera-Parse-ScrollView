@@ -155,10 +155,6 @@
                                         withOtherUserID:(PFUser*)_selectPhotoObj
                                              completion:^(BOOL completion) {
                                                  
-                                                 NSLog(@"%@", currentUser.objectId);
-                                                 NSLog(@"%@", [(PFUser*)_selectPhotoObj objectId]);
-                                                 
-                                                 
                                                  if ([currentUser.objectId isEqualToString:[(PFUser*)_selectPhotoObj objectId]]) {
                                                      _focusBtn.hidden = YES;
                                                  }else{
@@ -294,6 +290,12 @@
         NSString *cellIdentify = [NSString stringWithFormat:@"cell%ld", _myIndexPath.row];
         _cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify forIndexPath:_myIndexPath];
         [self getInfoInCell];
+        
+        //左邊手勢
+        _leftImageViewTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTapMotion:)];
+        //imageView附著手勢物件-->左邊圖片
+        [_cell.peopleImageViewLeft addGestureRecognizer:_leftImageViewTapGesture];
+        
         return _cell;
     }else{
         //取得各別的Cell的Identifier
@@ -301,14 +303,15 @@
         NSString *cellIdentify = [NSString stringWithFormat:@"cell%ld", customRow];
         _cell = [tableView dequeueReusableCellWithIdentifier:cellIdentify forIndexPath:_myIndexPath];
         [self getInfoInCell];
+        
+        //左邊手勢
+        _leftImageViewTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTapMotion:)];
+        //imageView附著手勢物件-->左邊圖片
+        [_cell.peopleImageViewLeft addGestureRecognizer:_leftImageViewTapGesture];
+        
         return _cell;
     }
     
-//    //左邊手勢
-//    _leftImageViewTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTapMotion:)];
-//    //imageView附著手勢物件-->左邊圖片
-//    [_cell.peopleImageViewLeft addGestureRecognizer:_leftImageViewTapGesture];
-//
 }
 
 //使靜態Cell背景透明
@@ -445,11 +448,26 @@
 
 
 
-//Left ImageView的Tap手勢的行為
+//Left ImageView的Tap手勢的行為-->點擊照片跳出
 -(void)leftTapMotion:(UIGestureRecognizer*)sender{
-    MessageVCon *messageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"messageStoryBoard"];
-    [self.navigationController pushViewController:messageViewController animated:YES];
+   
+    UIImageView *selectedImageView=(UIImageView*)[sender view];
+    //取得NSIndexPath-->使用刺件的父物件的方法-->這裡是Contentview
+    NSIndexPath *myIndexPath = [self.tableView indexPathForCell:(PeoplesTBViewCell*)[[selectedImageView superview] superview]];
+    
+    
+    //原圖的縮略圖
+    PFImageView *pfLeftImageview = [[PFImageView alloc] init];
+    PFFile *thumbnail = _pe.focusUserALlPicts[myIndexPath.section][@"photo"];
+    NSData *imageData = [thumbnail getData];
+    UIImage *thumbnailImage = [UIImage imageWithData:imageData];
+    pfLeftImageview.image = thumbnailImage;
+    [pfLeftImageview setFile:_pe.focusUserALlPicts[myIndexPath.section][@"photo"]];
+    
+    [UIImage createTapPictureJTSImageViewController:pfLeftImageview.image
+                                 withInputImageView:pfLeftImageview withInputViewController:self];
 }
+
 
 //HeadView放大縮小效果-->第三方庫
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
