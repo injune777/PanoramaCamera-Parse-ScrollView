@@ -1223,10 +1223,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cNx-9l-qtG">
-                                            <rect key="frame" x="8" y="4" width="75" height="52"/>
+                                            <rect key="frame" x="8" y="4" width="52" height="52"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="52" id="90F-F0-YC5"/>
-                                                <constraint firstAttribute="width" constant="75" id="BHn-Dv-rUF"/>
+                                                <constraint firstAttribute="width" constant="52" id="BHn-Dv-rUF"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-Da-000">
@@ -1267,13 +1267,13 @@
                                         <constraint firstItem="TIy-sr-LgO" firstAttribute="leading" secondItem="6KP-hd-J1R" secondAttribute="trailing" constant="24" id="CgZ-vZ-4P0"/>
                                         <constraint firstItem="TIy-sr-LgO" firstAttribute="centerY" secondItem="6KP-hd-J1R" secondAttribute="centerY" constant="-1" id="IU9-92-0SG"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="cNx-9l-qtG" secondAttribute="bottom" constant="-4" id="PrX-MX-aC1"/>
-                                        <constraint firstItem="6KP-hd-J1R" firstAttribute="leading" secondItem="cNx-9l-qtG" secondAttribute="trailing" constant="17" id="SEk-4Z-G2q"/>
+                                        <constraint firstItem="6KP-hd-J1R" firstAttribute="leading" secondItem="cNx-9l-qtG" secondAttribute="trailing" constant="40" id="SEk-4Z-G2q"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="TIy-sr-LgO" secondAttribute="trailing" constant="7" id="VVb-Ya-gdO"/>
                                         <constraint firstItem="cNx-9l-qtG" firstAttribute="top" secondItem="vgF-OL-X8S" secondAttribute="topMargin" constant="-4" id="dJT-dz-3Hn"/>
                                         <constraint firstItem="cNx-9l-qtG" firstAttribute="leading" secondItem="vgF-OL-X8S" secondAttribute="leadingMargin" id="dWk-GG-Ve8"/>
                                         <constraint firstItem="6KP-hd-J1R" firstAttribute="top" secondItem="vgF-OL-X8S" secondAttribute="topMargin" constant="-4" id="feW-H8-I6S"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="F9G-Da-000" secondAttribute="bottom" constant="-4" id="ftg-s7-TSo"/>
-                                        <constraint firstItem="F9G-Da-000" firstAttribute="leading" secondItem="cNx-9l-qtG" secondAttribute="trailing" constant="17" id="oYj-ya-Zos"/>
+                                        <constraint firstItem="F9G-Da-000" firstAttribute="leading" secondItem="cNx-9l-qtG" secondAttribute="trailing" constant="40" id="oYj-ya-Zos"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
