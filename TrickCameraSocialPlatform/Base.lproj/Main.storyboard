@@ -1200,7 +1200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvZ-WA-sPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-16122" y="683"/>
+            <point key="canvasLocation" x="-16093" y="724"/>
         </scene>
         <!--取景-->
         <scene sceneID="HRN-jN-Dzd">
@@ -1715,17 +1715,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FsL-MU-xwo" kind="relationship" relationship="rootViewController" id="zvM-dc-H2a"/>
+                        <segue destination="FsL-MU-xwo" kind="relationship" relationship="rootViewController" id="GBM-Cc-YWi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIT-Ci-Pci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15167" y="55"/>
+            <point key="canvasLocation" x="-15144" y="55"/>
         </scene>
         <!--足跡-->
         <scene sceneID="sHE-an-WfO">
             <objects>
-                <viewController id="FsL-MU-xwo" customClass="FootMarkVC" sceneMemberID="viewController">
+                <viewController id="FsL-MU-xwo" customClass="MapVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="71h-TW-d5r"/>
                         <viewControllerLayoutGuide type="bottom" id="UsU-4k-q3y"/>
@@ -1736,15 +1736,18 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sd3-VT-ZbL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="FsL-MU-xwo" id="ETH-1l-EXu"/>
+                                </connections>
                             </mapView>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ulr-1p-dCu">
-                                <rect key="frame" x="101" y="72" width="119" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ulr-1p-dCu">
+                                <rect key="frame" x="93" y="77" width="134" height="29"/>
                                 <segments>
-                                    <segment title="最新"/>
-                                    <segment title="全部"/>
+                                    <segment title="附近"/>
+                                    <segment title="環島"/>
                                 </segments>
                                 <connections>
-                                    <action selector="selectBtnAction:" destination="FsL-MU-xwo" eventType="valueChanged" id="tGn-n7-Ksu"/>
+                                    <action selector="selectAction:" destination="FsL-MU-xwo" eventType="valueChanged" id="7LU-qh-tnk"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -1756,11 +1759,16 @@
                             <constraint firstItem="sd3-VT-ZbL" firstAttribute="leading" secondItem="HEC-b9-ez2" secondAttribute="leadingMargin" constant="-16" id="ydh-7G-FiI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="足跡" id="wEH-nE-BtW"/>
+                    <navigationItem key="navigationItem" title="足跡" id="wEH-nE-BtW">
+                        <barButtonItem key="leftBarButtonItem" image="slideBar.png" id="1n3-P1-g7M">
+                            <color key="tintColor" red="1" green="0.64705882349999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="myFootMap" destination="sd3-VT-ZbL" id="tgG-Mi-RlR"/>
-                        <outlet property="selectBtn" destination="Ulr-1p-dCu" id="zQF-fn-13C"/>
+                        <outlet property="select" destination="Ulr-1p-dCu" id="gA4-ph-ajQ"/>
+                        <outlet property="sliderBar" destination="1n3-P1-g7M" id="P1N-dY-YRy"/>
+                        <outlet property="theMap" destination="sd3-VT-ZbL" id="pd9-hJ-XY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qx5-2y-TVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2113,8 +2121,9 @@
         <image name="love 2.png" width="34" height="32"/>
         <image name="message.png" width="32" height="33"/>
         <image name="share.png" width="24" height="27"/>
+        <image name="slideBar.png" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2kd-NU-Bmj"/>
+        <segue reference="Wfx-nM-P5a"/>
     </inferredMetricsTieBreakers>
 </document>

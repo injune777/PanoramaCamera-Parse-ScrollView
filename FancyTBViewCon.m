@@ -167,11 +167,13 @@ UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate>
 //MESSAGE notification center
 -(void)messageOK:(NSNotification*)notification{
     NSLog(@"MESSAGE_OK完成同步");
+    _turnData = _pe.parseData;
     [self.tableView reloadData];
 }
 //PEOPLE notification center
 -(void)peopleOK:(NSNotification*)notification{
     NSLog(@"peopleOK完成同步");
+    _turnData = _pe.parseData;
     [self.tableView reloadData];
 }
 

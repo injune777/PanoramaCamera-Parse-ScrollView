@@ -14,7 +14,6 @@
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 #import <CoreLocation/CoreLocation.h>
-
 #import "UIImageView+WebCache.h"
 #import "UIImageView+ClipAndspecific.h"
 
