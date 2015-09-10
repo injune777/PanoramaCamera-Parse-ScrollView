@@ -3,6 +3,8 @@
 #import "SWRevealViewController.h"
 #import "DiscoverCell.h"
 
+#define POST_OK @"POST_OK"
+
 //parse and facebook 登入
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKGraphRequestConnection.h>
@@ -40,6 +42,8 @@
 //轉轉轉
 @property (nonatomic, strong) PQFBouncingBalls *bouncingBalls;
 
+@property(nonatomic)CGFloat angle;
+
 @end
 
 @implementation DiscoverTBC
@@ -76,6 +80,8 @@
     [_myLocationManager requestAlwaysAuthorization];
     //開始計算所在位地置的功能
     [_myLocationManager startUpdatingLocation];
+    //計算方位
+    [_myLocationManager startUpdatingHeading];
     
     
     _slideBarBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"slideBar.png"]
@@ -150,12 +156,21 @@
     
   
     cell.nameLbl.text = _nearMeParse[indexPath.row][@"Name"];
-    NSString *urlStr = [_nearMeParse[indexPath.row][@"Picture1"]
-                        stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    [cell.theImageView sd_setImageWithURL:url
-                         placeholderImage:[UIImage imageNamed:@"1.jpg"]
-                                  options:SDWebImageProgressiveDownload];
+    
+//    NSString *urlStr = [_nearMeParse[indexPath.row][@"Picture1"]
+//                        stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    cell.theImageView.image = [UIImage imageNamed:@"souths.png"];
+    //使用通知中心的方法
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(messageOK:)
+                                                 name:POST_OK object:@"yes"];
+    
+    
+//    NSURL *url = [NSURL URLWithString:urlStr];
+//    [cell.theImageView sd_setImageWithURL:url
+//                         placeholderImage:[UIImage imageNamed:@"1.jpg"]
+//                                  options:SDWebImageProgressiveDownload];
     
     [self LocationZipCodeWithLatitude:[_nearMeParse[indexPath.row][@"location"] latitude]
                         withLongitude:[_nearMeParse[indexPath.row][@"location"] longitude]
@@ -172,6 +187,25 @@
     return cell;
 }
 
+//ok
+-(void)messageOK:(NSNotification*)notification{
+    NSArray *visiblecells = [self.tableView visibleCells];
+    for (DiscoverCell *theCell in visiblecells) {
+        theCell.theImageView.transform = CGAffineTransformMakeRotation(-_angle);
+    }
+}
+
+
+//當獲取到用戶方向時就會調用
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+    _angle = newHeading.magneticHeading * M_PI / 180;
+    NSLog(@"%f", newHeading.magneticHeading);
+    //發佈者
+    [[NSNotificationCenter defaultCenter] postNotificationName:POST_OK object:@"yes"];
+    
+    
+}
+
 
 
 //更新user經緯度-->私有方法
@@ -179,7 +213,6 @@
     //取user位置的最新一筆Coordinate(座標)
     _currentLocationCoordinate = [locations.lastObject coordinate];
 }
-
 
 //經緯度轉地址
 -(void) LocationZipCodeWithLatitude:(double)latitude withLongitude:(double)longitude

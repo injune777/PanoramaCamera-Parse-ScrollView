@@ -109,6 +109,9 @@
 		10D2FD9D1B69540500D1C0B1 /* lists@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD971B69540500D1C0B1 /* lists@1x.png */; };
 		10D2FD9E1B69540500D1C0B1 /* lists@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD981B69540500D1C0B1 /* lists@2x.png */; };
 		10D2FD9F1B69540500D1C0B1 /* pictureWall@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10D2FD991B69540500D1C0B1 /* pictureWall@3x.png */; };
+		10E9BDBA1BA1D9960062B65A /* souths@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E9BDB71BA1D9960062B65A /* souths@1x.png */; };
+		10E9BDBB1BA1D9960062B65A /* souths@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E9BDB81BA1D9960062B65A /* souths@3x.png */; };
+		10E9BDBC1BA1D9960062B65A /* souths@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10E9BDB91BA1D9960062B65A /* souths@2x.png */; };
 		4A85ECB71B95EE1C00032C14 /* CRMotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECB41B95EE1C00032C14 /* CRMotionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A85ECB81B95EE1C00032C14 /* CRZoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A85ECB61B95EE1C00032C14 /* CRZoomScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A85ECC81B95EE3B00032C14 /* libDMD_LITE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A85ECBA1B95EE3B00032C14 /* libDMD_LITE.a */; };
@@ -299,6 +302,9 @@
 		10D2FD971B69540500D1C0B1 /* lists@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lists@1x.png"; sourceTree = "<group>"; };
 		10D2FD981B69540500D1C0B1 /* lists@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lists@2x.png"; sourceTree = "<group>"; };
 		10D2FD991B69540500D1C0B1 /* pictureWall@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pictureWall@3x.png"; sourceTree = "<group>"; };
+		10E9BDB71BA1D9960062B65A /* souths@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "souths@1x.png"; sourceTree = "<group>"; };
+		10E9BDB81BA1D9960062B65A /* souths@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "souths@3x.png"; sourceTree = "<group>"; };
+		10E9BDB91BA1D9960062B65A /* souths@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "souths@2x.png"; sourceTree = "<group>"; };
 		3454C05598E5A1C219E79C27 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A85ECB31B95EE1C00032C14 /* CRMotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRMotionView.h; sourceTree = "<group>"; };
 		4A85ECB41B95EE1C00032C14 /* CRMotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRMotionView.m; sourceTree = "<group>"; };
@@ -629,6 +635,9 @@
 		107E0F1B1B4A5B2F004664C8 /* TrickCameraSocialPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				10E9BDB71BA1D9960062B65A /* souths@1x.png */,
+				10E9BDB81BA1D9960062B65A /* souths@3x.png */,
+				10E9BDB91BA1D9960062B65A /* souths@2x.png */,
 				106A70231B9A432E00EE184A /* 1@2x.jpg */,
 				100888101B72832A007674DD /* API */,
 				105652B41B65056300F57BC9 /* View */,
@@ -986,6 +995,7 @@
 				4A85ED471B9CBC6A00032C14 /* camera25@2x.png in Resources */,
 				4A85ED491B9CBC6A00032C14 /* cogwheel12@1x.png in Resources */,
 				4A85ED4D1B9CBC6A00032C14 /* footprints15@2x.png in Resources */,
+				10E9BDBA1BA1D9960062B65A /* souths@1x.png in Resources */,
 				105AD3811B776EFC001739C0 /* FacebookBG + f@1x.png in Resources */,
 				106A70731B9B7F9100EE184A /* inter@1x.png in Resources */,
 				4A85ED4A1B9CBC6A00032C14 /* cogwheel12@2x.png in Resources */,
@@ -1015,6 +1025,8 @@
 				4A85ED521B9CBC6A00032C14 /* map30@1x.png in Resources */,
 				105AD36D1B771A4D001739C0 /* navigationbar@2x.png in Resources */,
 				10BFA2541B87AF6700FE719F /* photo-placeholder.png in Resources */,
+				10E9BDBB1BA1D9960062B65A /* souths@3x.png in Resources */,
+				10E9BDBC1BA1D9960062B65A /* souths@2x.png in Resources */,
 				4A85ED481B9CBC6A00032C14 /* camera25@3x.png in Resources */,
 				103A4EFF1B9F86F900ED395D /* bug@3x.png in Resources */,
 				4A85ED581BA0AD0A00032C14 /* Back.png in Resources */,
